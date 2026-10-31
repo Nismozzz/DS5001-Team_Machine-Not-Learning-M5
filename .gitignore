@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+.DS_Store
+m5-forecasting-accuracy/
+data/*
+!data/processed/
+data/processed/*
+!data/processed/*_audit.csv
+data/processed/price_coverage_audit.csv
+!data/processed/data_dictionary.csv
+!data/processed/split_manifest.json
+!data/processed/feature_list.json
+!data/processed/artifact_manifest.json
+!data/processed/run_report.json
+!data/processed/verification_report.json
+tmp/
+*.zip

@@ -1,0 +1,30 @@
+{
+  "artifact_count": 95,
+  "checks": {
+    "future_labels_null": true,
+    "hierarchy_counts": [
+      1,
+      3,
+      10,
+      3,
+      7,
+      9,
+      21,
+      30,
+      70,
+      3049,
+      9147,
+      30490
+    ],
+    "raw_hash_lock": true,
+    "sales_daily_contiguous": true,
+    "sales_last_date": "2016-05-22",
+    "validation_overlap_equal": true
+  },
+  "elapsed_seconds": 46.496,
+  "numpy": "2.2.6",
+  "pandas": "2.2.3",
+  "pyarrow": "19.0.1",
+  "python": "3.12.13",
+  "schema_version": "m5-module01-v1"
+}

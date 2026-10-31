@@ -1,0 +1,104 @@
+table,field,dtype,role,description,availability
+series,id,object,metadata,"Original Kaggle identifier; suffix denotes file version, not a different SKU",source/structural
+series,item_id,object,metadata,"Product identifier; 3049 distinct products, each present at all10 stores",source/structural
+series,dept_id,object,metadata,Department identifier; 7 departments; each product has one department,source/structural
+series,cat_id,object,metadata,Category identifier: FOODS/HOBBIES/HOUSEHOLD; each department has one category,source/structural
+series,store_id,object,metadata,"Store identifier: CA_1..CA_4, TX_1..TX_3, WI_1..WI_3",source/structural
+series,state_id,object,metadata,State identifier: CA/TX/WI; store belongs to exactly one state,source/structural
+series,series_id,object,metadata,Canonical item_id + '_' + store_id; no validation/evaluation suffix,source/structural
+calendar,date,object,metadata,"ISO calendar date; sales d_1=2011-01-29, d_1941=2016-05-22",known calendar assumption
+calendar,wm_yr_wk,int64,metadata,M5 retail-week identifier; joins calendar to weekly prices,known calendar assumption
+calendar,weekday,object,metadata,English weekday label,known calendar assumption
+calendar,wday,int64,metadata,"M5 weekday: Saturday=1, Sunday=2, ..., Friday=7",known calendar assumption
+calendar,month,int64,metadata,Calendar month1..12 of target date,known calendar assumption
+calendar,year,int64,metadata,Calendar year of target date,known calendar assumption
+calendar,d,object,metadata,Original M5 calendar day key d_1..d_1969,known calendar assumption
+calendar,event_name_1,object,metadata,Scheduled event1; raw null means no event; feature value None,known calendar assumption
+calendar,event_type_1,object,metadata,Event1 type; raw null means no event; feature value None,known calendar assumption
+calendar,event_name_2,object,metadata,Scheduled event2; raw null means no second event; feature value None,known calendar assumption
+calendar,event_type_2,object,metadata,Event2 type; raw null means no second event; feature value None,known calendar assumption
+calendar,snap_CA,int64,metadata,Scheduled California SNAP eligibility indicator0/1,known calendar assumption
+calendar,snap_TX,int64,metadata,Scheduled Texas SNAP eligibility indicator0/1,known calendar assumption
+calendar,snap_WI,int64,metadata,Scheduled Wisconsin SNAP eligibility indicator0/1,known calendar assumption
+calendar,d_num,int16,metadata,Integer day key extracted from d; 1-based,known calendar assumption
+prices,store_id,object,metadata,"Store identifier: CA_1..CA_4, TX_1..TX_3, WI_1..WI_3",source/structural
+prices,item_id,object,metadata,"Product identifier; 3049 distinct products, each present at all10 stores",source/structural
+prices,wm_yr_wk,int32,metadata,M5 retail-week identifier; joins calendar to weekly prices,source/structural
+prices,sell_price,float32,metadata,Weekly selling price in USD; observed quotes positive; absent quote is not zero,source/structural
+prices,series_id,object,metadata,Canonical item_id + '_' + store_id; no validation/evaluation suffix,source/structural
+features,series_id,object,metadata,Canonical item_id + '_' + store_id; no validation/evaluation suffix,observed only through origin
+features,item_id,object,predictor,"Product identifier; 3049 distinct products, each present at all10 stores",observed only through origin
+features,dept_id,object,predictor,Department identifier; 7 departments; each product has one department,observed only through origin
+features,cat_id,object,predictor,Category identifier: FOODS/HOBBIES/HOUSEHOLD; each department has one category,observed only through origin
+features,store_id,object,predictor,"Store identifier: CA_1..CA_4, TX_1..TX_3, WI_1..WI_3",observed only through origin
+features,state_id,object,predictor,State identifier: CA/TX/WI; store belongs to exactly one state,observed only through origin
+features,sales_lag_1,float32,predictor,units[origin_d-1+1]; lag1 is the last observed day,observed only through origin
+features,sales_lag_7,float32,predictor,units[origin_d-7+1]; lag1 is the last observed day,observed only through origin
+features,sales_lag_14,float32,predictor,units[origin_d-14+1]; lag1 is the last observed day,observed only through origin
+features,sales_lag_28,float32,predictor,units[origin_d-28+1]; lag1 is the last observed day,observed only through origin
+features,sales_lag_56,float32,predictor,units[origin_d-56+1]; lag1 is the last observed day,observed only through origin
+features,sales_mean_7,float32,predictor,Trailing 7 days ending at origin inclusive; std ddof=0,observed only through origin
+features,sales_std_7,float32,predictor,Trailing 7 days ending at origin inclusive; std ddof=0,observed only through origin
+features,sales_mean_28,float32,predictor,Trailing 28 days ending at origin inclusive; std ddof=0,observed only through origin
+features,sales_std_28,float32,predictor,Trailing 28 days ending at origin inclusive; std ddof=0,observed only through origin
+features,sales_mean_56,float32,predictor,Trailing 56 days ending at origin inclusive; std ddof=0,observed only through origin
+features,sales_std_56,float32,predictor,Trailing 56 days ending at origin inclusive; std ddof=0,observed only through origin
+features,sales_mean_90,float32,predictor,Trailing 90 days ending at origin inclusive; std ddof=0,observed only through origin
+features,sales_std_90,float32,predictor,Trailing 90 days ending at origin inclusive; std ddof=0,observed only through origin
+features,age_since_first_sale,int16,predictor,Origin minus first positive-sale day plus 1; 0 if no positive history,observed only through origin
+features,days_since_last_sale,int16,predictor,Origin minus latest positive-sale day; -1 if no positive history,observed only through origin
+features,price_last,float32,predictor,Last observed price in a completed calendar week at origin; past-only carry forward,observed only through origin
+features,price_change,float32,predictor,Last observed quote / preceding observed quote - 1; null without two quotes,observed only through origin
+features,price_max_52w,float32,predictor,Maximum observed price in last 52 completed calendar weeks,observed only through origin
+features,discount_proxy,float32,predictor,"1 - price_last / price_max_52w; descriptive proxy, not a verified promotion",observed only through origin
+features,promotion_proxy,float32,predictor,discount_proxy > 0.01; null when reference unavailable,observed only through origin
+features,price_missing,int8,predictor,1 if no price observed by origin; no future backfill,observed only through origin
+features,price_age_days,int16,predictor,Days since end of last completed week with price; -1 if unknown,observed only through origin
+features,origin_d,int16,metadata,"Last observed day, inclusive; all sales/price features bounded here",observed only through origin
+features,horizon,int8,predictor,"Direct forecast step, 1..28; lags refer to origin, not target",observed only through origin
+features,target_d,int16,metadata,"origin_d + horizon, 1-based M5 day index",observed only through origin
+features,date,object,metadata,"ISO calendar date; sales d_1=2011-01-29, d_1941=2016-05-22",observed only through origin
+features,wm_yr_wk,int64,predictor,M5 retail-week identifier; joins calendar to weekly prices,observed only through origin
+features,wday,int64,predictor,"M5 weekday: Saturday=1, Sunday=2, ..., Friday=7",observed only through origin
+features,month,int64,predictor,Calendar month1..12 of target date,observed only through origin
+features,year,int64,predictor,Calendar year of target date,observed only through origin
+features,event_name_1,object,predictor,Scheduled event1; raw null means no event; feature value None,observed only through origin
+features,event_type_1,object,predictor,Event1 type; raw null means no event; feature value None,observed only through origin
+features,event_name_2,object,predictor,Scheduled event2; raw null means no second event; feature value None,observed only through origin
+features,event_type_2,object,predictor,Event2 type; raw null means no second event; feature value None,observed only through origin
+features,snap,int8,predictor,Target-date SNAP flag for the series state; calendar assumed known at origin,observed only through origin
+features,is_event,int8,predictor,1 if target date has an event_name_1,observed only through origin
+demand_strata,series_id,object,metadata,Canonical item_id + '_' + store_id; no validation/evaluation suffix,observed only through origin
+demand_strata,origin_d,int16,metadata,"Last observed day, inclusive; all sales/price features bounded here",observed only through origin
+demand_strata,mean_daily_365,float32,metadata,"Mean sales in last365 calendar days through origin, including observed leading zeros",observed only through origin
+demand_strata,zero_fraction_365,float32,metadata,Fraction of zero-sale days in last365 calendar days through origin,observed only through origin
+demand_strata,active_days_365,int16,metadata,"min(origin - first positive sale day + 1,365), or0 if no positive history",observed only through origin
+demand_strata,positive_days_365,int16,metadata,Number of positive-sale days in last365 calendar days through origin,observed only through origin
+demand_strata,adi,float32,metadata,"min(days since first positive sale,365) / positive days in trailing365; null if no demand",observed only through origin
+demand_strata,cv2,float32,metadata,Population variance of positive trailing365 sales / squared positive-sales mean; null if no demand,observed only through origin
+demand_strata,volume,object,metadata,"Trailing365 mean: zero=0, low=(0,1), medium=[1,5), high>=5",observed only through origin
+demand_strata,intermittency,object,metadata,ADI cutoff1.32/CV2 cutoff0.49: smooth/erratic/intermittent/lumpy; no_demand if zero positives,observed only through origin
+demand_strata,lifecycle,object,metadata,"Priority: not_yet_sold, new(age<=90), dormant(last90 sum=0), declining(last90 mean<0.5 prior90 mean), established",observed only through origin
+hierarchy_map,series_id,object,metadata,Canonical item_id + '_' + store_id; no validation/evaluation suffix,source/structural
+hierarchy_map,level,int64,metadata,Official M5 aggregation level1..12,source/structural
+hierarchy_map,node_id,object,metadata,Lxx:JSON ordered hierarchy-key array; induced totals for development,source/structural
+targets,series_id,object,metadata,Canonical item_id + '_' + store_id; no validation/evaluation suffix,source/structural
+targets,origin_d,int64,metadata,"Last observed day, inclusive; all sales/price features bounded here",source/structural
+targets,target_d,int64,metadata,"origin_d + horizon, 1-based M5 day index",source/structural
+targets,units,float64,label,Observed nonnegative unit sales; null for targets after d_1941; label only,source/structural
+sales_development,id,object,identifier,"Original Kaggle identifier; suffix denotes file version, not a different SKU",structural
+sales_development,item_id,object,identifier,"Product identifier; 3049 distinct products, each present at all10 stores",structural
+sales_development,dept_id,object,identifier,Department identifier; 7 departments; each product has one department,structural
+sales_development,cat_id,object,identifier,Category identifier: FOODS/HOBBIES/HOUSEHOLD; each department has one category,structural
+sales_development,store_id,object,identifier,"Store identifier: CA_1..CA_4, TX_1..TX_3, WI_1..WI_3",structural
+sales_development,state_id,object,identifier,State identifier: CA/TX/WI; store belongs to exactly one state,structural
+sales_development,series_id,object,identifier,Canonical item_id + '_' + store_id; no validation/evaluation suffix,structural
+sales_development,d_1..d_1941,int16,label_history,"Daily unit sales, wide; zero is observed zero, never missing; no censoring/stockout correction",day-specific; never read beyond origin
+sales_final,id,object,identifier,"Original Kaggle identifier; suffix denotes file version, not a different SKU",structural
+sales_final,item_id,object,identifier,"Product identifier; 3049 distinct products, each present at all10 stores",structural
+sales_final,dept_id,object,identifier,Department identifier; 7 departments; each product has one department,structural
+sales_final,cat_id,object,identifier,Category identifier: FOODS/HOBBIES/HOUSEHOLD; each department has one category,structural
+sales_final,store_id,object,identifier,"Store identifier: CA_1..CA_4, TX_1..TX_3, WI_1..WI_3",structural
+sales_final,state_id,object,identifier,State identifier: CA/TX/WI; store belongs to exactly one state,structural
+sales_final,series_id,object,identifier,Canonical item_id + '_' + store_id; no validation/evaluation suffix,structural
+sales_final,d_1..d_1941,int16,label_history,"Daily unit sales, wide; zero is observed zero, never missing; no censoring/stockout correction",day-specific; never read beyond origin

@@ -1,0 +1,4 @@
+scope,frequency,series,expected_cells,observed_cells,missing_cells,start,end
+sales_final,daily,30490,59181090,59181090,0,2011-01-29,2016-05-22
+calendar,daily,1,1969,1969,0,2011-01-29,2016-06-19
+prices,weekly,30490,8598180,6841121,1757059,11101,11621

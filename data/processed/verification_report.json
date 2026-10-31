@@ -1,0 +1,386 @@
+{
+  "status": "passed",
+  "series": 30490,
+  "development_series": 5000,
+  "artifact_checksums_verified": 95,
+  "sales_days": 1941,
+  "sales_end": "2016-05-22",
+  "hierarchy": [
+    {
+      "scope": "final",
+      "level": 1,
+      "nodes": 1,
+      "mass_conserved": true
+    },
+    {
+      "scope": "final",
+      "level": 2,
+      "nodes": 3,
+      "mass_conserved": true
+    },
+    {
+      "scope": "final",
+      "level": 3,
+      "nodes": 10,
+      "mass_conserved": true
+    },
+    {
+      "scope": "final",
+      "level": 4,
+      "nodes": 3,
+      "mass_conserved": true
+    },
+    {
+      "scope": "final",
+      "level": 5,
+      "nodes": 7,
+      "mass_conserved": true
+    },
+    {
+      "scope": "final",
+      "level": 6,
+      "nodes": 9,
+      "mass_conserved": true
+    },
+    {
+      "scope": "final",
+      "level": 7,
+      "nodes": 21,
+      "mass_conserved": true
+    },
+    {
+      "scope": "final",
+      "level": 8,
+      "nodes": 30,
+      "mass_conserved": true
+    },
+    {
+      "scope": "final",
+      "level": 9,
+      "nodes": 70,
+      "mass_conserved": true
+    },
+    {
+      "scope": "final",
+      "level": 10,
+      "nodes": 3049,
+      "mass_conserved": true
+    },
+    {
+      "scope": "final",
+      "level": 11,
+      "nodes": 9147,
+      "mass_conserved": true
+    },
+    {
+      "scope": "final",
+      "level": 12,
+      "nodes": 30490,
+      "mass_conserved": true
+    },
+    {
+      "scope": "development",
+      "level": 1,
+      "nodes": 1,
+      "mass_conserved": true
+    },
+    {
+      "scope": "development",
+      "level": 2,
+      "nodes": 1,
+      "mass_conserved": true
+    },
+    {
+      "scope": "development",
+      "level": 3,
+      "nodes": 4,
+      "mass_conserved": true
+    },
+    {
+      "scope": "development",
+      "level": 4,
+      "nodes": 3,
+      "mass_conserved": true
+    },
+    {
+      "scope": "development",
+      "level": 5,
+      "nodes": 7,
+      "mass_conserved": true
+    },
+    {
+      "scope": "development",
+      "level": 6,
+      "nodes": 3,
+      "mass_conserved": true
+    },
+    {
+      "scope": "development",
+      "level": 7,
+      "nodes": 7,
+      "mass_conserved": true
+    },
+    {
+      "scope": "development",
+      "level": 8,
+      "nodes": 12,
+      "mass_conserved": true
+    },
+    {
+      "scope": "development",
+      "level": 9,
+      "nodes": 28,
+      "mass_conserved": true
+    },
+    {
+      "scope": "development",
+      "level": 10,
+      "nodes": 2664,
+      "mass_conserved": true
+    },
+    {
+      "scope": "development",
+      "level": 11,
+      "nodes": 2664,
+      "mass_conserved": true
+    },
+    {
+      "scope": "development",
+      "level": 12,
+      "nodes": 5000,
+      "mass_conserved": true
+    }
+  ],
+  "snapshots": [
+    {
+      "origin_d": 1437,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1437,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1465,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1465,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1493,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1493,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1521,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1521,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1549,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1549,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1577,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1577,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1605,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1605,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1633,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1633,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1661,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1661,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1689,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1689,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1717,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1717,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1745,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1745,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1773,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1773,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1801,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1801,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1829,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1829,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1857,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1857,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1885,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1885,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1913,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1913,
+      "scope": "development",
+      "rows": 140000
+    },
+    {
+      "origin_d": 1941,
+      "scope": "final",
+      "rows": 853720
+    },
+    {
+      "origin_d": 1941,
+      "scope": "development",
+      "rows": 140000
+    }
+  ],
+  "split_checks": [
+    {
+      "split_id": "validation_1",
+      "train_days": 365,
+      "train_end_d": 1829,
+      "target_start_d": 1830
+    },
+    {
+      "split_id": "validation_2",
+      "train_days": 365,
+      "train_end_d": 1857,
+      "target_start_d": 1858
+    },
+    {
+      "split_id": "validation_3",
+      "train_days": 365,
+      "train_end_d": 1885,
+      "target_start_d": 1886
+    },
+    {
+      "split_id": "test",
+      "train_days": 365,
+      "train_end_d": 1913,
+      "target_start_d": 1914
+    },
+    {
+      "split_id": "forecast",
+      "train_days": 365,
+      "train_end_d": 1941,
+      "target_start_d": 1942
+    }
+  ],
+  "independent_feature_sample_series": [
+    "FOODS_1_001_CA_1",
+    "FOODS_1_001_CA_4",
+    "FOODS_1_002_CA_3",
+    "HOBBIES_1_090_TX_2",
+    "HOUSEHOLD_2_516_WI_3"
+  ],
+  "independent_feature_checks": "all19 origins; lag1/7/14/28/56, rolling7/28/56/90 mean/std, past-only last price, target-state SNAP"
+}

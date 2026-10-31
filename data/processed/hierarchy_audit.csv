@@ -1,0 +1,13 @@
+level,keys,nodes,leaves
+1,total,1,30490
+2,state_id,3,30490
+3,store_id,10,30490
+4,cat_id,3,30490
+5,dept_id,7,30490
+6,state_id+cat_id,9,30490
+7,state_id+dept_id,21,30490
+8,store_id+cat_id,30,30490
+9,store_id+dept_id,70,30490
+10,item_id,3049,30490
+11,state_id+item_id,9147,30490
+12,item_id+store_id,30490,30490
