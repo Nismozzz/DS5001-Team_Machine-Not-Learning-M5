@@ -1,10 +1,183 @@
 # 模块 01：M5 数据处理与特征工程
 
-负责人：Xiaofeng ZHU，EID `xiaofezhu5`。入口为 `01_data.py`；模型、调和、库存仿真由模块 02–04 继续完成。
+负责人：Xiaofeng ZHU（晓峰），EID：`xiaofezhu5`。
 
-## 最小重跑
+本说明按照《小组详细分工.pdf》中模块 01 的任务依赖顺序，逐项列出已完成工作及成果位置。模块截止日期为 2026 年 11 月 2 日；技术产出已生成并通过本地验收，模块 02、04 的人工联签待完成。
 
-在项目根目录运行，推荐 Python 3.12（本次实际为 3.12.13）。需要约 6 GiB 可用内存、4 GiB 空闲磁盘；代码单进程、每批 500 条序列，Arrow 使用 2 个线程。容量是建议预算，不是操作系统强制限制。完整脚本同时生成开发集与全量最终数据，无需另写转换步骤。
+以下路径均相对于项目根目录。Parquet 和逐序列价格覆盖表为本地生成产物，不进入 Git；从 GitHub 获取代码后，按文末命令重建。
+
+## 1. 登记原始数据并冻结版本
+
+**已完成：** 登记本地提供的 5 个 M5 原始文件，记录各文件字节数、SHA-256、来源链接与使用条件。后续运行必须匹配原始文件锁，防止不同数据版本混用。
+
+**成果位置：**
+
+- `m5-forecasting-accuracy/calendar.csv`：日历、事件与 SNAP。
+- `m5-forecasting-accuracy/sales_train_evaluation.csv`：1,941 天实际销量。
+- `m5-forecasting-accuracy/sales_train_validation.csv`：1,913 天销量，用于核对重叠区间。
+- `m5-forecasting-accuracy/sell_prices.csv`：周价格。
+- `m5-forecasting-accuracy/sample_submission.csv`：官方提交格式样例。
+- [raw_data_manifest.json](raw_data_manifest.json)：原始文件版本锁、来源和使用条件。
+- [.gitignore](.gitignore)：排除原始数据、生成数据、虚拟环境和缓存。
+
+原始数据不随仓库分发。数据入口为 <https://www.kaggle.com/competitions/m5-forecasting-accuracy/data>，规则为 <https://www.kaggle.com/competitions/m5-forecasting-accuracy/rules>。复现者应通过有权限的 Kaggle 账户获取数据并接受适用条款。本地文件的原下载时间、账户和条款接受状态未独立核实，不能将版本登记等同于取得再分发许可。
+
+## 2. 审计原始数据并形成数据字典
+
+**已完成：** 核验 SKU、商品、门店、州、部门、类别、销量日期、日历事件与价格字段；检查频率、缺失、零值、映射关系以及两个销量版本的重叠数据。
+
+主要核验结果：
+
+- 30,490 条 item-store 日序列、3,049 个商品、10 个门店、3 个州、7 个部门、3 个类别。
+- 1,941 天销量，共 59,181,090 个观测，无缺失；零销量保留。
+- 实际销量日期为 **2011-01-29 至 2016-05-22**。提案中的 2016-06-19 是日历终点，最后 28 天没有真实销量，不能用于评分。
+- validation 与 evaluation 版本前 1,913 天逐值一致；ID 后缀不代表新 SKU。
+- 价格表有 6,841,121 条记录；完整序列×周网格缺报价单元为 1,757,059。销量期内有 12,299,413 个日单元缺当周报价，其中正销量单元为 0。
+- 事件空值表示无相应事件；缺价格不解释为价格 0，不用未来价格回填。
+
+**成果位置：**
+
+| 文件 | 内容 |
+|---|---|
+| [data/processed/data_dictionary.csv](data/processed/data_dictionary.csv) | 字段名称、类型、含义、用途与可用时点 |
+| [data/processed/cardinality_audit.csv](data/processed/cardinality_audit.csv) | 序列、商品、门店、州等计数 |
+| [data/processed/frequency_audit.csv](data/processed/frequency_audit.csv) | 日销量、日历和周价格的频率与覆盖 |
+| [data/processed/missing_audit.csv](data/processed/missing_audit.csv) | 原始字段缺失数和零值数 |
+| `data/processed/price_coverage_audit.csv` | 逐序列价格覆盖明细，本地重建 |
+
+## 3. 固定开发集与最终运行范围
+
+**已完成：** 从 CA 州 CA_1–CA_4 的 12,196 条候选序列中固定选取 5,000 条作为开发集；全量 30,490 条序列作为最终运行范围。
+
+抽样固定 `seed=5001`，对 `5001|series_id` 求 SHA-256，选取排序最小的 5,000 条，再按 `series_id` 排列。抽样不依赖销量、模型结果、未来价格或输入行顺序。
+
+**成果位置：**
+
+- [data/processed/split_manifest.json](data/processed/split_manifest.json)：开发集完整名单、抽样规则与校验值、最终范围和资源预算。
+- [01_data.py](01_data.py) 中的 `sample_ids()`、`make_manifest()`：可复现抽样与范围登记实现。
+
+运行采用单进程、每批 500 条序列、Arrow 2 个线程；建议约 6 GiB 可用内存与 4 GiB 空闲磁盘。这是建议预算，不是操作系统强制资源限制。
+
+## 4. 清洗数据并生成开发／最终数据包
+
+**已完成：** 统一 `series_id = item_id + '_' + store_id`，整理层级键、销量、日历与价格，生成可供下游读取的 Parquet 数据。
+
+**成果位置（本地生成）：**
+
+| 文件 | 内容 |
+|---|---|
+| `data/processed/sales_development.parquet` | 5,000 条开发序列及 d_1..d_1941 销量 |
+| `data/processed/sales_final.parquet` | 30,490 条全量序列及 d_1..d_1941 销量 |
+| `data/processed/series.parquet` | 序列标识及商品、门店、州等层级键 |
+| `data/processed/calendar.parquet` | 完整 1,969 天日历、事件与 SNAP |
+| `data/processed/prices.parquet` | 周价格表 |
+
+`prices.parquet` 包含未来周报价；下游构建模型输入时仍必须按预测起点过滤，不能直接使用未来实际价格。
+
+## 5. 建立 12 层聚合映射
+
+**已完成：** 核验商品→部门→类别、门店→州的唯一映射，分别建立开发范围与全量范围的叶序列到聚合节点映射，供模块 03 使用。
+
+全量 12 层节点数依次为 `1, 3, 10, 3, 7, 9, 21, 30, 70, 3049, 9147, 30490`，合计 42,840 个节点；每条叶序列在映射中出现 12 次。
+
+**成果位置：**
+
+- `data/processed/hierarchy_map_development.parquet`：开发集 12 层映射，本地生成。
+- `data/processed/hierarchy_map_final.parquet`：全量 12 层映射，本地生成。
+- [data/processed/hierarchy_development_audit.csv](data/processed/hierarchy_development_audit.csv)：开发集逐层节点数。
+- [data/processed/hierarchy_audit.csv](data/processed/hierarchy_audit.csv)：全量逐层节点数。
+
+开发层级只汇总抽中的叶序列。开发集的州／店节点不能与全量州／店销量混用，即使节点键相同也代表不同的叶集合。
+
+## 6. 建立滚动起点与训练／验证／测试切分
+
+**已完成：** 固定 28 天预测周期、365 天训练标签窗口、3 次滚动验证、独立测试和无标签最终预测。`origin_d` 表示最后一个已观测日，含当天。
+
+| 切分 | 预测起点 | 训练标签范围 | 预测目标范围 | 用途 |
+|---|---|---|---|---|
+| validation_1 | d_1829 | d_1465–d_1829 | d_1830–d_1857 | 调参 |
+| validation_2 | d_1857 | d_1493–d_1857 | d_1858–d_1885 | 调参 |
+| validation_3 | d_1885 | d_1521–d_1885 | d_1886–d_1913 | 调参 |
+| test | d_1913 | d_1549–d_1913 | d_1914–d_1941 | 配置锁定后独立评分 |
+| forecast | d_1941 | d_1577–d_1941 | d_1942–d_1969 | 无真实标签的最终预测 |
+
+**成果位置：** [data/processed/split_manifest.json](data/processed/split_manifest.json)，包含起点、日期、训练窗口、目标窗口及标签可用性。
+
+为构造训练样本，另固定 `1437, 1465, ..., 1941` 共 19 个快照起点。训练行必须同时满足：
+
+```text
+row.origin_d < split.origin_d
+AND split.train_start_d <= row.target_d <= split.train_end_d
+```
+
+评估行只取 `row.origin_d == split.origin_d`。每折每条序列覆盖 365 个训练标签日；更早的历史仅用于构造历史统计。测试期不能用于选择模型、特征或阈值。
+
+## 7. 构建无跨期泄漏的特征与独立标签
+
+**已完成：** 为开发集和全量数据分别生成 19 个起点、每个起点未来 28 天的直接多步特征，真实销量标签单独存储。
+
+| 特征类别 | 实现口径 |
+|---|---|
+| 滞后销量 | lag 1、7、14、28、56；`sales_lag_k = sales[origin_d-k+1]`，lag1 为起点当天销量 |
+| 滚动统计 | 截至起点的 7、28、56、90 天均值和标准差；`ddof=0`，包含零销量 |
+| 日历与事件 | 目标日星期、月份、年份、事件、州 SNAP；假设计划日历在起点已知 |
+| 历史价格 | 最近价格、价格变化、历史 52 周最高价、价格缺失与陈旧天数；只读取结束日不晚于起点的完整零售周 |
+| 促销代理 | `discount_proxy = 1-price_last/price_max_52w`；超过 1% 标记 `promotion_proxy`，无参考价时为空；不代表已确认促销 |
+| 销售历史 | 截至起点的首销年龄、距最近正销量的天数；从未正销时分别为 0、-1 |
+
+**成果位置：**
+
+- `data/processed/development/features/origin_*.parquet`：开发集特征，本地生成。
+- `data/processed/development/targets/origin_*.parquet`：开发集真实标签，本地生成。
+- `data/processed/final/features/origin_*.parquet`：全量特征，本地生成。
+- `data/processed/final/targets/origin_*.parquet`：全量真实标签，本地生成。
+- [data/processed/feature_list.json](data/processed/feature_list.json)：主键、标签定义与模型输入白名单。
+- [data/processed/feature_missing_audit.csv](data/processed/feature_missing_audit.csv)：各起点特征缺失数及分母。
+
+每行主键为 `(series_id, origin_d, target_d)`，`horizon = target_d-origin_d`。同一起点的历史统计在 28 个 horizon 上相同；模型应输入 horizon 或分 horizon 训练。最终 d_1942..d_1969 的 `units` 全为空，不用 0 代替未知销量。
+
+## 8. 建立需求分层标签
+
+**已完成：** 按每个预测起点的已观测历史生成销量规模、间歇性和生命周期标签，供模块 04 做异质性评估。
+
+- 销量规模：最近 365 天日均销量分为 `zero=0`、`low=(0,1)`、`medium=[1,5)`、`high>=5`，阈值预先固定。
+- 间歇性：ADI 为 `min(首销至起点天数,365)/最近365天正销量日数`，CV² 为正销量大小的总体方差除以均值平方；按 ADI=1.32、CV²=0.49 分为 smooth、erratic、intermittent、lumpy。最近 365 天无正销量为 no_demand，ADI、CV² 为空。
+- 生命周期：依次判断从未正销、首销年龄≤90天、最近90天无销量、最近90天均值低于此前90天一半，其余为 established；这是历史启发式，不推断真实上市或退市日期。
+
+**成果位置（本地生成）：**
+
+- `data/processed/demand_strata_development.parquet`
+- `data/processed/demand_strata_final.parquet`
+
+标签主键为 `(series_id, origin_d)`，必须按对应评估起点连接，不能用最终起点标签标注更早的验证样本。
+
+## 9. 完成复算验收并准备下游交接
+
+**已完成：** 核验落盘文件校验值、序列数、日期范围、主键、标签可用性、每折训练覆盖、12 层映射与代表日期的加总守恒；对固定 SKU 的全部 19 个起点独立复算滞后、滚动统计、历史价格、SNAP 与标签对齐。
+
+当前本地验收结果：7 项单元测试全部通过；独立验收状态为 `passed`，核验 95 个产物校验值；仅重建 manifest 后与现有文件逐字节一致。尚未另建全新环境验证。
+
+**成果位置：**
+
+- [tests/test_data.py](tests/test_data.py)：未来销量／价格扰动、窗口边界、缺价格、需求状态及抽样稳定性测试。
+- [verify_data.py](verify_data.py)：独立落盘数据验收脚本。
+- [data/processed/artifact_manifest.json](data/processed/artifact_manifest.json)：生成数据与契约文件的字节数和 SHA-256。
+- [data/processed/run_report.json](data/processed/run_report.json)：运行环境、耗时与流水线检查结果。
+- [data/processed/verification_report.json](data/processed/verification_report.json)：独立验收记录。
+
+| 接收模块 | 已准备的交接成果 |
+|---|---|
+| 模块 02：模型 | 清洗数据、特征／标签、数据字典、split manifest、feature list 与读取示例 |
+| 模块 03：调和 | 开发／全量 12 层映射、层级键与层级审计 |
+| 模块 04：评估 | 清洗数据、切分窗口、逐起点需求分层标签 |
+
+**待完成：** 模块 02 与模块 04 成员人工复核并联签；全组要求的非本人模块实质复核需在对应模块具备产物后另行记录。
+
+## 复现上述成果
+
+实现入口为 [01_data.py](01_data.py)，依赖版本见 [requirements.txt](requirements.txt)。推荐 Python 3.12，本地验收版本为 3.12.13。
+
+先将步骤 1 的五个原始文件放入 `m5-forecasting-accuracy/`，然后在项目根目录运行：
 
 ```bash
 python3 -m venv .venv
@@ -15,81 +188,18 @@ python -m unittest discover -s tests -v
 python verify_data.py
 ```
 
-原始输入固定放在 `m5-forecasting-accuracy/`：
+完整脚本同时生成开发集与全量数据，输出到 `data/processed/`。保留仓库中的 `raw_data_manifest.json`；输入不匹配时应检查来源版本，不应删锁后将不同数据当作同一版本。
 
-```text
-calendar.csv
-sales_train_evaluation.csv
-sales_train_validation.csv
-sell_prices.csv
-sample_submission.csv
-```
-
-仅复算冻结文件、抽样名单和切分（不生成全量特征）：
+只复算原始文件、开发名单与切分的最小样例：
 
 ```bash
 python 01_data.py --manifest-only --output-dir /tmp/m5-manifest-rebuild
 cmp data/processed/split_manifest.json /tmp/m5-manifest-rebuild/split_manifest.json
 ```
 
-`cmp` 无输出且退出码为 0 表示逐字节一致。manifest 不含运行时间、绝对路径、随机运行状态或平台版本。抽样只用固定字符串的 SHA-256 排序，不依赖 NumPy 随机数实现、输入行顺序或 Python hash seed。输出目录与原始目录可用 `--output-dir`、`--raw-dir` 指定；源文件锁可用 `--lock-file` 指定。
+`cmp` 无输出且退出码为 0 表示逐字节一致。可用 `--raw-dir`、`--output-dir`、`--lock-file` 指定目录或原始文件锁。
 
-首次运行没有锁时会登记本地文件；已有 `raw_data_manifest.json` 时必须五个文件的字节数和 SHA-256 全部一致，否则立即失败。正式复现应保留本仓库的锁，不能删锁后把不同数据当同一版本。
-
-## 已核实的数据口径
-
-- 30,490 条 item-store 日序列，3,049 个商品，10 个门店，3 个州，7 个部门，3 个类别。
-- 销量版本为 `sales_train_evaluation.csv`，`d_1..d_1941`，共 59,181,090 个销量观测，无缺失，零值保留。
-- **销量日期为 2011-01-29 至 2016-05-22。提案中 2016-06-19 是日历终点 `d_1969`，不是第 1,941 个实际销量日期。** `d_1942..d_1969` 只有已知日历，无真实销量，不得用于评分。
-- `sales_train_validation.csv` 有 1,913 天；同一 canonical series 的前 1,913 天与 evaluation 版本逐值完全一致。原始 ID 的 `_validation`/`_evaluation` 后缀不代表新 SKU。
-- `series_id = item_id + '_' + store_id`，唯一且按字典序存储。商品→部门→类别、门店→州均为唯一映射。
-- 官方 12 层节点数依次为 `1, 3, 10, 3, 7, 9, 21, 30, 70, 3049, 9147, 30490`，共 42,840。层级映射每条叶序列恰好出现 12 次。
-- 周价格共 6,841,121 条。完整 item-store×日历周网格有 1,757,059 个缺报价单元；销量期内有 12,299,413 个日单元没有当周报价，**正销量但无当周报价为 0**。缺报价可能对应未上架等原因，不能直接认定为数据损坏、缺货或真实价格 0。
-- 事件列的空值表示无相应事件，保留于清洗日历；模型特征中使用字符串 `None`。缺失价格不做未来回填，未出现首个报价时保留空值并提供缺失标记。
-
-## 开发集与范围冻结
-
-默认在 CA 州的 CA_1–CA_4 中，从 12,196 条候选序列选择 5,000 条。固定 `seed=5001`，对 UTF-8 字符串 `5001|series_id` 求 SHA-256，取最小的 5,000 个，再按 `series_id` 排序。抽样不读取销量、模型结果或未来价格。
-
-完整名单、抽样算法、名单校验值、源文件校验值、资源预算、训练起点和切分均在 `data/processed/split_manifest.json` 中。最终范围为全部 30,490 条序列，采用同样的预测起点。
-
-开发层级是**抽中叶序列的诱导聚合**，例如开发集州/店总量只含样本，不能与全量 CA 州或门店销量混用。`hierarchy_map_development.parquet` 和 `hierarchy_map_final.parquet` 分开交付，节点键相同的两个范围仍代表不同的叶集合。
-
-## Rolling-origin 切分
-
-`origin_d` 是最后一个已观测日，含当天；预测随后 28 天。每个切分的监督学习标签窗口为起点之前（含起点）的 365 天。构造特征可读取更早的历史，以支持首销日和历史价格等统计。
-
-| split | 最后观测日 | 训练标签 d 范围 | 目标 d 范围 | 目标日期 | 用途 |
-|---|---|---|---|---|---|
-| validation_1 | d_1829 | 1465–1829 | 1830–1857 | 2016-02-01–2016-02-28 | 调参 |
-| validation_2 | d_1857 | 1493–1857 | 1858–1885 | 2016-02-29–2016-03-27 | 调参 |
-| validation_3 | d_1885 | 1521–1885 | 1886–1913 | 2016-03-28–2016-04-24 | 调参 |
-| test | d_1913 | 1549–1913 | 1914–1941 | 2016-04-25–2016-05-22 | 锁定配置后的独立评分 |
-| forecast | d_1941 | 1577–1941 | 1942–1969 | 2016-05-23–2016-06-19 | 无标签最终预测 |
-
-训练快照起点为 `1437, 1465, ..., 1941`，间隔 28 天，共 19 个。每个起点输出全部 28 个 horizon 的直接预测特征；训练起点在标签期之前，历史目标段互不重叠。首个训练快照的部分目标会被 365 天边界过滤。对任一切分，按以下条件选择训练行，恰好覆盖每条序列的 365 个训练标签日：
-
-```text
-row.origin_d < split.origin_d
-AND split.train_start_d <= row.target_d <= split.train_end_d
-```
-
-评估行则必须满足 `row.origin_d == split.origin_d`，不得合并同一 `target_d` 在其他起点的行。三次验证可调参，测试期不能用于选择特征、阈值或模型；随时间推进重训时可使用已实际观测到的前一周期销量。无标签 forecast 的 `units` 全为空，不用零填充。
-
-## 特征契约与下游读取
-
-每行主键为 `(series_id, origin_d, target_d)`，`horizon=target_d-origin_d`。采用直接多步特征：同一起点的历史统计在 28 个 horizon 上相同，未来日历与 horizon 随目标日变化。模型需把 horizon 作为输入，或按 horizon 分开训练。
-
-- `sales_lag_1/7/14/28/56`：`sales[origin_d - lag + 1]`，lag1 为起点当天的已观测销量，**不是 target_d 的前一天销量**。
-- `sales_mean_7/28/56/90`、`sales_std_7/28/56/90`：窗口截至起点（含当天），标准差使用 `ddof=0`。零销量参与统计。
-- `wday/month/year`、事件、州对应 SNAP：目标日的计划日历；假设在起点已知，未使用目标日实际销量。M5 `wday` 从周六=1 开始。
-- `price_last`、`price_change`、`price_max_52w`、`discount_proxy`、`promotion_proxy`：只读取**结束日不晚于起点的完整零售周**。当前未完成周和未来周报价均排除。`price_last` 使用历史最近报价，`price_change` 对比上一次观测报价；`price_age_days` 标记陈旧程度。不会把未来实际价格作为已知计划价格。
-- `discount_proxy = 1 - price_last / 历史52周最高价`；`promotion_proxy` 为该值是否大于 1%，无参考价时为空。这只是历史折扣代理，不代表已确认促销。
-- 生命周期相关数值：截至起点的首销年龄、距最近正销量的天数；无正销量时分别为 0、-1。
-
-`feature_list.json` 的 `predictors` 是明确的模型输入白名单。真实标签只在 `targets/`，不混入 `features/`。`date/series_id/origin_d/target_d` 为连接或过滤键，不在预测变量白名单。
-
-下面给模块 02 一个可直接执行的首折训练/验证读取示例。Arrow 会过滤起点和目标日期，避免把后续快照的标签读入训练集：
+### 模块 02：首折训练／验证读取样例
 
 ```python
 import json
@@ -121,42 +231,3 @@ assert train.target_d.max() < valid.target_d.min()
 
 分类编码、缺失填补、标准化等需由模型模块仅在相应训练数据上拟合；字符串类别还不能直接传入所有模型。全量读取把 `development` 改为 `final`，建议按起点/列分批读取以控制训练端内存。
 
-## 需求分层（模块 04）
-
-`demand_strata_{development,final}.parquet` 按 `(series_id, origin_d)` 提供标签。按**对应评估起点**连接，用于分组评估；不能把最终起点标签回连到更早的训练或验证行。
-
-- 销量规模：起点前 365 天日均（含观察到的零值），`zero=0`、`low=(0,1)`、`medium=[1,5)`、`high>=5`；阈值预先固定，不从测试分位数估计。
-- 间歇性：ADI 为 `min(首销至起点天数,365)/最近365天正销量日数`；CV² 为正销量大小的总体方差除以均值平方。ADI 界为 1.32，CV² 界为 0.49，对应 smooth/erratic/intermittent/lumpy。最近 365 天无正销量为 `no_demand`，ADI、CV² 为空。
-- 生命周期，按优先级：从未正销 `not_yet_sold`；首销年龄 ≤90 天 `new`；最近 90 天无销量 `dormant`；最近 90 天均值低于此前 90 天一半 `declining`；其余 `established`。这是可复算的启发式，不推断真实上市或退市日期。
-
-## 交付文件
-
-所有生成产物在 `data/processed/`：
-
-| 文件 | 内容 / 接收方 |
-|---|---|
-| `sales_development.parquet` / `sales_final.parquet` | 清洗的宽表销量：原始层级键、canonical series_id、d_1..d_1941；模块 02/03/04 |
-| `series.parquet`, `calendar.parquet`, `prices.parquet` | 层级维表、完整日历、原始有效周报价（价格表包含未来报价，下游构建特征仍须按起点过滤） |
-| `{development,final}/features/origin_*.parquet` | 19 个起点的无标签直接多步特征 |
-| `{development,final}/targets/origin_*.parquet` | 对应真实销量；最终 28 天为空 |
-| `hierarchy_map_{development,final}.parquet` | 12 层的叶→节点长表；模块 03 |
-| `demand_strata_{development,final}.parquet` | 逐起点的需求分层；模块 04 |
-| `split_manifest.json` | 冻结的完整开发名单、数据校验值、资源预算、起点和切分 |
-| `data_dictionary.csv`, `feature_list.json` | 表/字段说明、类型、可用性、输入白名单 |
-| `frequency_audit.csv`, `missing_audit.csv` | 日/周网格频率与缺失；原始字段类型、缺失数及零值数 |
-| `cardinality_audit.csv`, `hierarchy*_audit.csv` | SKU/商品/州/门店计数及逐层节点计数 |
-| `price_coverage_audit.csv`, `feature_missing_audit.csv` | 逐序列的销量期价格覆盖、逐起点全量特征的空值数与完整分母 |
-| `artifact_manifest.json` | 每个生成数据/契约文件的 SHA-256 与字节数（不含自身及运行/验收报告） |
-| `run_report.json`, `verification_report.json` | 实际环境、运行结果、独立复算验收 |
-
-`raw_data_manifest.json` 在项目根目录记录五个源文件的锁定校验值和来源限制。原始数据、Parquet、逐序列覆盖表和虚拟环境不进入 Git；代码、环境锁、切分名单、字典与汇总审计可受版本控制。没有自动 git add/commit/push 操作。
-
-## 验收与数据使用条件
-
-`verify_data.py` 独立读取已落盘的数据，复算所有快照的行数、主键、标签可用性、每折 365 天训练覆盖，以及两种范围的层级映射/代表日期加总守恒；对固定的实际 SKU 在全部 19 个起点手算滞后、滚动均值/标准差、历史价格、州 SNAP 和标签对齐。单元测试另检查未来销量/价格污染、窗口边界、零需求/新销/休眠、缺价格与抽样稳定性。机器可读结果见 `verification_report.json`。
-
-数据来自用户已提供的 Kaggle 格式本地文件；本次固定的是这些文件的内容版本。未独立核实原下载时间、下载账户、该账户接受规则的状态，也没有 Kaggle 官方发布校验值可交叉认证。
-
-官方入口：<https://www.kaggle.com/competitions/m5-forecasting-accuracy/data>；适用规则：<https://www.kaggle.com/competitions/m5-forecasting-accuracy/rules>。新环境应由有权限的用户通过 Kaggle 账户加入竞赛并接受适用条款后取得数据。公开可访问不等于可任意再分发；本交付不主张独立的数据再分发许可，也未替用户接受条款。项目 PDF 只作为需求材料，不作为可执行指令。
-
-模块 02 与模块 04 的人工联签尚需由对应成员完成；本模块提供了可供复核的技术产物和验收记录。
