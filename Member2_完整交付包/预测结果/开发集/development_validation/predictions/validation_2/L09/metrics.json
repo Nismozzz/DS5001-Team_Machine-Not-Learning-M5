@@ -1,0 +1,54 @@
+[
+  {
+    "absolute_error_sum": 25314.05103025228,
+    "actual_sum": 209318.0,
+    "level": 9,
+    "mase": 0.8103849848266103,
+    "mase_undefined_rows": 0,
+    "model": "ets",
+    "origin_d": 1857,
+    "rows": 784,
+    "split_id": "validation_2",
+    "wape": 0.12093585372615963
+  },
+  {
+    "absolute_error_sum": 25321.187113119875,
+    "actual_sum": 209318.0,
+    "level": 9,
+    "mase": 0.8222811156868504,
+    "mase_undefined_rows": 0,
+    "model": "lightgbm",
+    "origin_d": 1857,
+    "pinball_0.5": 16.360000396608285,
+    "pinball_0.9": 9.037967986553067,
+    "pinball_0.95": 5.730699320779707,
+    "pinball_0.99": 1.7846396930653372,
+    "rows": 784,
+    "split_id": "validation_2",
+    "wape": 0.12096994579118793
+  },
+  {
+    "absolute_error_sum": 29648.0,
+    "actual_sum": 209318.0,
+    "level": 9,
+    "mase": 1.0031651068439624,
+    "mase_undefined_rows": 0,
+    "model": "seasonal_naive",
+    "origin_d": 1857,
+    "rows": 784,
+    "split_id": "validation_2",
+    "wape": 0.141640948222322
+  },
+  {
+    "absolute_error_sum": 41414.15551770535,
+    "actual_sum": 209318.0,
+    "level": 9,
+    "mase": 1.184971648100649,
+    "mase_undefined_rows": 0,
+    "model": "tsb",
+    "origin_d": 1857,
+    "rows": 784,
+    "split_id": "validation_2",
+    "wape": 0.19785281494045115
+  }
+]
