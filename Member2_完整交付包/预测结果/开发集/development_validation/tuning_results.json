@@ -1,0 +1,122 @@
+[
+  {
+    "actual_sum": 627388.0,
+    "candidate": {
+      "num_leaves": 31,
+      "rounds": 300
+    },
+    "folds": [
+      {
+        "absolute_error_sum": 152014.34226475345,
+        "actual_sum": 205931.0,
+        "rows": 140000,
+        "split_id": "validation_1"
+      },
+      {
+        "absolute_error_sum": 154416.5393467217,
+        "actual_sum": 209318.0,
+        "rows": 140000,
+        "split_id": "validation_2"
+      },
+      {
+        "absolute_error_sum": 153852.4427161904,
+        "actual_sum": 212139.0,
+        "rows": 140000,
+        "split_id": "validation_3"
+      }
+    ],
+    "mean_pinball": 0.2883358579049704,
+    "point_absolute_error": 460283.3243276655,
+    "wape": 0.733650188284866
+  },
+  {
+    "actual_sum": 627388.0,
+    "candidate": {
+      "num_leaves": 31,
+      "rounds": 600
+    },
+    "folds": [
+      {
+        "absolute_error_sum": 153823.73754844,
+        "actual_sum": 205931.0,
+        "rows": 140000,
+        "split_id": "validation_1"
+      },
+      {
+        "absolute_error_sum": 154045.72659435737,
+        "actual_sum": 209318.0,
+        "rows": 140000,
+        "split_id": "validation_2"
+      },
+      {
+        "absolute_error_sum": 153640.56939164957,
+        "actual_sum": 212139.0,
+        "rows": 140000,
+        "split_id": "validation_3"
+      }
+    ],
+    "mean_pinball": 0.2887115230651997,
+    "point_absolute_error": 461510.03353444696,
+    "wape": 0.7356054523428037
+  },
+  {
+    "actual_sum": 627388.0,
+    "candidate": {
+      "num_leaves": 63,
+      "rounds": 300
+    },
+    "folds": [
+      {
+        "absolute_error_sum": 151656.98814335867,
+        "actual_sum": 205931.0,
+        "rows": 140000,
+        "split_id": "validation_1"
+      },
+      {
+        "absolute_error_sum": 154312.99365303433,
+        "actual_sum": 209318.0,
+        "rows": 140000,
+        "split_id": "validation_2"
+      },
+      {
+        "absolute_error_sum": 153592.4293504066,
+        "actual_sum": 212139.0,
+        "rows": 140000,
+        "split_id": "validation_3"
+      }
+    ],
+    "mean_pinball": 0.2874283694386872,
+    "point_absolute_error": 459562.41114679957,
+    "wape": 0.7325011175648873
+  },
+  {
+    "actual_sum": 627388.0,
+    "candidate": {
+      "num_leaves": 63,
+      "rounds": 600
+    },
+    "folds": [
+      {
+        "absolute_error_sum": 152345.79508479903,
+        "actual_sum": 205931.0,
+        "rows": 140000,
+        "split_id": "validation_1"
+      },
+      {
+        "absolute_error_sum": 153736.74018727,
+        "actual_sum": 209318.0,
+        "rows": 140000,
+        "split_id": "validation_2"
+      },
+      {
+        "absolute_error_sum": 154276.16090464906,
+        "actual_sum": 212139.0,
+        "rows": 140000,
+        "split_id": "validation_3"
+      }
+    ],
+    "mean_pinball": 0.287870285763112,
+    "point_absolute_error": 460358.6961767181,
+    "wape": 0.7337703242279389
+  }
+]

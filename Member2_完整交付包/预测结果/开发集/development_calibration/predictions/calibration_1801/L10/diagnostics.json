@@ -1,0 +1,43 @@
+{
+  "daily_quantile_repairs": {
+    "changed_values": 18960,
+    "crossing_rows": 8725,
+    "negative_point_values": 0,
+    "negative_values": 1943
+  },
+  "elapsed_seconds": 134.547,
+  "fallback_series": 0,
+  "negative_baseline_values": 3804,
+  "period_quantile_repairs": {
+    "changed_values": 45378,
+    "crossing_rows": 2664,
+    "negative_values": 124
+  },
+  "predictors": [
+    "node_id",
+    "sales_lag_1",
+    "sales_lag_7",
+    "sales_lag_14",
+    "sales_lag_28",
+    "sales_lag_56",
+    "sales_mean_7",
+    "sales_std_7",
+    "sales_mean_28",
+    "sales_std_28",
+    "sales_mean_56",
+    "sales_std_56",
+    "sales_mean_90",
+    "sales_std_90",
+    "horizon",
+    "wm_yr_wk",
+    "wday",
+    "month",
+    "year",
+    "event_name_1",
+    "event_type_1",
+    "event_name_2",
+    "event_type_2",
+    "is_event"
+  ],
+  "train_rows": 972360
+}

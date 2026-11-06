@@ -1,0 +1,12 @@
+{
+  "leaf_count": 5000,
+  "node_ids": [
+    "L07:[\"CA\",\"FOODS_1\"]",
+    "L07:[\"CA\",\"FOODS_2\"]",
+    "L07:[\"CA\",\"FOODS_3\"]",
+    "L07:[\"CA\",\"HOBBIES_1\"]",
+    "L07:[\"CA\",\"HOBBIES_2\"]",
+    "L07:[\"CA\",\"HOUSEHOLD_1\"]",
+    "L07:[\"CA\",\"HOUSEHOLD_2\"]"
+  ]
+}

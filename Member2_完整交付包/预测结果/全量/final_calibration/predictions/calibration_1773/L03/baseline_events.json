@@ -1,0 +1,242 @@
+[
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L03:[\"CA_1\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L03:[\"CA_2\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L03:[\"CA_3\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L03:[\"CA_4\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L03:[\"TX_1\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L03:[\"TX_2\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L03:[\"TX_3\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L03:[\"WI_1\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L03:[\"WI_2\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L03:[\"WI_3\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L03:[\"CA_1\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L03:[\"CA_2\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L03:[\"CA_3\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L03:[\"CA_4\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L03:[\"TX_1\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L03:[\"TX_2\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L03:[\"TX_3\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L03:[\"WI_1\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L03:[\"WI_2\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L03:[\"WI_3\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L03:[\"CA_1\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L03:[\"CA_2\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L03:[\"CA_3\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L03:[\"CA_4\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L03:[\"TX_1\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L03:[\"TX_2\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L03:[\"TX_3\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L03:[\"WI_1\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L03:[\"WI_2\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L03:[\"WI_3\"]",
+    "status": "ok",
+    "warnings": []
+  }
+]

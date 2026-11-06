@@ -1,0 +1,25 @@
+{
+  "config_hash": "5b538ced5fff83174b6b72e96886eb4e073c9748f7cbac0f93df9fda8d65a601",
+  "input_signature": {
+    "artifact_manifest_sha256": "5c08a857088cb289cf50533eb38d30c0c6beb9272ecdb0987e2109d4b9eec90f",
+    "feature_list_sha256": "0469e3529f4b508e02c62e20db222b53c1576535e5f00c43db10e3a73b7ed2b6",
+    "series_ids_sha256": "4989305edbd92be6ce184eaec21fe9109c7402ec375bdcb6c0a9cf8d87055601",
+    "source_features_sha256": "4e32484542bd87e777c06848f2726bee31fc4b85dbeec3d2dd92258147964139",
+    "source_scope": "development",
+    "split_manifest_sha256": "748df05ded611a2d6082c05dfc3f620513cbcb540ff76372df51e29648935855"
+  },
+  "mode": "calibrate",
+  "scope": "development",
+  "selected": {
+    "point": {
+      "num_leaves": 31,
+      "rounds": 300
+    },
+    "quantile": {
+      "num_leaves": 31,
+      "rounds": 300
+    }
+  },
+  "selection_hash": "a1b48b8ad0be7a49568d73fd59b70f495907cf58b994e8a9975c6bc0c7ca8f77",
+  "validation_ids": []
+}

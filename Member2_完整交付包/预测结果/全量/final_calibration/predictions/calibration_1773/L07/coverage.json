@@ -1,0 +1,26 @@
+{
+  "leaf_count": 30490,
+  "node_ids": [
+    "L07:[\"CA\",\"FOODS_1\"]",
+    "L07:[\"CA\",\"FOODS_2\"]",
+    "L07:[\"CA\",\"FOODS_3\"]",
+    "L07:[\"CA\",\"HOBBIES_1\"]",
+    "L07:[\"CA\",\"HOBBIES_2\"]",
+    "L07:[\"CA\",\"HOUSEHOLD_1\"]",
+    "L07:[\"CA\",\"HOUSEHOLD_2\"]",
+    "L07:[\"TX\",\"FOODS_1\"]",
+    "L07:[\"TX\",\"FOODS_2\"]",
+    "L07:[\"TX\",\"FOODS_3\"]",
+    "L07:[\"TX\",\"HOBBIES_1\"]",
+    "L07:[\"TX\",\"HOBBIES_2\"]",
+    "L07:[\"TX\",\"HOUSEHOLD_1\"]",
+    "L07:[\"TX\",\"HOUSEHOLD_2\"]",
+    "L07:[\"WI\",\"FOODS_1\"]",
+    "L07:[\"WI\",\"FOODS_2\"]",
+    "L07:[\"WI\",\"FOODS_3\"]",
+    "L07:[\"WI\",\"HOBBIES_1\"]",
+    "L07:[\"WI\",\"HOBBIES_2\"]",
+    "L07:[\"WI\",\"HOUSEHOLD_1\"]",
+    "L07:[\"WI\",\"HOUSEHOLD_2\"]"
+  ]
+}
