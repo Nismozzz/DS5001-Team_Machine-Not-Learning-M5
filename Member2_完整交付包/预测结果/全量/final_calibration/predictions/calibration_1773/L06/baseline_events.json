@@ -1,0 +1,218 @@
+[
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L06:[\"CA\",\"FOODS\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L06:[\"CA\",\"HOBBIES\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L06:[\"CA\",\"HOUSEHOLD\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L06:[\"TX\",\"FOODS\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L06:[\"TX\",\"HOBBIES\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L06:[\"TX\",\"HOUSEHOLD\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L06:[\"WI\",\"FOODS\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L06:[\"WI\",\"HOBBIES\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L06:[\"WI\",\"HOUSEHOLD\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L06:[\"CA\",\"FOODS\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L06:[\"CA\",\"HOBBIES\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L06:[\"CA\",\"HOUSEHOLD\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L06:[\"TX\",\"FOODS\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L06:[\"TX\",\"HOBBIES\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L06:[\"TX\",\"HOUSEHOLD\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L06:[\"WI\",\"FOODS\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L06:[\"WI\",\"HOBBIES\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L06:[\"WI\",\"HOUSEHOLD\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L06:[\"CA\",\"FOODS\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L06:[\"CA\",\"HOBBIES\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L06:[\"CA\",\"HOUSEHOLD\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L06:[\"TX\",\"FOODS\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L06:[\"TX\",\"HOBBIES\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L06:[\"TX\",\"HOUSEHOLD\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L06:[\"WI\",\"FOODS\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L06:[\"WI\",\"HOBBIES\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L06:[\"WI\",\"HOUSEHOLD\"]",
+    "status": "ok",
+    "warnings": []
+  }
+]

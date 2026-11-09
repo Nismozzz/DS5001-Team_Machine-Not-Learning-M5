@@ -1,0 +1,112 @@
+[
+  {
+    "stage": "development_validation",
+    "verification": {
+      "daily_rows": 3492384,
+      "files_checked": 3463,
+      "period_rows": 717186,
+      "requested_groups": 36,
+      "scope": "development",
+      "status": "passed"
+    }
+  },
+  {
+    "stage": "development_test",
+    "verification": {
+      "daily_rows": 1164128,
+      "files_checked": 1095,
+      "period_rows": 239062,
+      "requested_groups": 12,
+      "scope": "development",
+      "status": "passed"
+    }
+  },
+  {
+    "stage": "development_forecast",
+    "verification": {
+      "daily_rows": 1164128,
+      "files_checked": 1083,
+      "period_rows": 239062,
+      "requested_groups": 12,
+      "scope": "development",
+      "status": "passed"
+    }
+  },
+  {
+    "stage": "development_calibration",
+    "verification": {
+      "daily_rows": 3492384,
+      "files_checked": 3279,
+      "period_rows": 717186,
+      "requested_groups": 36,
+      "scope": "development",
+      "status": "passed"
+    }
+  },
+  {
+    "stage": "final_calibration",
+    "verification": {
+      "daily_rows": 14394240,
+      "files_checked": 3279,
+      "period_rows": 2955960,
+      "requested_groups": 36,
+      "scope": "final",
+      "status": "passed"
+    }
+  },
+  {
+    "stage": "final_test",
+    "verification": {
+      "daily_rows": 4798080,
+      "files_checked": 1095,
+      "period_rows": 985320,
+      "requested_groups": 12,
+      "scope": "final",
+      "status": "passed"
+    }
+  },
+  {
+    "stage": "final_forecast",
+    "verification": {
+      "daily_rows": 4798080,
+      "files_checked": 1083,
+      "period_rows": 985320,
+      "requested_groups": 12,
+      "scope": "final",
+      "status": "passed"
+    }
+  },
+  {
+    "stage": "final_backtest",
+    "verification": {
+      "daily_rows": 14394240,
+      "files_checked": 3279,
+      "period_rows": 2955960,
+      "requested_groups": 36,
+      "scope": "final",
+      "status": "passed"
+    }
+  },
+  {
+    "stage": "development_predeclared_calibration",
+    "verification": {
+      "daily_rows": 3492384,
+      "files_checked": 3279,
+      "period_rows": 717186,
+      "requested_groups": 36,
+      "scope": "development",
+      "status": "passed"
+    }
+  },
+  {
+    "stage": "final_predeclared_calibration",
+    "verification": {
+      "daily_rows": 14394240,
+      "files_checked": 3280,
+      "period_rows": 2955960,
+      "requested_groups": 36,
+      "scope": "final",
+      "status": "passed"
+    }
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "leaf_count": 5000,
+  "node_ids": [
+    "L08:[\"CA_1\",\"FOODS\"]",
+    "L08:[\"CA_1\",\"HOBBIES\"]",
+    "L08:[\"CA_1\",\"HOUSEHOLD\"]",
+    "L08:[\"CA_2\",\"FOODS\"]",
+    "L08:[\"CA_2\",\"HOBBIES\"]",
+    "L08:[\"CA_2\",\"HOUSEHOLD\"]",
+    "L08:[\"CA_3\",\"FOODS\"]",
+    "L08:[\"CA_3\",\"HOBBIES\"]",
+    "L08:[\"CA_3\",\"HOUSEHOLD\"]",
+    "L08:[\"CA_4\",\"FOODS\"]",
+    "L08:[\"CA_4\",\"HOBBIES\"]",
+    "L08:[\"CA_4\",\"HOUSEHOLD\"]"
+  ]
+}

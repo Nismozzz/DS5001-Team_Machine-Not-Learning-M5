@@ -1,0 +1,1026 @@
+{
+  "predictions/calibration_1745/L01/baseline_events.json": {
+    "sha256": "8d578e534a22c77775e17acb26f7f182a015910a64052725595db0934b3a0947",
+    "bytes": 489
+  },
+  "predictions/calibration_1745/L01/coverage.json": {
+    "sha256": "2e7031061fb702581c27664972fc1ac9b64181bd7910a25bcb99a243d3239663",
+    "bytes": 65
+  },
+  "predictions/calibration_1745/L01/daily.parquet": {
+    "sha256": "e42202ec15dde080fe0e48bbed54aceb8e995fb6c6b67daad195f926bcf2a95e",
+    "bytes": 17747
+  },
+  "predictions/calibration_1745/L01/diagnostics.json": {
+    "sha256": "f04dc8dedb104f4a4395d1eeba8cff11dca317107316f88f9f4df83afe21baaf",
+    "bytes": 864
+  },
+  "predictions/calibration_1745/L01/metrics.json": {
+    "sha256": "509c8b95e6eec40b67ef5b772dd3ce9bf3b7d3e9e486d49915c596fead89e355",
+    "bytes": 1365
+  },
+  "predictions/calibration_1745/L01/period.parquet": {
+    "sha256": "2bd8fccefd3a11f0584a269122a5722ce6b1f1b8dce878f258e3d53324941c48",
+    "bytes": 11129
+  },
+  "predictions/calibration_1745/L01/residuals.parquet": {
+    "sha256": "59f19a740a557cf944ee2d7b475e2dc6d1f01a5ff299505f3e05f48eae840e5a",
+    "bytes": 11592
+  },
+  "predictions/calibration_1745/L02/baseline_events.json": {
+    "sha256": "76b480f746e506ed6ac43237f18dc235a239e20dff1f209c70310c916b4806ce",
+    "bytes": 507
+  },
+  "predictions/calibration_1745/L02/coverage.json": {
+    "sha256": "4075fb0b0151a04ae0ff0cfe849348d1e40f6243243b2a22398eaf2f283e2c52",
+    "bytes": 71
+  },
+  "predictions/calibration_1745/L02/daily.parquet": {
+    "sha256": "46655b7c9956cb4c2f7e4db65ad0ebba6fdc0f8dc69a7f27ea99e0b0956a6051",
+    "bytes": 17767
+  },
+  "predictions/calibration_1745/L02/diagnostics.json": {
+    "sha256": "cb5f6e29e38eeb3c81d030cab874630bada1f716915d2bd1f4ea95b53f22b6ca",
+    "bytes": 864
+  },
+  "predictions/calibration_1745/L02/metrics.json": {
+    "sha256": "03a4bd3d31eb3b96378e579827120bc373467ffe51c43febcce5f9ad259bed3a",
+    "bytes": 1365
+  },
+  "predictions/calibration_1745/L02/period.parquet": {
+    "sha256": "53f237b0bca4b2d0f97121734851b4851839bffbcc3637f58ab5392a07aee44c",
+    "bytes": 11149
+  },
+  "predictions/calibration_1745/L02/residuals.parquet": {
+    "sha256": "f9b326c8a48ea3458d280f87c3fe313911cf58adab0116f3196262bd46e0a2ea",
+    "bytes": 11612
+  },
+  "predictions/calibration_1745/L03/baseline_events.json": {
+    "sha256": "c72649d295978ca70c005b160524c157b36dff9580edafac99071d2c29647f65",
+    "bytes": 2037
+  },
+  "predictions/calibration_1745/L03/coverage.json": {
+    "sha256": "d1a6466e098dab78f68bf5c427a1b061ea2ed528a5c1712f76a6ba69d8e8965b",
+    "bytes": 142
+  },
+  "predictions/calibration_1745/L03/daily.parquet": {
+    "sha256": "4bbb3bb56165278d3dc36de15c798c48ee0b267c3e2b214b8836d94f49d66d3d",
+    "bytes": 27102
+  },
+  "predictions/calibration_1745/L03/diagnostics.json": {
+    "sha256": "0e5aa87d96a5a8434f9b43efdc569ea83df0d016ec43a2eed586a33e91f23c86",
+    "bytes": 867
+  },
+  "predictions/calibration_1745/L03/metrics.json": {
+    "sha256": "7aa39747bc33c00e72d6c708a97e401dcdcbc1f61e7e9ab271045d95e3528af1",
+    "bytes": 1364
+  },
+  "predictions/calibration_1745/L03/period.parquet": {
+    "sha256": "948ec0acc7fccd26b5da21602a8fffd472c870e3aab4685c93227ee5d8c2adad",
+    "bytes": 11416
+  },
+  "predictions/calibration_1745/L03/residuals.parquet": {
+    "sha256": "6d03428cabf9409a666e9396e981775de530d780fd0f677a04f54cebc53a494b",
+    "bytes": 15213
+  },
+  "predictions/calibration_1745/L04/baseline_events.json": {
+    "sha256": "e0d6d5532dfc25e6586f6949910d21a792f6f2e831222328a893a86ad71b6be9",
+    "bytes": 1556
+  },
+  "predictions/calibration_1745/L04/coverage.json": {
+    "sha256": "57721f9f2d40407e4477f9d981eed575347d2ad2d2ba0a3a4d211468ba7e6e83",
+    "bytes": 128
+  },
+  "predictions/calibration_1745/L04/daily.parquet": {
+    "sha256": "7b9cb53a702a6b489beaaae5a3d7ebf928dc4409b65fb6543ea61b015db617e3",
+    "bytes": 24199
+  },
+  "predictions/calibration_1745/L04/diagnostics.json": {
+    "sha256": "c046039e36171b64cd76643b28f529910a8c6b9cb9c64cf32302de507237889d",
+    "bytes": 868
+  },
+  "predictions/calibration_1745/L04/metrics.json": {
+    "sha256": "ad6eb0e9f26f849a7b12ef3c6020955a3001f163818a750f680f2c141553e182",
+    "bytes": 1363
+  },
+  "predictions/calibration_1745/L04/period.parquet": {
+    "sha256": "423f6762ce6da57d0a1da14fdb896fe45a355227b9778e522f4e7f238b7876f3",
+    "bytes": 11401
+  },
+  "predictions/calibration_1745/L04/residuals.parquet": {
+    "sha256": "93648b954ed2f4c4944c02fcb4df8e2fc4e18098b5c43e187a5db4a98565e089",
+    "bytes": 14255
+  },
+  "predictions/calibration_1745/L05/baseline_events.json": {
+    "sha256": "d636a51f90479ed4a02b18019635b7aae43089966722aae72eb203f3f1598d29",
+    "bytes": 3660
+  },
+  "predictions/calibration_1745/L05/coverage.json": {
+    "sha256": "748e200615c6c8bcdf406d2069761a4e13ceb92dc8ad8e6ebd8f408f8cc889d3",
+    "bytes": 244
+  },
+  "predictions/calibration_1745/L05/daily.parquet": {
+    "sha256": "fafb32fa26d51f94276d52d5c0ea26ccff68905dffde4dfeaa0cc8a178d1f5c9",
+    "bytes": 35454
+  },
+  "predictions/calibration_1745/L05/diagnostics.json": {
+    "sha256": "f1f01fd59f7bd58efcd73e2e0ac2bda381e3f0366c24e990515ae6134a0ff1b9",
+    "bytes": 868
+  },
+  "predictions/calibration_1745/L05/metrics.json": {
+    "sha256": "ce7283920fa3c37026bcf7641fc078b83d8f2e5ea3a115d3365efee0c69537f2",
+    "bytes": 1365
+  },
+  "predictions/calibration_1745/L05/period.parquet": {
+    "sha256": "b32287c87254f6e6c6bb54e507fd0be2c7e5715f04df0e30c5c89eaec86b3571",
+    "bytes": 11629
+  },
+  "predictions/calibration_1745/L05/residuals.parquet": {
+    "sha256": "265e39aa36e8a505876759b0ca559e1e3e2b888a14c49e000f97fd962be751a2",
+    "bytes": 19068
+  },
+  "predictions/calibration_1745/L06/baseline_events.json": {
+    "sha256": "b88252816938fda9a72c9513c46c10f6a81df6ee3083aab13ff6b8a7b1186adc",
+    "bytes": 1619
+  },
+  "predictions/calibration_1745/L06/coverage.json": {
+    "sha256": "01b0f70eb49871703677ef53d93e9bc4a131d0fef32e529134f00c2c11b44289",
+    "bytes": 149
+  },
+  "predictions/calibration_1745/L06/daily.parquet": {
+    "sha256": "0f7c8ed82f3635d393cb252f5f4c97be26f14c758daeb69b44b56424dd86f304",
+    "bytes": 24225
+  },
+  "predictions/calibration_1745/L06/diagnostics.json": {
+    "sha256": "e896b496bef1c8e0be8edbc346255bdd1607f2c1ec2d9028aa81b5a4808b2ca3",
+    "bytes": 868
+  },
+  "predictions/calibration_1745/L06/metrics.json": {
+    "sha256": "97f48c904dd82feaa64c30d7ded1fc09e0fdc0ace22e71174016137db3b583a9",
+    "bytes": 1363
+  },
+  "predictions/calibration_1745/L06/period.parquet": {
+    "sha256": "5729a30802ec98a7f04e52cca63f3914a2409102fce157314d81d92cd8daab54",
+    "bytes": 11427
+  },
+  "predictions/calibration_1745/L06/residuals.parquet": {
+    "sha256": "5d3db3de5afb5d6d5fc5bef6b18218ec1ed3053b0aaa23e312a939a05a2b0d9c",
+    "bytes": 14281
+  },
+  "predictions/calibration_1745/L07/baseline_events.json": {
+    "sha256": "9a6b2704a12d4e77ddd84c3536fcead54c636657fc8c4c5810a63c59ad328546",
+    "bytes": 3807
+  },
+  "predictions/calibration_1745/L07/coverage.json": {
+    "sha256": "9d4a573ce4db429c2ce0e0335ea7b776b23c3b355e1c6cb21b198a18a459490f",
+    "bytes": 293
+  },
+  "predictions/calibration_1745/L07/daily.parquet": {
+    "sha256": "0f88cc8e2149618db3f8e30ad67bda855a405b7717a78b5a8ce760488979ab01",
+    "bytes": 35479
+  },
+  "predictions/calibration_1745/L07/diagnostics.json": {
+    "sha256": "d309cc78c9f5d9c7746b9c18f02499c97cbf3abfb3cde61fbf4f0ca787fe79fe",
+    "bytes": 868
+  },
+  "predictions/calibration_1745/L07/metrics.json": {
+    "sha256": "204f1178f47de6496dea741a55f476114165310ad24c7e6e9a5b43d8bd8a76d1",
+    "bytes": 1365
+  },
+  "predictions/calibration_1745/L07/period.parquet": {
+    "sha256": "8110a0a4bf91a0de3d405bfa07baacdb04d15d00fd45cd22c013d3224fcfb577",
+    "bytes": 11654
+  },
+  "predictions/calibration_1745/L07/residuals.parquet": {
+    "sha256": "97886319ee3aee8f664255fe6962f9a3c8acee6e3b3ccc1edd80ff34fdb18acb",
+    "bytes": 19093
+  },
+  "predictions/calibration_1745/L08/baseline_events.json": {
+    "sha256": "57471f89ceb533639297a04d6d73dd3ae92e9b6df2c96f45c272eb283707202f",
+    "bytes": 6533
+  },
+  "predictions/calibration_1745/L08/coverage.json": {
+    "sha256": "da15df6f88148f61af9d3cd55c00e8491ebab8145c5191ea26d67ede0f194304",
+    "bytes": 470
+  },
+  "predictions/calibration_1745/L08/daily.parquet": {
+    "sha256": "eef65ac59d759bc2dbea163713ec4e4c4379f1258469bedac991fda6f620178a",
+    "bytes": 49406
+  },
+  "predictions/calibration_1745/L08/diagnostics.json": {
+    "sha256": "4cb8872c08163d51327d9507f87aaa4fd52aff23725da600bcacf2e177299457",
+    "bytes": 869
+  },
+  "predictions/calibration_1745/L08/metrics.json": {
+    "sha256": "e1a6a9c260f771465814f9848688db9ed3da69115423ae14741e642c9b6ffb7c",
+    "bytes": 1368
+  },
+  "predictions/calibration_1745/L08/period.parquet": {
+    "sha256": "a80ecf1922df475c33dafeb76976ef0cda10341dfee016b5e8154dca679a90a4",
+    "bytes": 11744
+  },
+  "predictions/calibration_1745/L08/residuals.parquet": {
+    "sha256": "0bc4af9ee77b7a59f638415b89d87a8bc52cc2665550086b9dfc6336cf3fcfc4",
+    "bytes": 25077
+  },
+  "predictions/calibration_1745/L09/baseline_events.json": {
+    "sha256": "16154f69c0fa87bb5ea8b25590bbbb38a3a28714b32e6f0ed612a364c527ceac",
+    "bytes": 15381
+  },
+  "predictions/calibration_1745/L09/coverage.json": {
+    "sha256": "ecfacc2fa9602cb2577fa26c8c3a85602101faa08129322f178d496b5d06ef96",
+    "bytes": 1078
+  },
+  "predictions/calibration_1745/L09/daily.parquet": {
+    "sha256": "59aa137422128a8cc528b10f037397c711e931272060d4012e8638efb24e4698",
+    "bytes": 93741
+  },
+  "predictions/calibration_1745/L09/diagnostics.json": {
+    "sha256": "5d05b023f078851df903febd43a025e3929734f36858102b0f8494f6735c41ee",
+    "bytes": 873
+  },
+  "predictions/calibration_1745/L09/metrics.json": {
+    "sha256": "f4d7e2b4c93797209ce9d9d6dfd529a7c5cc2c35c7146d320bb72b9244b4d8d2",
+    "bytes": 1364
+  },
+  "predictions/calibration_1745/L09/period.parquet": {
+    "sha256": "63b1c4cb7c2d5c04a4d510d0e29888d05c483867ddb603343ca2fdc639013040",
+    "bytes": 21840
+  },
+  "predictions/calibration_1745/L09/residuals.parquet": {
+    "sha256": "a7f7d6d800049653087ece57d66b5161d203423aa724fb1f2161d12249f53009",
+    "bytes": 43701
+  },
+  "predictions/calibration_1745/L10/baseline_events.json": {
+    "sha256": "5a7eaffec043907536544675c145dc5abc894fa65370c269bf106864733cf1c5",
+    "bytes": 1423565
+  },
+  "predictions/calibration_1745/L10/coverage.json": {
+    "sha256": "08902875764058f0b849a7d5e871b4c0139e1569a063ab6160a31271e00eae82",
+    "bytes": 84658
+  },
+  "predictions/calibration_1745/L10/daily.parquet": {
+    "sha256": "3fa9ec5c34f84aa689ea58c9f6f2fd32c34425ebb8eca47eb8ac67e28673c9ac",
+    "bytes": 4543310
+  },
+  "predictions/calibration_1745/L10/diagnostics.json": {
+    "sha256": "ac325e3256ec0a661c1882aad1a99e793e757a2e8431e44b7f9c9f0b6eed97e2",
+    "bytes": 889
+  },
+  "predictions/calibration_1745/L10/metrics.json": {
+    "sha256": "4f9afa8ec7d7325731918f054efca8cbd85baeabfed414030f2f42e6400365eb",
+    "bytes": 1388
+  },
+  "predictions/calibration_1745/L10/period.parquet": {
+    "sha256": "ee663fe7a65520e6a1a346459c9432499e6d75d6ad9fcd40f9a78b45ff347e2f",
+    "bytes": 1138952
+  },
+  "predictions/calibration_1745/L10/residuals.parquet": {
+    "sha256": "b66f0d7fcde82fd5ff17b4d5a2a77ceaa677ebb2c5dba607212b14d6a6f6915e",
+    "bytes": 2627798
+  },
+  "predictions/calibration_1745/L11/baseline_events.json": {
+    "sha256": "0c99e0bc86f2125c6caef270d7133521ca403b44c5e5a882ab75bec14c827636",
+    "bytes": 1479509
+  },
+  "predictions/calibration_1745/L11/coverage.json": {
+    "sha256": "81169a6fa567db8873272b744b80320814fe59fda2e36dbdbb27ec2c9dba55c2",
+    "bytes": 103306
+  },
+  "predictions/calibration_1745/L11/daily.parquet": {
+    "sha256": "3fd9daca06a53074d4f69c04c725234416522159abfe9646f9af259c32434c7a",
+    "bytes": 4543291
+  },
+  "predictions/calibration_1745/L11/diagnostics.json": {
+    "sha256": "f47519cc002f18c586c496caca83dd1f39487eed3f5fd34d94189a63752f76eb",
+    "bytes": 889
+  },
+  "predictions/calibration_1745/L11/metrics.json": {
+    "sha256": "6a9549fe08611979d1b0023937b85e7c19ca9f8179144b0c1051c454a2590815",
+    "bytes": 1388
+  },
+  "predictions/calibration_1745/L11/period.parquet": {
+    "sha256": "35164b2a2f6d7b3ef5c55385bd6f2fd3cf62590297d39b7a0226d3936748d4ff",
+    "bytes": 1138933
+  },
+  "predictions/calibration_1745/L11/residuals.parquet": {
+    "sha256": "dcedbd76c040a0c438960cf4a457e862a1e9a43036a9a72d9a14c2a68c7e96e7",
+    "bytes": 2627779
+  },
+  "predictions/calibration_1745/L12/baseline_events.json": {
+    "sha256": "074e953db1e40597af49398069aa23af2bcc4fa641cabc2e47316de0fe6c4e0f",
+    "bytes": 2807017
+  },
+  "predictions/calibration_1745/L12/coverage.json": {
+    "sha256": "dc60581172d3d1846544f821ac3eef99e2e1c5ca4db6c0c2f4877c4e4253e65c",
+    "bytes": 203846
+  },
+  "predictions/calibration_1745/L12/daily.parquet": {
+    "sha256": "0f433c4fb12d20ac097e9b79e0e0f988f1396e529f1eb65ec775db1ccc55a3f4",
+    "bytes": 7540972
+  },
+  "predictions/calibration_1745/L12/diagnostics.json": {
+    "sha256": "03438b129c26c93fa3c69543b19110845699e34f7762784a5f42b7c733da7515",
+    "bytes": 1183
+  },
+  "predictions/calibration_1745/L12/metrics.json": {
+    "sha256": "1986e0c6233d153af19bbeb234de2ba506e838dd71b18558ee12bc1736ed78c8",
+    "bytes": 1398
+  },
+  "predictions/calibration_1745/L12/period.parquet": {
+    "sha256": "adbcb97ce000f5c767a11c3a0bb0f1ea24dfc222ce6c627979813a54ca81806e",
+    "bytes": 2142121
+  },
+  "predictions/calibration_1745/L12/residuals.parquet": {
+    "sha256": "7d546d72ccaa123fdeeff748813ef84add5dcd4eb46557c6db388ddc8fcd4250",
+    "bytes": 4030797
+  },
+  "predictions/calibration_1773/L01/baseline_events.json": {
+    "sha256": "8d578e534a22c77775e17acb26f7f182a015910a64052725595db0934b3a0947",
+    "bytes": 489
+  },
+  "predictions/calibration_1773/L01/coverage.json": {
+    "sha256": "2e7031061fb702581c27664972fc1ac9b64181bd7910a25bcb99a243d3239663",
+    "bytes": 65
+  },
+  "predictions/calibration_1773/L01/daily.parquet": {
+    "sha256": "14c399e016bfcf3e7d215ad5db1dfb33bb316b13fd1e4844d8f2facf9ecfa780",
+    "bytes": 17874
+  },
+  "predictions/calibration_1773/L01/diagnostics.json": {
+    "sha256": "4e326aea964284757d25efae027e2175da06d210d068e9be837fd3d3cb40e5bf",
+    "bytes": 866
+  },
+  "predictions/calibration_1773/L01/metrics.json": {
+    "sha256": "30729c54e5538e8d4541bbc9bfbf29fccce7a068ca00728f1a15766b06905199",
+    "bytes": 1361
+  },
+  "predictions/calibration_1773/L01/period.parquet": {
+    "sha256": "cf21aadbd2fe4d24c051b604120a1e6d54d3b15b2ef72f42a9738166c098a6cf",
+    "bytes": 11129
+  },
+  "predictions/calibration_1773/L01/residuals.parquet": {
+    "sha256": "0fefbff5a98ba35bbb27451de01ace0ded4099d996bddf02859f5eb4d23e60bc",
+    "bytes": 11601
+  },
+  "predictions/calibration_1773/L02/baseline_events.json": {
+    "sha256": "76b480f746e506ed6ac43237f18dc235a239e20dff1f209c70310c916b4806ce",
+    "bytes": 507
+  },
+  "predictions/calibration_1773/L02/coverage.json": {
+    "sha256": "4075fb0b0151a04ae0ff0cfe849348d1e40f6243243b2a22398eaf2f283e2c52",
+    "bytes": 71
+  },
+  "predictions/calibration_1773/L02/daily.parquet": {
+    "sha256": "a8a6d1f904e70db47b564d2764f5b6c62021feea94fdbd12c7a3658d4e273274",
+    "bytes": 17894
+  },
+  "predictions/calibration_1773/L02/diagnostics.json": {
+    "sha256": "54f273263baaa3efb240874b6ab7cad07731e3c86be3307bdee40e00b96e7fe3",
+    "bytes": 866
+  },
+  "predictions/calibration_1773/L02/metrics.json": {
+    "sha256": "2752243aec93ce9f3396b3f8f742f38dc22662bebf95aa5f2efead83045d062a",
+    "bytes": 1361
+  },
+  "predictions/calibration_1773/L02/period.parquet": {
+    "sha256": "6870e4e78e59d77f081822840ca2d24178266c8bd8a1b564192d94c827f04f34",
+    "bytes": 11149
+  },
+  "predictions/calibration_1773/L02/residuals.parquet": {
+    "sha256": "76bb7e47bfc755563de7288380fd2fdc65c1e27e581c5080528e12416a5c30f7",
+    "bytes": 11621
+  },
+  "predictions/calibration_1773/L03/baseline_events.json": {
+    "sha256": "c72649d295978ca70c005b160524c157b36dff9580edafac99071d2c29647f65",
+    "bytes": 2037
+  },
+  "predictions/calibration_1773/L03/coverage.json": {
+    "sha256": "d1a6466e098dab78f68bf5c427a1b061ea2ed528a5c1712f76a6ba69d8e8965b",
+    "bytes": 142
+  },
+  "predictions/calibration_1773/L03/daily.parquet": {
+    "sha256": "6ac9f1de40dba8c1a4e48e96ef65ba8d75c566d4b025b5ddb4c2caef3671d33b",
+    "bytes": 27122
+  },
+  "predictions/calibration_1773/L03/diagnostics.json": {
+    "sha256": "5d3316f665bd4821da2534cc410bb4fa0bba73e7482216abf06c1a9bcabec55a",
+    "bytes": 867
+  },
+  "predictions/calibration_1773/L03/metrics.json": {
+    "sha256": "2f01036843c54acd091a961a62bbcb07ad114790007a13746436bcd2510978d1",
+    "bytes": 1366
+  },
+  "predictions/calibration_1773/L03/period.parquet": {
+    "sha256": "5cbb26fa7bcd162ba1f0f3da65b60477c786e6a3fe3d7573da0cc6b5911190ce",
+    "bytes": 11422
+  },
+  "predictions/calibration_1773/L03/residuals.parquet": {
+    "sha256": "c0f51ff31ce9df13a49ea2410dc4888be97adc27444d6827876b6966f68bed98",
+    "bytes": 15234
+  },
+  "predictions/calibration_1773/L04/baseline_events.json": {
+    "sha256": "e0d6d5532dfc25e6586f6949910d21a792f6f2e831222328a893a86ad71b6be9",
+    "bytes": 1556
+  },
+  "predictions/calibration_1773/L04/coverage.json": {
+    "sha256": "57721f9f2d40407e4477f9d981eed575347d2ad2d2ba0a3a4d211468ba7e6e83",
+    "bytes": 128
+  },
+  "predictions/calibration_1773/L04/daily.parquet": {
+    "sha256": "f3a48be5c0c6f9fa0b9a82816d4b0c26095c2ac7f95a865b885c84cd372fdf74",
+    "bytes": 24480
+  },
+  "predictions/calibration_1773/L04/diagnostics.json": {
+    "sha256": "e5e0b5263afc5c2895530353d146a4ed81c2c9b0fd11ce14293c57e48aadf663",
+    "bytes": 867
+  },
+  "predictions/calibration_1773/L04/metrics.json": {
+    "sha256": "daa43c4aa7adf7d2cbff6d3d429a2a410783a68e784f17b6cb64f0780480c753",
+    "bytes": 1363
+  },
+  "predictions/calibration_1773/L04/period.parquet": {
+    "sha256": "651f7d71a07f8cc7373598b796b4d8410e9ecc9fb0cd26624a7e35601b5eec33",
+    "bytes": 11403
+  },
+  "predictions/calibration_1773/L04/residuals.parquet": {
+    "sha256": "eca9d23c874d946e079cee15fe199ea4d68200db02b02132987b1ac7a035d093",
+    "bytes": 14267
+  },
+  "predictions/calibration_1773/L05/baseline_events.json": {
+    "sha256": "d636a51f90479ed4a02b18019635b7aae43089966722aae72eb203f3f1598d29",
+    "bytes": 3660
+  },
+  "predictions/calibration_1773/L05/coverage.json": {
+    "sha256": "748e200615c6c8bcdf406d2069761a4e13ceb92dc8ad8e6ebd8f408f8cc889d3",
+    "bytes": 244
+  },
+  "predictions/calibration_1773/L05/daily.parquet": {
+    "sha256": "62e07641ab707d43dcf763b4d7f6e9ce3d2ae179a15bca0a836a1ac74a7783cd",
+    "bytes": 35600
+  },
+  "predictions/calibration_1773/L05/diagnostics.json": {
+    "sha256": "73f2c5ca9510631e3e94af0deccc43bb9fe1499eb70186821fe5eec0fc2bdd21",
+    "bytes": 868
+  },
+  "predictions/calibration_1773/L05/metrics.json": {
+    "sha256": "28cb242f0439aad6078449c9f8add16dd52115faba3a619bc02968d76c2af1a0",
+    "bytes": 1362
+  },
+  "predictions/calibration_1773/L05/period.parquet": {
+    "sha256": "1b129b971622741d0afb186173c75073de3405300a8bbc6eb0133b2cf0b3085b",
+    "bytes": 11627
+  },
+  "predictions/calibration_1773/L05/residuals.parquet": {
+    "sha256": "93b732c8d2875d22ed735792dea32649cdd268f27dc9f36a19ed57e1107f06d8",
+    "bytes": 19164
+  },
+  "predictions/calibration_1773/L06/baseline_events.json": {
+    "sha256": "b88252816938fda9a72c9513c46c10f6a81df6ee3083aab13ff6b8a7b1186adc",
+    "bytes": 1619
+  },
+  "predictions/calibration_1773/L06/coverage.json": {
+    "sha256": "01b0f70eb49871703677ef53d93e9bc4a131d0fef32e529134f00c2c11b44289",
+    "bytes": 149
+  },
+  "predictions/calibration_1773/L06/daily.parquet": {
+    "sha256": "ebc5ca599aff49f3344fca598cbe4df756a6fa6876dc3ec6ef5d20c7e387d870",
+    "bytes": 24506
+  },
+  "predictions/calibration_1773/L06/diagnostics.json": {
+    "sha256": "ae7689e2b4684ad7726fb601855f2eee5138dc2763cc64d585ff086f016b0ab4",
+    "bytes": 867
+  },
+  "predictions/calibration_1773/L06/metrics.json": {
+    "sha256": "a210181a92b7b7a98910edf8542f8d4010306fe3d089dd0085b82f6479cfe720",
+    "bytes": 1363
+  },
+  "predictions/calibration_1773/L06/period.parquet": {
+    "sha256": "a2ad1f7149f6681c5a3cf7ade74361412381d628420337dd9d5cdab67f614cba",
+    "bytes": 11429
+  },
+  "predictions/calibration_1773/L06/residuals.parquet": {
+    "sha256": "b6b376b29d2dcf12886166fad4fee2ce1f718a4c362c548e58300b71971449a4",
+    "bytes": 14293
+  },
+  "predictions/calibration_1773/L07/baseline_events.json": {
+    "sha256": "9a6b2704a12d4e77ddd84c3536fcead54c636657fc8c4c5810a63c59ad328546",
+    "bytes": 3807
+  },
+  "predictions/calibration_1773/L07/coverage.json": {
+    "sha256": "9d4a573ce4db429c2ce0e0335ea7b776b23c3b355e1c6cb21b198a18a459490f",
+    "bytes": 293
+  },
+  "predictions/calibration_1773/L07/daily.parquet": {
+    "sha256": "63ae261e32d0a913815691f1af026a1fbae52368aa6536f3915e7939722ea5c6",
+    "bytes": 35625
+  },
+  "predictions/calibration_1773/L07/diagnostics.json": {
+    "sha256": "f0669f9e00bafe795e559036ac1e9700dad2594eb40b6deac7a01b35fd40220f",
+    "bytes": 868
+  },
+  "predictions/calibration_1773/L07/metrics.json": {
+    "sha256": "8bc0ca65a1c13f49b669e49d7b33db715a84335969d0edd46d9b8e6274e5875e",
+    "bytes": 1362
+  },
+  "predictions/calibration_1773/L07/period.parquet": {
+    "sha256": "e1d790bfadc40db43083e6fbd8fe8a1f68a0be0a8dd0875e7e405ec4142843b4",
+    "bytes": 11652
+  },
+  "predictions/calibration_1773/L07/residuals.parquet": {
+    "sha256": "144670fb257f5a51270525d7071d79fb328e8fbca555cf88203d2d781d763295",
+    "bytes": 19189
+  },
+  "predictions/calibration_1773/L08/baseline_events.json": {
+    "sha256": "57471f89ceb533639297a04d6d73dd3ae92e9b6df2c96f45c272eb283707202f",
+    "bytes": 6533
+  },
+  "predictions/calibration_1773/L08/coverage.json": {
+    "sha256": "da15df6f88148f61af9d3cd55c00e8491ebab8145c5191ea26d67ede0f194304",
+    "bytes": 470
+  },
+  "predictions/calibration_1773/L08/daily.parquet": {
+    "sha256": "75bc64857cf36ff0a8a79243abd60b9d5d3f8cad272cb02e2ebbee9488b1c590",
+    "bytes": 49203
+  },
+  "predictions/calibration_1773/L08/diagnostics.json": {
+    "sha256": "33cba6eb9418a466e83a50a51f42360c2460cfb6c7ab568f36223d466affaa81",
+    "bytes": 868
+  },
+  "predictions/calibration_1773/L08/metrics.json": {
+    "sha256": "078c41011178f05ff51472da3ded273f74abd0b130f2443d54b058c1fb4e6267",
+    "bytes": 1368
+  },
+  "predictions/calibration_1773/L08/period.parquet": {
+    "sha256": "48c824f21fa3d0081a28414e1b97fa99029dcf8e8b41778a555049e3c5511a1d",
+    "bytes": 11730
+  },
+  "predictions/calibration_1773/L08/residuals.parquet": {
+    "sha256": "375ddd00a575c82cfb6c722d94199a979b04762c44d16ebc2e7787d5ca3de060",
+    "bytes": 25056
+  },
+  "predictions/calibration_1773/L09/baseline_events.json": {
+    "sha256": "16154f69c0fa87bb5ea8b25590bbbb38a3a28714b32e6f0ed612a364c527ceac",
+    "bytes": 15381
+  },
+  "predictions/calibration_1773/L09/coverage.json": {
+    "sha256": "ecfacc2fa9602cb2577fa26c8c3a85602101faa08129322f178d496b5d06ef96",
+    "bytes": 1078
+  },
+  "predictions/calibration_1773/L09/daily.parquet": {
+    "sha256": "34112fb6e6ca76cd73b0afddbb2099c5784edc4c2a7d575840747adc2d78f016",
+    "bytes": 92694
+  },
+  "predictions/calibration_1773/L09/diagnostics.json": {
+    "sha256": "eab4a158eb57b4b369a550a8ecb7e1a13d44cb8dac562489d75be25c5f584728",
+    "bytes": 871
+  },
+  "predictions/calibration_1773/L09/metrics.json": {
+    "sha256": "2a01a5291b9d672e569cd9d130c023465eebdb93b5f8e7f4b5ae0017d02e1a94",
+    "bytes": 1368
+  },
+  "predictions/calibration_1773/L09/period.parquet": {
+    "sha256": "69fc5ccdf67bcefaef321acc676fa47a96778c7aa84c8846d3f5cf8e5244dbb0",
+    "bytes": 21944
+  },
+  "predictions/calibration_1773/L09/residuals.parquet": {
+    "sha256": "d93ee0e035ddeddcde0c17c100817771cc9c626e6942457cfd410fe6850a163e",
+    "bytes": 43474
+  },
+  "predictions/calibration_1773/L10/baseline_events.json": {
+    "sha256": "5a7eaffec043907536544675c145dc5abc894fa65370c269bf106864733cf1c5",
+    "bytes": 1423565
+  },
+  "predictions/calibration_1773/L10/coverage.json": {
+    "sha256": "08902875764058f0b849a7d5e871b4c0139e1569a063ab6160a31271e00eae82",
+    "bytes": 84658
+  },
+  "predictions/calibration_1773/L10/daily.parquet": {
+    "sha256": "1cb533243830b64d6df0684a8f38a6a3a9f5e05b6787b2549f7a5906c6be9c24",
+    "bytes": 4969187
+  },
+  "predictions/calibration_1773/L10/diagnostics.json": {
+    "sha256": "84306f6d7d6c13780bbee8935bc3907ad4708b7b41c01bb3ceb426ed7cf09bb8",
+    "bytes": 891
+  },
+  "predictions/calibration_1773/L10/metrics.json": {
+    "sha256": "465e57ed9c413847cf25f39d017894366d3a301175e289b174226fe50370a555",
+    "bytes": 1387
+  },
+  "predictions/calibration_1773/L10/period.parquet": {
+    "sha256": "7010045dacdbd1a94685c3d3d1d8ec2b4885ba6d5a5583f1f90eb6f369876495",
+    "bytes": 1148482
+  },
+  "predictions/calibration_1773/L10/residuals.parquet": {
+    "sha256": "5877e6250d36074c1a664a619468cf562fe56ab923b48e2115b5964b102e1c61",
+    "bytes": 2625498
+  },
+  "predictions/calibration_1773/L11/baseline_events.json": {
+    "sha256": "0c99e0bc86f2125c6caef270d7133521ca403b44c5e5a882ab75bec14c827636",
+    "bytes": 1479509
+  },
+  "predictions/calibration_1773/L11/coverage.json": {
+    "sha256": "81169a6fa567db8873272b744b80320814fe59fda2e36dbdbb27ec2c9dba55c2",
+    "bytes": 103306
+  },
+  "predictions/calibration_1773/L11/daily.parquet": {
+    "sha256": "b1bb19e7a2e5be01c28d3eb404dc26bf285fb8c5508c274108abbd07fa96e331",
+    "bytes": 4969168
+  },
+  "predictions/calibration_1773/L11/diagnostics.json": {
+    "sha256": "7832400df4c2389d7475496aedf2fab05f9e7bc087255e823a2d6f12b5ac876f",
+    "bytes": 891
+  },
+  "predictions/calibration_1773/L11/metrics.json": {
+    "sha256": "b4fda35a2a3bc8391ad7c597eefb44a5ccfc255087b1fae3a1e023df1dda9b80",
+    "bytes": 1387
+  },
+  "predictions/calibration_1773/L11/period.parquet": {
+    "sha256": "5f9d9c70beab61809c866d12a6924717299e3153c0613e4f48c7d22d8501ecf4",
+    "bytes": 1148463
+  },
+  "predictions/calibration_1773/L11/residuals.parquet": {
+    "sha256": "4cde4f9eea00ae4267ecbdeaf0d4e78c1e8413597b346798f0948ac20c1fe716",
+    "bytes": 2625479
+  },
+  "predictions/calibration_1773/L12/baseline_events.json": {
+    "sha256": "13d95216f1c0c01f071ca497767f027180bd829a0395d300a3f0e3dfeb217d79",
+    "bytes": 2807001
+  },
+  "predictions/calibration_1773/L12/coverage.json": {
+    "sha256": "dc60581172d3d1846544f821ac3eef99e2e1c5ca4db6c0c2f4877c4e4253e65c",
+    "bytes": 203846
+  },
+  "predictions/calibration_1773/L12/daily.parquet": {
+    "sha256": "50958662c92c0f07a8d07c77c824e2264f190b7f2e803dc75f92d0fb8bd4afea",
+    "bytes": 7148840
+  },
+  "predictions/calibration_1773/L12/diagnostics.json": {
+    "sha256": "22e5fb133ef1679a7d3d1dc41ec3a8e50b865d84fb5087208b2027dec57dc368",
+    "bytes": 1183
+  },
+  "predictions/calibration_1773/L12/metrics.json": {
+    "sha256": "dda83abb47590aade57b0723f41a49e77453e35b8b9a602cf33f71a9c3914e03",
+    "bytes": 1396
+  },
+  "predictions/calibration_1773/L12/period.parquet": {
+    "sha256": "b60e05e28bbdec1e49cfe8dc44839a7489a227c6880bf935c3435ff17b17a68b",
+    "bytes": 2148172
+  },
+  "predictions/calibration_1773/L12/residuals.parquet": {
+    "sha256": "513957844c67553998143588dfcf3cdaec714ee88f545bfa44db2ae61faef8bf",
+    "bytes": 4022718
+  },
+  "predictions/calibration_1801/L01/baseline_events.json": {
+    "sha256": "8d578e534a22c77775e17acb26f7f182a015910a64052725595db0934b3a0947",
+    "bytes": 489
+  },
+  "predictions/calibration_1801/L01/coverage.json": {
+    "sha256": "2e7031061fb702581c27664972fc1ac9b64181bd7910a25bcb99a243d3239663",
+    "bytes": 65
+  },
+  "predictions/calibration_1801/L01/daily.parquet": {
+    "sha256": "c80bef81c879d6f361c869740d099dfeaf5bed572c2a65c260c2955d72bceb72",
+    "bytes": 17923
+  },
+  "predictions/calibration_1801/L01/diagnostics.json": {
+    "sha256": "16b2c6d6f5b4a600507ff85b0b58e35c38bdcab9b437cba671bc367132ceb058",
+    "bytes": 865
+  },
+  "predictions/calibration_1801/L01/metrics.json": {
+    "sha256": "2090d158cc1af9392782cbcdd19e67e8f3a3cc5d0477c8d17813ad0a3123394f",
+    "bytes": 1362
+  },
+  "predictions/calibration_1801/L01/period.parquet": {
+    "sha256": "efb566613327344d96283415eba3c53dab76436731133a413a31a5af505b70db",
+    "bytes": 11129
+  },
+  "predictions/calibration_1801/L01/residuals.parquet": {
+    "sha256": "dbff358b40844b02d7865f5296014d93e975adaec1fb76c5afb2659061cd96ad",
+    "bytes": 11606
+  },
+  "predictions/calibration_1801/L02/baseline_events.json": {
+    "sha256": "76b480f746e506ed6ac43237f18dc235a239e20dff1f209c70310c916b4806ce",
+    "bytes": 507
+  },
+  "predictions/calibration_1801/L02/coverage.json": {
+    "sha256": "4075fb0b0151a04ae0ff0cfe849348d1e40f6243243b2a22398eaf2f283e2c52",
+    "bytes": 71
+  },
+  "predictions/calibration_1801/L02/daily.parquet": {
+    "sha256": "458ab01adf7ba05693a5d7e01326caa7931877e145fc035ba0e19e25c10d1277",
+    "bytes": 17943
+  },
+  "predictions/calibration_1801/L02/diagnostics.json": {
+    "sha256": "37ec1f81f8022825439bd765883274763eab61f6a16766aa06eeb183f96e9caa",
+    "bytes": 865
+  },
+  "predictions/calibration_1801/L02/metrics.json": {
+    "sha256": "3039164169f58bf2b41f5c369e2772945cfd347dec08a3840e7c9989a924f3b4",
+    "bytes": 1362
+  },
+  "predictions/calibration_1801/L02/period.parquet": {
+    "sha256": "f6fafb10e2343e264ff652ea5f0f7575448cfc03070fb4480fa87411f73609be",
+    "bytes": 11149
+  },
+  "predictions/calibration_1801/L02/residuals.parquet": {
+    "sha256": "9bd73f3f5b713aa9c78aec4862419232e3d5c1612ede0456281dd49977a8eb4e",
+    "bytes": 11626
+  },
+  "predictions/calibration_1801/L03/baseline_events.json": {
+    "sha256": "c72649d295978ca70c005b160524c157b36dff9580edafac99071d2c29647f65",
+    "bytes": 2037
+  },
+  "predictions/calibration_1801/L03/coverage.json": {
+    "sha256": "d1a6466e098dab78f68bf5c427a1b061ea2ed528a5c1712f76a6ba69d8e8965b",
+    "bytes": 142
+  },
+  "predictions/calibration_1801/L03/daily.parquet": {
+    "sha256": "0bf6f1dac553895ddef59f63dd2e31450f54d3a10978000233a98d5ea067a719",
+    "bytes": 27080
+  },
+  "predictions/calibration_1801/L03/diagnostics.json": {
+    "sha256": "6d26dcc41b1cf22f498f957f2154c431e82fd0f5dc058dcd527ba2172c7f3084",
+    "bytes": 867
+  },
+  "predictions/calibration_1801/L03/metrics.json": {
+    "sha256": "8b205940ff84c71ecb2014a8fcd1dcae812800dde277bd7ea922ec2ddea90cd2",
+    "bytes": 1367
+  },
+  "predictions/calibration_1801/L03/period.parquet": {
+    "sha256": "1afa380cd3dab76b106c8cf2fa6981ab493f5dfc137233fa543b565c155fb380",
+    "bytes": 11422
+  },
+  "predictions/calibration_1801/L03/residuals.parquet": {
+    "sha256": "cb096236a08b63ded0bd30ce8a4d61375d305c5fb807447c77b6bfaef19789b2",
+    "bytes": 15147
+  },
+  "predictions/calibration_1801/L04/baseline_events.json": {
+    "sha256": "e0d6d5532dfc25e6586f6949910d21a792f6f2e831222328a893a86ad71b6be9",
+    "bytes": 1556
+  },
+  "predictions/calibration_1801/L04/coverage.json": {
+    "sha256": "57721f9f2d40407e4477f9d981eed575347d2ad2d2ba0a3a4d211468ba7e6e83",
+    "bytes": 128
+  },
+  "predictions/calibration_1801/L04/daily.parquet": {
+    "sha256": "58cec4377ecd856fd897fbde41802e1222c1d0bcf981d8555a14ed7812c5a92f",
+    "bytes": 24517
+  },
+  "predictions/calibration_1801/L04/diagnostics.json": {
+    "sha256": "79f7d0d82259ef50b2b706ead99df8fabfc50826c5a369e0e293300285dc86e5",
+    "bytes": 867
+  },
+  "predictions/calibration_1801/L04/metrics.json": {
+    "sha256": "304b26c97d4a14d63b2e9dbaf7437df389701c1435f34658b2a4c5c1b9b4f711",
+    "bytes": 1361
+  },
+  "predictions/calibration_1801/L04/period.parquet": {
+    "sha256": "9b690acb2f206e858bf48a4b4e200c11463e06ebd6329438d0007263d89d8774",
+    "bytes": 11403
+  },
+  "predictions/calibration_1801/L04/residuals.parquet": {
+    "sha256": "6bc7611d138939a908f9088b14b814b1a5bb6f5637d4d770c2e1297497e9585e",
+    "bytes": 14155
+  },
+  "predictions/calibration_1801/L05/baseline_events.json": {
+    "sha256": "d636a51f90479ed4a02b18019635b7aae43089966722aae72eb203f3f1598d29",
+    "bytes": 3660
+  },
+  "predictions/calibration_1801/L05/coverage.json": {
+    "sha256": "748e200615c6c8bcdf406d2069761a4e13ceb92dc8ad8e6ebd8f408f8cc889d3",
+    "bytes": 244
+  },
+  "predictions/calibration_1801/L05/daily.parquet": {
+    "sha256": "c97442e65f80a5424c8e43779ba4126fe53961bf8ffa554f3c2b29ddcb7d1dbf",
+    "bytes": 35343
+  },
+  "predictions/calibration_1801/L05/diagnostics.json": {
+    "sha256": "9ab410308f1e54c2d2d026fc5542832de9f1aaf081bd06055d5de35fd64b627e",
+    "bytes": 868
+  },
+  "predictions/calibration_1801/L05/metrics.json": {
+    "sha256": "9c5a5ed1e0dcee4ec1bcf293aad5c79e37f994ededaa2c4ad8de51ebd354fbf0",
+    "bytes": 1366
+  },
+  "predictions/calibration_1801/L05/period.parquet": {
+    "sha256": "1d50a41252445f074821bf18b6ba8aa17e50d480b21ec972e017b8f9c4f48c45",
+    "bytes": 11627
+  },
+  "predictions/calibration_1801/L05/residuals.parquet": {
+    "sha256": "128d1aa84834f34970b0fbefd4c8d566057452fe0977d5cc44defaf4bf374bec",
+    "bytes": 19048
+  },
+  "predictions/calibration_1801/L06/baseline_events.json": {
+    "sha256": "b88252816938fda9a72c9513c46c10f6a81df6ee3083aab13ff6b8a7b1186adc",
+    "bytes": 1619
+  },
+  "predictions/calibration_1801/L06/coverage.json": {
+    "sha256": "01b0f70eb49871703677ef53d93e9bc4a131d0fef32e529134f00c2c11b44289",
+    "bytes": 149
+  },
+  "predictions/calibration_1801/L06/daily.parquet": {
+    "sha256": "2abe66db1ed23d328cd5044c52a563da444671a98a845636dedb042f7d317990",
+    "bytes": 24543
+  },
+  "predictions/calibration_1801/L06/diagnostics.json": {
+    "sha256": "944f083bd62681fbf607d2095866d277bc705c999b4f4c52a2a84670a812ddbe",
+    "bytes": 867
+  },
+  "predictions/calibration_1801/L06/metrics.json": {
+    "sha256": "ce8cac85d5ee0691439bbcbd67d837d50e233bddfde3f1813d3f451afc365e84",
+    "bytes": 1361
+  },
+  "predictions/calibration_1801/L06/period.parquet": {
+    "sha256": "fdc82e5c12ce2623e079b6049a8761315c8fd159effb14e5210ca5c9e1d0b1e7",
+    "bytes": 11429
+  },
+  "predictions/calibration_1801/L06/residuals.parquet": {
+    "sha256": "a3f27ca75f4899685758c8aae2682509a6d1c48adc641a542fbbef06fa12110d",
+    "bytes": 14181
+  },
+  "predictions/calibration_1801/L07/baseline_events.json": {
+    "sha256": "9a6b2704a12d4e77ddd84c3536fcead54c636657fc8c4c5810a63c59ad328546",
+    "bytes": 3807
+  },
+  "predictions/calibration_1801/L07/coverage.json": {
+    "sha256": "9d4a573ce4db429c2ce0e0335ea7b776b23c3b355e1c6cb21b198a18a459490f",
+    "bytes": 293
+  },
+  "predictions/calibration_1801/L07/daily.parquet": {
+    "sha256": "7587b385ddf59ec3bd44927ab62c45c833f86f45e8e3000c32bf87042685caa1",
+    "bytes": 35368
+  },
+  "predictions/calibration_1801/L07/diagnostics.json": {
+    "sha256": "03e8c3eedeb2b72bc127b8eb9001df7b9004ce498b8d640436e475bfd29505ed",
+    "bytes": 867
+  },
+  "predictions/calibration_1801/L07/metrics.json": {
+    "sha256": "afdb16182e5dfe4e9762aa6826cd5f95d5089a14dd036526368348f4a43834c3",
+    "bytes": 1366
+  },
+  "predictions/calibration_1801/L07/period.parquet": {
+    "sha256": "f7807b4745411200e984da14e157392e2be41abe2d965ce08053eb40600871d2",
+    "bytes": 11652
+  },
+  "predictions/calibration_1801/L07/residuals.parquet": {
+    "sha256": "7be943bf535cfe399b582ff588122e4a4b043e3cd83e0691e8923129ffa9a7e6",
+    "bytes": 19073
+  },
+  "predictions/calibration_1801/L08/baseline_events.json": {
+    "sha256": "57471f89ceb533639297a04d6d73dd3ae92e9b6df2c96f45c272eb283707202f",
+    "bytes": 6533
+  },
+  "predictions/calibration_1801/L08/coverage.json": {
+    "sha256": "da15df6f88148f61af9d3cd55c00e8491ebab8145c5191ea26d67ede0f194304",
+    "bytes": 470
+  },
+  "predictions/calibration_1801/L08/daily.parquet": {
+    "sha256": "41116d28f3b8bec9397ef4dac7f604cd45e65f2d433834577f1325a732794f1a",
+    "bytes": 49152
+  },
+  "predictions/calibration_1801/L08/diagnostics.json": {
+    "sha256": "bc0cf88e49b91af3307bd896c08b8340feaf436f7e535f04bbbca2544dcf4c67",
+    "bytes": 868
+  },
+  "predictions/calibration_1801/L08/metrics.json": {
+    "sha256": "7316a6e60c7a76a69ae737c8d0427e103ee2acc807fdc5cb1bd89b2cd1abbfb9",
+    "bytes": 1364
+  },
+  "predictions/calibration_1801/L08/period.parquet": {
+    "sha256": "080fbd7c8da7eedac596e38e8da7c471656cca4880640fb2428370fe081cb96d",
+    "bytes": 11732
+  },
+  "predictions/calibration_1801/L08/residuals.parquet": {
+    "sha256": "c6ee915b07045ef1054e476221d8ff65d02955c65d62f234fa9fdf6eb28f4d0f",
+    "bytes": 24970
+  },
+  "predictions/calibration_1801/L09/baseline_events.json": {
+    "sha256": "16154f69c0fa87bb5ea8b25590bbbb38a3a28714b32e6f0ed612a364c527ceac",
+    "bytes": 15381
+  },
+  "predictions/calibration_1801/L09/coverage.json": {
+    "sha256": "ecfacc2fa9602cb2577fa26c8c3a85602101faa08129322f178d496b5d06ef96",
+    "bytes": 1078
+  },
+  "predictions/calibration_1801/L09/daily.parquet": {
+    "sha256": "01394bedf9402046144b7f0228fe7b288bacb107b9ae213827ea422a8840ed2c",
+    "bytes": 92748
+  },
+  "predictions/calibration_1801/L09/diagnostics.json": {
+    "sha256": "710fd55fadc7777017641446dd02bfa99f8fe258c00f7de760aab88553e4fd97",
+    "bytes": 873
+  },
+  "predictions/calibration_1801/L09/metrics.json": {
+    "sha256": "8e39b29c941c1adc618abcb637d1b2a4ae9b311fd48eccccccb8bafdba535e7f",
+    "bytes": 1366
+  },
+  "predictions/calibration_1801/L09/period.parquet": {
+    "sha256": "ea2f457db0eabfcfaba09ae7addfebba0c6d9e89ca4e5bea015ee0331fff5cbf",
+    "bytes": 21724
+  },
+  "predictions/calibration_1801/L09/residuals.parquet": {
+    "sha256": "082f19698462a32ed092352212a7c0b1bb97be8c45d837cc58afeba9536265ff",
+    "bytes": 43388
+  },
+  "predictions/calibration_1801/L10/baseline_events.json": {
+    "sha256": "9538abd98e4880cd15088127015b801314ec480c685ee438ac273b9da31d3ac2",
+    "bytes": 1423533
+  },
+  "predictions/calibration_1801/L10/coverage.json": {
+    "sha256": "08902875764058f0b849a7d5e871b4c0139e1569a063ab6160a31271e00eae82",
+    "bytes": 84658
+  },
+  "predictions/calibration_1801/L10/daily.parquet": {
+    "sha256": "8d412c05b6ea7eb7ac76984114b4d58a087f0c94dd3952ec117c4ab6dcd0a9bc",
+    "bytes": 4481661
+  },
+  "predictions/calibration_1801/L10/diagnostics.json": {
+    "sha256": "67d8f4f345acdf161ed5933058c01adf052cd209c9c31af8e93fbece540cadc4",
+    "bytes": 891
+  },
+  "predictions/calibration_1801/L10/metrics.json": {
+    "sha256": "848fa5902e432774998915a2ee9e1ccbe6fc697ed6c2b683cbb2daeeda8d9844",
+    "bytes": 1386
+  },
+  "predictions/calibration_1801/L10/period.parquet": {
+    "sha256": "c7bb6312e6a2befdbfb185263f26cc0817a4c3cd00127135961e933f8c953814",
+    "bytes": 1150361
+  },
+  "predictions/calibration_1801/L10/residuals.parquet": {
+    "sha256": "25a3c711b3b87555ae7b9da532a16f15a4f1c5e9a60233eacc1c0748487b8e79",
+    "bytes": 2567451
+  },
+  "predictions/calibration_1801/L11/baseline_events.json": {
+    "sha256": "2fb00ad0805b6bbdaec2adb34d8e950654fa1a56df52fe603a9b1a0ff56e5747",
+    "bytes": 1479477
+  },
+  "predictions/calibration_1801/L11/coverage.json": {
+    "sha256": "81169a6fa567db8873272b744b80320814fe59fda2e36dbdbb27ec2c9dba55c2",
+    "bytes": 103306
+  },
+  "predictions/calibration_1801/L11/daily.parquet": {
+    "sha256": "635780d81018e8681e5d1bb2bfb4176c6522520d2180cf170a74486f00a86652",
+    "bytes": 4481642
+  },
+  "predictions/calibration_1801/L11/diagnostics.json": {
+    "sha256": "ca67f15fb19836efee1f14fe5d74cb5f1b2db75f04253c6a80b300c1fa7bbe79",
+    "bytes": 891
+  },
+  "predictions/calibration_1801/L11/metrics.json": {
+    "sha256": "f09c7706ebcbbfaaaa07ab21bbd36f2da1d9a186704eb6c25a7e38aadb099a3a",
+    "bytes": 1386
+  },
+  "predictions/calibration_1801/L11/period.parquet": {
+    "sha256": "2a93058be7f0e6bd7161d2716fd300c49cb224db2d1dbf2681676d1ff8ceff1f",
+    "bytes": 1150342
+  },
+  "predictions/calibration_1801/L11/residuals.parquet": {
+    "sha256": "58be3deedcfc4a856ce35b0f8540c3141e59c11bfa4b2146d31e7b761131c98a",
+    "bytes": 2567432
+  },
+  "predictions/calibration_1801/L12/baseline_events.json": {
+    "sha256": "13aea12381e8ac8e78a3645e0d0ea90fc60da73e2b2d46e0a1eae54e46d6ab18",
+    "bytes": 2806953
+  },
+  "predictions/calibration_1801/L12/coverage.json": {
+    "sha256": "dc60581172d3d1846544f821ac3eef99e2e1c5ca4db6c0c2f4877c4e4253e65c",
+    "bytes": 203846
+  },
+  "predictions/calibration_1801/L12/daily.parquet": {
+    "sha256": "b59f1c8963822fadb784c3b9aad2c20a0a1fae3b85e80c47ee3b4aa934ce6e70",
+    "bytes": 7745976
+  },
+  "predictions/calibration_1801/L12/diagnostics.json": {
+    "sha256": "3a770c950e68dec8a5caa709f68c9f7970dd9f3ddc4ea6d33ae5ee79e4af3919",
+    "bytes": 1181
+  },
+  "predictions/calibration_1801/L12/metrics.json": {
+    "sha256": "4bdf766e3c24be4384b59ad53000deb095e25b08eb6644ef21281e4b8bacd69a",
+    "bytes": 1390
+  },
+  "predictions/calibration_1801/L12/period.parquet": {
+    "sha256": "afaad223218849cd042d5e3d8abeca4c9f84aa379de13ce24d4008f6962e32c3",
+    "bytes": 2139399
+  },
+  "predictions/calibration_1801/L12/residuals.parquet": {
+    "sha256": "4d4ff9e064eb76246dcb7632bb3bf26b23585ff6aa3e8f5e665caa5bdfef9a3a",
+    "bytes": 4038929
+  },
+  "run_context.json": {
+    "sha256": "52cb49bfd4328b506ecd06c41e290896a6837c831a441e43ca603095fd30f962",
+    "bytes": 138624
+  },
+  "run_summary.json": {
+    "sha256": "17565505975926bf1ddcaa3b0702d9f438af881341abf3e2300fc637c70a5112",
+    "bytes": 137
+  },
+  "selected_config.json": {
+    "sha256": "decc88e83cd12e8fc72cce99915b140eeb3a0ea70016bd91f5d7c636136761b7",
+    "bytes": 974
+  },
+  "verification_report.json": {
+    "sha256": "a8250df0d3451a8304c2f782c776d68abf4ca9e2391fd8517550a0bb30a753bc",
+    "bytes": 160
+  }
+}

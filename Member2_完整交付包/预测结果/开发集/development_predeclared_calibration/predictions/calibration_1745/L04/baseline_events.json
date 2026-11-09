@@ -1,0 +1,74 @@
+[
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L04:[\"FOODS\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L04:[\"HOBBIES\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "seasonal_naive",
+    "model": "seasonal_naive",
+    "node_id": "L04:[\"HOUSEHOLD\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L04:[\"FOODS\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L04:[\"HOBBIES\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "ets",
+    "model": "ets",
+    "node_id": "L04:[\"HOUSEHOLD\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L04:[\"FOODS\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L04:[\"HOBBIES\"]",
+    "status": "ok",
+    "warnings": []
+  },
+  {
+    "fallback_reason": "",
+    "method_used": "tsb",
+    "model": "tsb",
+    "node_id": "L04:[\"HOUSEHOLD\"]",
+    "status": "ok",
+    "warnings": []
+  }
+]
