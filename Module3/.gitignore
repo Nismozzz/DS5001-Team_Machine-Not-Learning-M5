@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local data and generated artifacts
+data/
+prediction_outputs/
+outputs/
+预测结果/
+诊断结果/
+/hierarchy_nodes_final.parquet
+/leaf_metadata_final.parquet
+/mint_weights.parquet
+/run_context.json
+/verification_report.json
+/交付清单.json
+*.zip
+
+# Editor and OS metadata
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Secrets and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
