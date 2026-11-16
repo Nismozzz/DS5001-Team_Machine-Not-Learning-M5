@@ -1,0 +1,55 @@
+{
+  "schema_version": "m5-module03-v1",
+  "input_contract": "M5 full handoff; external local path omitted",
+  "splits": [
+    "validation_1",
+    "validation_2",
+    "validation_3",
+    "test",
+    "forecast"
+  ],
+  "models": [
+    "seasonal_naive",
+    "ets",
+    "tsb",
+    "lightgbm"
+  ],
+  "daily_quantiles": [
+    0.5,
+    0.9,
+    0.95,
+    0.99
+  ],
+  "hierarchy": {
+    "levels": 12,
+    "nodes": 42840,
+    "leaves": 30490,
+    "memberships": 365880
+  },
+  "mint": {
+    "projection": "S (S' W^-1 S)^-1 S' W^-1",
+    "weight": "diagonal inverse residual variance",
+    "residual_source": "three historical calibration origins",
+    "shrinkage_to_pooled_variance": 0.2,
+    "variance_floor_ratio_to_pooled": 1e-08,
+    "solver": "column-wise preconditioned conjugate gradient",
+    "cg_tolerance": 1e-08,
+    "cg_max_iter": 500,
+    "constraint": "active-set WLS with nonnegative and monotone lower bounds"
+  },
+  "top_down": {
+    "lookback_days": 224,
+    "allocation": "same-weekday historical leaf share"
+  },
+  "randomness": "none; deterministic hierarchy construction and numerical algorithms",
+  "environment": {
+    "python": "3.12.15",
+    "system": "macos",
+    "machine": "arm64",
+    "numpy": "2.5.4",
+    "pandas": "3.1.1",
+    "pyarrow": "26.0.1",
+    "scipy": "1.18.1"
+  },
+  "elapsed_seconds_before_checksums": 157.56
+}

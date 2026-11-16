@@ -1,0 +1,39 @@
+{
+  "checks": [
+    "manifest size and SHA-256",
+    "108 prediction files per split/scheme",
+    "finite and nonnegative forecasts",
+    "daily quantile monotonicity",
+    "forecast period has no labels",
+    "all reconciled point forecasts are coherent to <=1e-7 units"
+  ],
+  "hierarchy": {
+    "leaves": 30490,
+    "memberships": 365880,
+    "nodes": 42840
+  },
+  "manifest_files_checked": 2192,
+  "max_reconciled_additivity_error": 0.0,
+  "models_checked": [
+    "seasonal_naive",
+    "ets",
+    "tsb",
+    "lightgbm"
+  ],
+  "prediction_parquet_files": 2160,
+  "schemes_checked": [
+    "unreconciled",
+    "bottom_up",
+    "top_down",
+    "mint"
+  ],
+  "splits_checked": [
+    "validation_1",
+    "validation_2",
+    "validation_3",
+    "test",
+    "forecast"
+  ],
+  "status": "passed",
+  "unreconciled_max_additivity_error": 6092.567396167891
+}
