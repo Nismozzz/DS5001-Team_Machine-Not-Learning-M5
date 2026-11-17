@@ -1,0 +1,4 @@
+﻿model,reference,tau,cost_ratio,observed_diff_mean,ci95_low,ci95_high,significant,wraps_zero
+ets,seasonal_naive,0.95,5:1,-22.191826105567884,-22.92259934294427,-21.40504802135436,True,False
+tsb,seasonal_naive,0.95,5:1,-28.54723012861092,-29.60188583500156,-27.507987280266757,True,False
+lightgbm,seasonal_naive,0.95,5:1,-57.48149474539517,-59.447298897441144,-55.39222715610426,True,False

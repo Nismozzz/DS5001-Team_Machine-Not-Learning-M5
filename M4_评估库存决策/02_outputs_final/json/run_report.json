@@ -1,0 +1,88 @@
+{
+  "schema_version": "m5-module04-v1",
+  "python": "3.12.16",
+  "pandas": "2.2.3",
+  "numpy": "2.2.6",
+  "pyarrow": "19.0.1",
+  "elapsed_seconds": 1408.64,
+  "forecast_source": "real（M2 全量 30,490 4 窗口）",
+  "data_provenance": {
+    "contract_source": "manifest+series",
+    "truth_source": "parquet",
+    "history_source": "parquet",
+    "strata_source": "parquet",
+    "hierarchy_source": "parquet"
+  },
+  "checks": [
+    {
+      "item": "forecast_metrics.csv 行数 > 0",
+      "passed": true
+    },
+    {
+      "item": "inventory_summary.csv 行数 = 模型×τ×成本比",
+      "passed": true
+    },
+    {
+      "item": "decision_map.csv 行数 > 0",
+      "passed": true
+    },
+    {
+      "item": "成本可从参数重算（相对误差 < 1e-9）",
+      "passed": true
+    },
+    {
+      "item": "τ 单调性无违规",
+      "passed": true
+    },
+    {
+      "item": "bootstrap 使用固定 seed",
+      "passed": true
+    },
+    {
+      "item": "headline τ 的分位覆盖率偏差 < 0.05",
+      "passed": true
+    },
+    {
+      "item": "simulation_parameters.json 可解析",
+      "passed": true
+    },
+    {
+      "item": "inventory_summary_by_window.csv 行数 = 模型×τ×成本比×窗口",
+      "passed": true
+    },
+    {
+      "item": "逐窗口成本之和 = 全窗口成本（相对误差 < 1e-9）",
+      "passed": true
+    },
+    {
+      "item": "τ 选择表覆盖 模型×成本比",
+      "passed": true
+    }
+  ],
+  "replay": {
+    "model": "lightgbm",
+    "tau": 0.95,
+    "cost_ratio": "5:1",
+    "recomputed_total_cost": 3309610.2252129014,
+    "stored_total_cost": 3309610.2252129014,
+    "relative_error": 0.0
+  },
+  "artifact_count": 17,
+  "determinism": {
+    "note": "除两个时间戳字段外，同参数重跑产物字节一致（已实测：notebook 与脚本两条路径绝大部分产物的 SHA-256 完全相同，差异仅来自时间戳与执行耗时）",
+    "timestamp_fields": [
+      "simulation_parameters.json.generated_at",
+      "replay_log.json.checked_at"
+    ]
+  },
+  "pending": [
+    "forecast_source：lightgbm 直读 M2 的 period.parquet；三个基线的 28 天累计分位由本模块用「误差加法」（S = 点预测 + 更早窗口 28 天累计误差的 τ 分位）构造，τ=0.95 实测覆盖率 0.922–0.950，报告须注明「基线累计分位由 M4 补造」；",
+    "日级分位：lightgbm 只有 0.5/0.9/0.95/0.99 四点（M2 的 daily.quantiles 仅此四档），三个基线由点预测按累计层尺度比转成日级分位、23 点齐全；故四模型只在四个共同水平可比，其余 19 个水平只有基线有值，不能跨模型排序；日级与 28 天累计层 23 点口径不同，不可混比；",
+    "decision_map 的层级只有 sku/total/store：模块 03 面板已到位（11/16），但 28 天累计分位未调和、门店层分位系统性偏高（总量层反而略低，q/y 0.96–0.99），故维持三层，部门门店与州层只用点预测口径。",
+    "仿真口径已定（11/16 联调选 A）：L=0、lost sales、首期期初为零且其后各期期初等同上期结转、28 天内不安排中间补货；三方联签只作签字确认，不再改数值。",
+    "每件需求成本已按总需求归一化（cost_per_unit_demand），绝对成本随抽样规模变化，跨组的百分比差异可读、绝对金额不可外推到全量 M5。",
+    "prices 有 20.4% 单元格缺失（NaN≠0）：本模块不读 prices 故不阻塞，但模块 02 做价格特征时需确认前向填充或 has_price 标记。",
+    "mock 分支的 build_strata() 只产 4 类间歇性、缺 no_demand：走真实 parquet 不触发，队友无 parquet 退回 mock 时决策图会少一类。",
+    "【已完成·网格下延】Cu:Co=1:1 与 2:1 的理论最优分位 q*=0.50 / 0.67 原本落在任务卡 τ 网格 0.80–0.99 之外；本轮已把网格下延为 23 点（0.50 / 2/3 / 5/6 + 0.80–0.99 二十点），三个新增点取自 M2 period.parquet 原生 τ，未向模块 02 提新需求。1:1 实测最优 τ 由网格下界 0.80 落到 0.50、2:1 落到 2/3，与 q* 的偏离均为 0.000；5:1、9:1 最优点（0.86 / 0.92）本在网格内部、数值不变；headline τ=0.95 的主表成本、WAPE/MASE、bootstrap 与下延前逐位相同。任务卡 0.80–0.99 的偏离须在报告写明一句。"
+  ]
+}

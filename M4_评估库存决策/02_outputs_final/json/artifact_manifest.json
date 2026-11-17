@@ -1,0 +1,70 @@
+{
+  "bootstrap_summary.csv": {
+    "bytes": 395,
+    "sha256": "9b9bb4b3995d3496c86a9412b88a940fef9212542038916664b858ffd7474cb1"
+  },
+  "coverage_report.csv": {
+    "bytes": 36273,
+    "sha256": "2ded87c4bef53444a21999fab7275c59dcc14b8e819f94b8dffc2910514bfca0"
+  },
+  "crosscheck_equal_coverage.csv": {
+    "bytes": 3080,
+    "sha256": "37246a643e0eafebe66c0923debea79803b7b0493c421c196a4e5b4df1530ff8"
+  },
+  "decision_map.csv": {
+    "bytes": 194248,
+    "sha256": "986387e169b12024057f848a56dfd2394723a34e1a7bdb38bbd6e994d1448b5c"
+  },
+  "figs/fig_cost_curve.png": {
+    "bytes": 164887,
+    "sha256": "ebd8040a25942f8983b0f74ae6a9a311026e6fcae1517c617d74d3f0bd449a59"
+  },
+  "figs/fig_error_cost.png": {
+    "bytes": 37961,
+    "sha256": "9aecdea2dd35cddcaff44bdf0789894f60cbe6259edc54a3f1c9a5b05e7cb946"
+  },
+  "figs/fig_heterogeneity.png": {
+    "bytes": 39414,
+    "sha256": "289ea0af0bd73c8b07d21b330a3b80ec15528ecc417b72e6684bfe56ec7333bc"
+  },
+  "forecast_metrics.csv": {
+    "bytes": 57838,
+    "sha256": "51740b7e230c2a03cbcfedb2ea3ccdd6e7775dd1e6a449623d696f23888116ba"
+  },
+  "handoff_summary.json": {
+    "bytes": 4927,
+    "sha256": "25601db1f1367aa8463b49b9184cf24d529f142412f1d9fb8dcc1b1ed23211cd"
+  },
+  "input_audit.csv": {
+    "bytes": 6155,
+    "sha256": "3d9f0d66466805a1b8e9a52289181f1bddbc589936fe9b4c64895d3cc7802cd4"
+  },
+  "input_signoff.json": {
+    "bytes": 273,
+    "sha256": "d82323a57e9c197a1c3ee8a8f6af166cf2c2244af81f15a177ada7548852a796"
+  },
+  "inventory_by_series.csv": {
+    "bytes": 170234666,
+    "sha256": "434f9d741b9732074554979cdc90e3047e9964983bb2a396bab5aacf6e925dc0"
+  },
+  "inventory_summary.csv": {
+    "bytes": 56933,
+    "sha256": "7c27909df80ea60a9d5940126a737f129ed51caf0df8d0882cc1fcde90f3d8ae"
+  },
+  "inventory_summary_by_window.csv": {
+    "bytes": 203273,
+    "sha256": "121416595ad92274664334966d61fff8bda7f86beeb4df79f0a9e042e7db902d"
+  },
+  "replay_log.json": {
+    "bytes": 1862,
+    "sha256": "2d6acfde6c059611ae3fe1916d8e8182cbcee17b167ae7d2658ef8c8f27759dc"
+  },
+  "simulation_parameters.json": {
+    "bytes": 6437,
+    "sha256": "b5c421602368904fa0803b0e56b493305b12689dae2193004e48c2e13e054c03"
+  },
+  "tau_selection.csv": {
+    "bytes": 1284,
+    "sha256": "881ee5fe49938c4860b1ff535b1ef709cf16323fead9a4253cf36cbb0fa6fa3f"
+  }
+}

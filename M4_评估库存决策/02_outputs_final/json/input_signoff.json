@@ -1,0 +1,10 @@
+{
+  "module": "01_data",
+  "checked_by": "Xiang LI (xli3487)",
+  "scope": "模块 04 对模块 01 交付物的复算复核（协作规则「交叉复核」）",
+  "manifest_entries": 95,
+  "verified": 95,
+  "mismatched": [],
+  "missing": [],
+  "status": "passed"
+}

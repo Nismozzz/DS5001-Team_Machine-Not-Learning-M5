@@ -1,0 +1,232 @@
+{
+  "project": "DSC5001 · Team Machine Not Learning · 模块 04",
+  "owner": "Xiang LI (xli3487)",
+  "generated_at": "2026-11-15T19:53:20",
+  "notebook": "04_evaluate.ipynb",
+  "force_mock_forecast": false,
+  "full_tau_grid": true,
+  "simulation": {
+    "review_period_R": 28,
+    "lead_time_L": 0,
+    "initial_inventory": 0.0,
+    "shortage_rule": "lost sales（未满足需求不后补）",
+    "carry_over_inventory": true,
+    "lead_time_delivery": "周期期初下单、当期立即到货",
+    "order_rule": "S = 该周期 28 天累计需求所选分位数；order = max(0, S - 期初在手库存)",
+    "holding_cost_timing": "期末剩余库存 × Co",
+    "stockout_cost_timing": "周期内未满足数量 × Cu",
+    "fill_rate_definition": "周期内已满足数量 / 实际需求数量（周期级聚合）",
+    "evaluation_mode": "4 期连续仿真（validation_1..3 + test 首尾相接）",
+    "known_approximation": "周期级聚合，不建模周期内逐日缺货时点"
+  },
+  "service_levels": [
+    0.5,
+    0.6666666666666666,
+    0.8333333333333334,
+    0.8,
+    0.81,
+    0.82,
+    0.83,
+    0.84,
+    0.85,
+    0.86,
+    0.87,
+    0.88,
+    0.89,
+    0.9,
+    0.91,
+    0.92,
+    0.93,
+    0.94,
+    0.95,
+    0.96,
+    0.97,
+    0.98,
+    0.99
+  ],
+  "service_levels_full_grid": [
+    0.5,
+    0.6666666666666666,
+    0.8333333333333334,
+    0.8,
+    0.81,
+    0.82,
+    0.83,
+    0.84,
+    0.85,
+    0.86,
+    0.87,
+    0.88,
+    0.89,
+    0.9,
+    0.91,
+    0.92,
+    0.93,
+    0.94,
+    0.95,
+    0.96,
+    0.97,
+    0.98,
+    0.99
+  ],
+  "cost_ratios": {
+    "1:1": {
+      "Cu": 1.0,
+      "Co": 1.0,
+      "critical_fractile_q_star": 0.5
+    },
+    "2:1": {
+      "Cu": 2.0,
+      "Co": 1.0,
+      "critical_fractile_q_star": 0.6667
+    },
+    "5:1": {
+      "Cu": 5.0,
+      "Co": 1.0,
+      "critical_fractile_q_star": 0.8333
+    },
+    "9:1": {
+      "Cu": 9.0,
+      "Co": 1.0,
+      "critical_fractile_q_star": 0.9
+    }
+  },
+  "headline_setting": {
+    "tau": 0.95,
+    "cost_ratio": "5:1"
+  },
+  "single_point_to_cycle_quantile": {
+    "method": "误差加成法：更早窗口 28 天累计误差的 tau 分位（三个基线无分布层，由本模块补造）",
+    "formula": "q_tau_i = max(S_hat_i + Q_tau_m, 0)，Q_tau_m = 更早窗口上 (实际需求 - 点预测累计) 的 tau 分位，按模型分别池化；截断 >=0 并按 tau 强制单调",
+    "x_definition": "e = sum28 y_true - sum28 y_hat，取 origin_d 之前所有已跑完窗口的 (序列, 模型) 累计误差，按模型池化取经验分位",
+    "block_days": 28,
+    "calibration_windows": [
+      1829,
+      1857,
+      1885,
+      1913
+    ],
+    "calibration_prefix_map": {
+      "1829": [
+        1745,
+        1773,
+        1801
+      ],
+      "1857": [
+        1745,
+        1773,
+        1801,
+        1829
+      ],
+      "1885": [
+        1745,
+        1773,
+        1801,
+        1829,
+        1857
+      ],
+      "1913": [
+        1745,
+        1773,
+        1801,
+        1829,
+        1857,
+        1885
+      ]
+    },
+    "calibration_q95_by_window": {
+      "1829": {
+        "ets": 22.05,
+        "lightgbm": 23.73,
+        "seasonal_naive": 26.0,
+        "tsb": 21.82
+      },
+      "1857": {
+        "ets": 24.06,
+        "lightgbm": 24.89,
+        "seasonal_naive": 29.0,
+        "tsb": 23.55
+      },
+      "1885": {
+        "ets": 24.38,
+        "lightgbm": 24.22,
+        "seasonal_naive": 30.0,
+        "tsb": 23.53
+      },
+      "1913": {
+        "ets": 24.5,
+        "lightgbm": 23.92,
+        "seasonal_naive": 30.0,
+        "tsb": 23.65
+      }
+    },
+    "history_window_days": 365,
+    "quantile_rows": 2805080,
+    "fallback_rows": 0,
+    "deterministic": true,
+    "note": "lightgbm 直读 M2 的 period.parquet（23 点直读，不裁网格），不做此转换；三个基线由 M4 补造，举证责任在本模块。已实测淘汰的口径：按序列重采样日残差 0.76–0.80、池化标准化 z 0.77、逐序列训练期块差 0.62、z 分位×σ 还原 0.96–0.98（S 均值达需求 2.9 倍）；最终采用误差分位直接相加，4 窗口 τ=0.95 实测覆盖 0.918–0.950（四模型逐窗口，见 coverage_report.csv）。"
+  },
+  "models": {
+    "all": [
+      "seasonal_naive",
+      "ets",
+      "tsb",
+      "lightgbm"
+    ],
+    "point_only": [
+      "seasonal_naive",
+      "ets",
+      "tsb"
+    ],
+    "native_quantile": [
+      "lightgbm"
+    ],
+    "reference_baseline": "seasonal_naive"
+  },
+  "seed": 5001,
+  "bootstrap": {
+    "method": "paired bootstrap over series",
+    "B": 200,
+    "seed": 5001
+  },
+  "data_provenance": {
+    "contract_source": "manifest+series",
+    "truth_source": "parquet",
+    "history_source": "parquet",
+    "strata_source": "parquet",
+    "forecast_source": "real（M2 全量 30,490 4 窗口）"
+  },
+  "quality_controls": {
+    "coverage_check": {
+      "headline_tau": 0.95,
+      "headline_max_abs_deviation": 0.03179731059363722,
+      "headline_empirical_by_model": {
+        "ets": 0.941,
+        "lightgbm": 0.923,
+        "seasonal_naive": 0.937,
+        "tsb": 0.943
+      },
+      "calibrated_windows": [
+        1829,
+        1857,
+        1885,
+        1913
+      ],
+      "all_tau_max_abs_deviation": 0.09329834918552526,
+      "all_tau_rows_over_0.05": 39,
+      "all_windows_max_abs_deviation": 0.09329834918552526,
+      "first_window": 1829,
+      "low_tau_empirical_min": 0.42338471630042634,
+      "rows_over_0.05_in_low_tau": 39,
+      "rows_over_0.05_in_first_window": 34,
+      "known_limitation": "低 τ（0.80–0.88）的 28 天累计分位偏窄，实测覆盖率最低 0.4234，低于名义值；全部 368 行中 39 行偏差超 0.05，其中 39 行在 τ≤0.88、34 行在首窗口 1829。headline τ=0.95 最大偏差 0.0318 < 0.05，成本主结论不受影响；但 τ<0.90 的成本结论不可用，报告只报 τ≥0.90。"
+    },
+    "negative_forecasts_clipped": 0,
+    "tau_monotonicity_violations": 0,
+    "missing_forecast_cells": 0,
+    "quantile_conversion_fallback_groups": 0,
+    "quantile_conversion_note": "σ 缺失的 (序列, 起点) 组数；这些组的基线分位退化为点预测",
+    "n_series": 30490,
+    "n_cycles": 4
+  }
+}

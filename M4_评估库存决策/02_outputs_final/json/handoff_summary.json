@@ -1,0 +1,79 @@
+{
+  "module": "04 评估、库存仿真与决策图",
+  "owner": "Xiang LI (xli3487)",
+  "suppliers": {
+    "模块01 数据": "Xiaofeng ZHU",
+    "模块02 模型": "Jiaheng LI",
+    "模块03 调和": "Junze LU"
+  },
+  "receiver": "模块05 Jianfeng Lin",
+  "artifacts": {
+    "simulation_parameters.json": "仿真口径与全部参数（R/L/初始库存/lost sales/τ/Cu/Co/seed）",
+    "forecast_metrics.csv": "WAPE / MASE / pinball（model × level × origin × τ）",
+    "inventory_summary.csv": "成本曲线数据（model × τ × cost_ratio，4 窗口合计）",
+    "inventory_summary_by_window.csv": "同上的逐窗口拆分（model × τ × cost_ratio × origin_d）",
+    "crosscheck_equal_coverage.csv": "等实测覆盖率下的成本对照（回应「成本低是不是靠欠订」）",
+    "tau_selection.csv": "validation 选 τ* → test 报结果的样本外成本对照",
+    "inventory_by_series.csv": "逐序列成本（bootstrap 与决策图底表）",
+    "decision_map.csv": "三维决策图（间歇性 / 销量规模 / 生命周期，14 段 × cost_ratio × τ → 最优模型）",
+    "bootstrap_summary.csv": "成本差异 95% CI（配对重采样）",
+    "figs/fig_cost_curve.png": "成本曲线（进 PPT）",
+    "figs/fig_heterogeneity.png": "异质性成本对比（进 PPT）",
+    "figs/fig_error_cost.png": "误差 vs 成本（验证「精度是否转化为成本」）",
+    "coverage_report.csv": "名义 vs 实测覆盖率（model × origin × τ）",
+    "input_audit.csv": "输入清单自检记录",
+    "replay_log.json": "复算校验记录",
+    "input_signoff.json": "模块 01 交付物复算联签（95/95 SHA-256 一致）"
+  },
+  "sample_and_metric_consistency": {
+    "scope": "final",
+    "scope_label": "全量 30,490",
+    "n_series": 30490,
+    "n_cycles": 4,
+    "evaluation_window": "d_1830–d_1941",
+    "tau_grid": [
+      0.5,
+      0.6666666666666666,
+      0.8333333333333334,
+      0.8,
+      0.81,
+      0.82,
+      0.83,
+      0.84,
+      0.85,
+      0.86,
+      0.87,
+      0.88,
+      0.89,
+      0.9,
+      0.91,
+      0.92,
+      0.93,
+      0.94,
+      0.95,
+      0.96,
+      0.97,
+      0.98,
+      0.99
+    ],
+    "cost_ratios": [
+      "1:1",
+      "2:1",
+      "5:1",
+      "9:1"
+    ],
+    "seed": 5001
+  },
+  "open_items": [
+    "【已完成】模块 02 真实预测接入（全量 30,490 / 4 窗口）：lightgbm 直读 period，三基线累计分位由本模块用「更早窗口累计误差分位」补造；1913 窗口四个模型的 WAPE/MASE 与 M2 自报值逐位一致，覆盖率实测见 coverage_report.csv",
+    "【已完成·覆盖率】基线累计分位改用误差加成法（S = 点预测 + 更早窗口累计误差的 τ 分位）后，τ=0.95 实测覆盖率 ets 0.941、lightgbm 0.923、seasonal_naive 0.937、tsb 0.943，订量与实际需求基本持平；已淘汰的口径（日残差重采样 0.76–0.80、池化 z 0.77、逐序列块差 0.62、z×σ 还原 0.96–0.98）均记录在 simulation_parameters.json 中留痕",
+    "【已完成】全量 30,490 切换：M2 全量 L12 四窗口 daily/period/residuals 322 MB 已下载并接入，标定窗口 1745/1773/1801 复用；全量 1913 窗口四模型 WAPE/MASE 与 M2 全量 metrics 逐位一致",
+    "【已完成】模块 03 面板已到位：点预测自洽、累计分位未调和且门店层分位偏高，故决策图维持 sku/store/total 三层，不扩到 dept_store/state",
+    "【已完成】模块 01 交付物复算联签：95/95 个文件 SHA-256 一致，见 input_signoff.json（本 notebook S12b 产出）",
+    "【已完成】层级节点口径：模块 03 交接包 42,840 节点 / 365,880 条成员关系 / 30,490 叶层，与本模块一致",
+    "【已关闭·不影响本模块】prices 有 20.4% 单元格缺失（NaN≠0）：本模块只按比例用成本，不读 prices；模块 02 做价格特征时自行决定填充方式",
+    "【已完成·自核】样本为 M5 数据集全部 30,490 条序列（CA 4 / TX 3 / WI 3 家门店，真值文件逐店核对）",
+    "【已完成·网格下延】τ 网格已由 20 点（0.80–0.99）下延为 23 点（0.50 / 0.667 / 0.833 三点取自 M2 period 原生 τ，M2 未新增任何交付要求）：1:1 的实测最优 τ 由边界 0.80 落到 0.50、2:1 由 0.80 落到 0.667，两者与理论 q*=Cu/(Cu+Co) 的偏离均为 0.000；5:1、9:1 最优 τ（0.86、0.92）本就在网格内部、数值不变。headline τ=0.95 的主表成本、WAPE/MASE、bootstrap 与 20 点版逐位相同。",
+    "【已完成·两项口径检验】等实测覆盖率成本（crosscheck_equal_coverage.csv）与 validation 选 τ → test 报（tau_selection.csv）：前者校正了四模型覆盖率 0.923–0.943 的差异，后者保证选择不发生在测试期（模块 01 README 第 113 行）。"
+  ]
+}
