@@ -1276,14 +1276,18 @@ def run_all():
                         .groupby(["node_id", "origin_d", "target_d", "model"], as_index=False)
                         .agg(y_hat=("y_hat", "sum")))
 
-            # 3) 点预测层：原生分位模型取 τ≈0.5，点模型用自身
+            # 3) 点预测层：有原生点预测就用点预测；只有分位模型时才退回 τ≈0.5 中位数
+            #    两套序列不可拼接——拼接会让同一节点在同一窗口出现两条序列，
+            #    既把 n_obs 翻倍，也算出一个既非点预测、也非中位数的 WAPE。
             _fq_med = (_f_native.assign(_dd=lambda x: (x["tau"] - 0.5).abs())
                        .sort_values("_dd")
                        .groupby(["node_id", "origin_d", "target_d", "model"], as_index=False)
                        .first()[["node_id", "origin_d", "target_d", "model", "y_hat"]])
-            _pt_all = pd.concat([
-                _f_point[["node_id", "origin_d", "target_d", "model", "y_hat"]],
-                _fq_med], ignore_index=True)
+            _pt_all = _f_point[["node_id", "origin_d", "target_d", "model", "y_hat"]].copy()
+            _fb = _fq_med[~_fq_med["model"].isin(set(_pt_all["model"].unique()))]
+            if len(_fb):
+                _pt_all = pd.concat([_pt_all, _fb], ignore_index=True)
+            del _fb
 
             # 4) 聚合层 MASE 尺度：历史按节点求和后重算
             _h = (HISTORY.assign(node_id=HISTORY["series_id"].map(_mp))
@@ -1806,7 +1810,10 @@ def run_all():
     plt.close("all")
 
     # 图 2：误差 vs 成本（验证「更低误差是否真的转成更低成本」——提案的核心论点）
-    _err = METRICS[METRICS["metric"] == "wape"][["model", "origin_d", "value"]].groupby("model", as_index=False)["value"].mean()
+    #     只取商品层：门店层、总量层是求和后的小量级序列，混进来会把横轴压到 0.3 附近，
+    #     与主表的商品层 WAPE 不是同一口径，读图的人会以为精度差了一倍。
+    _err = (METRICS[(METRICS["metric"] == "wape") & (METRICS["level"] == "sku")]
+            [["model", "origin_d", "value"]].groupby("model", as_index=False)["value"].mean())
     _cost = SUMMARY[(SUMMARY["cost_ratio"] == CONFIG["headline_ratio"]) &
                     (np.isclose(SUMMARY["tau"], CONFIG["headline_tau"]))][["model", "cost_per_unit_demand"]]
     _ec = _err.merge(_cost, on="model", how="inner")

@@ -12,9 +12,9 @@
 
 | 文件 | 行数 | 内容 |
 |---|---|---|
-| `high_level_quantile_calibration.csv` | 276 = 4 个评估窗口 × 3 层 × 23 个 τ | 总量 / 州 / 门店三层，28 天累计分位对真实聚合需求的覆盖率与总量倍数 |
-| `order_granularity_compare.csv` | 184 = 4 成本比 × 23 τ × 2 口径 | 每件需求成本、填补率、订货量、期末库存 |
-| `quantile_additivity_gap.csv` | 23 | 顶层节点值 vs 全叶分位求和，逐 τ 相对差 |
+| `high_level_quantile_calibration.csv` | 276 = 4 个评估窗口 × 3 层 × 23 个 τ | 总量 / 州 / 门店三层，28 天累计分位对真实聚合需求的覆盖率与总量倍数；输入是 LightGBM 的 23 个分位（表内不设 model 列，勿当四模型结果引用） |
+| `order_granularity_compare.csv` | 184 = 4 成本比 × 23 τ × 2 口径 | 每件需求成本、填补率、订货量、期末库存；仅 LightGBM |
+| `quantile_additivity_gap.csv` | 23 | 顶层节点值 vs 全叶分位求和，逐 τ 相对差；同样基于 LightGBM 分位 |
 | `summary.json` | — | 累计层 pinball 的自检元数据（行数、与 `coverage_report.csv` 的逐位对齐误差） |
 | `forecast_metrics_period_pinball.csv` | 1,104 = 4 窗口 × 3 层 × 23 τ × 4 模型 | 四模型同网格的 28 天累计 pinball 损失 |
 | `hierarchy_recon_summary.json` | — | 层级核验与下单粒度的关键数字、限制说明 |
