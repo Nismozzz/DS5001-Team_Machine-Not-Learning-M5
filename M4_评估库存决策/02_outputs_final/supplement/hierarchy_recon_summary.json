@@ -7,7 +7,7 @@
     "tau0.5_rel_diff_pct": 2.63,
     "tau0.95_rel_diff_pct": 35.45,
     "max_rel_diff_pct": 49.81,
-    "note": "M3 bottom_up 分位面板中，顶层节点值对全叶分位求和的相对差；分位不可加意味着高层分位不能由叶层分位相加得到"
+    "note": "高层累计分位不在本项目的 item-store 分析范围内；该诊断仅作扩展记录，不用于报告结果。"
   },
   "store_level_quantile_calibration_tau0.95": {
     "mean_coverage": 0.95,

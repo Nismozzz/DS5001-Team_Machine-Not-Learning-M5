@@ -75,7 +75,7 @@ PYTHONPATH=code python code/verify_module3.py \
 | Top-down | 8.914% | 6.912% |
 | MinT | 5.919% | 4.963% |
 
-全部调和预测的最大层级加和误差为 0；负点预测数为 0；LightGBM 日/累计分位数均单调；全部 MinT 求解收敛。详细结果见 `artifacts/`。
+全部调和点预测的最大层级加和误差为 0；负点预测数为 0；LightGBM 日/累计分位数均单调；全部 MinT 求解收敛。注意：28 天累计分位不在本次 item-store 分析范围内，报告结果不使用该面板；详见 `reconciliation_notes.md` 第 9 节。详细结果见 `artifacts/`。
 
 ## 数据与许可
 
