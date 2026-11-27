@@ -1,0 +1,59 @@
+{
+  "generated_at": "2026-11-16 18:50:10",
+  "scope": "CA_1-CA_4 / TX_1-TX_3 / WI_1-WI_3, 30,490 SKU, 28-day cumulative, 4 evaluation windows",
+  "model_for_granularity": "lightgbm",
+  "tau_grid": 23,
+  "quantile_additivity": {
+    "tau0.5_rel_diff_pct": 2.63,
+    "tau0.95_rel_diff_pct": 35.45,
+    "max_rel_diff_pct": 49.81,
+    "note": "In the M3 bottom_up quantile panel, the relative difference between a top node's value and the sum of all leaf quantiles; high-level cumulative quantiles are outside this project's item-store analysis scope, this diagnostic is an extended record only, is not used for the report's headline results, and does not affect the leaf-level cost conclusion"
+  },
+  "store_level_quantile_calibration_tau0.95": {
+    "mean_coverage": 0.95,
+    "n_nodes": 10,
+    "note": "Coverage of realised store demand by the store-level 28-day cumulative quantiles (10 stores × 4 windows); at τ=0.95 the stock is 1.45–1.50 times realised demand, and at τ=0.50 only 2 stores are covered; this item is an extended diagnostic, does not enter the headline results, and does not affect the leaf-level cost conclusion",
+    "nodes_covered_range": [
+      9,
+      10
+    ],
+    "coverage_range": [
+      0.9,
+      1.0
+    ],
+    "total_demand_multiple_range": [
+      1.45,
+      1.5
+    ],
+    "tau0.50_nodes_covered": 2,
+    "tau0.50_coverage": 0.2
+  },
+  "granularity_5to1_tau0.95": {
+    "A_SKU-level ordering": {
+      "cost_per_unit_demand": 0.6943,
+      "fill_rate": 0.9772,
+      "order_units": 7283512.2,
+      "end_inventory_units": 675499.7
+    },
+    "B_store-total ordering": {
+      "cost_per_unit_demand": 0.862,
+      "fill_rate": 0.9453,
+      "order_units": 7072700.0,
+      "end_inventory_units": 701489.7
+    }
+  },
+  "limitations": [
+    "Mode B (store-total ordering) allocates the total to SKUs by SKU point-forecast share and does not use a better within-store allocation rule",
+    "Only lightgbm has 28-day cumulative quantiles on both the M2 and the M3 side; the baselines' cumulative quantiles are built by M4 as \"point forecast + empirical error quantile\" and are not included in this comparison",
+    "Quantile coverage is counted node by node (10 stores × 4 windows); the sample is small, so tail τ values are indicative only"
+  ],
+  "total_level_quantile_calibration_tau0.95": {
+    "n_nodes": 1,
+    "coverage": 0.0,
+    "ratio_range": [
+      0.96,
+      0.99
+    ],
+    "note": "The single total node at τ=0.95 reaches only 0.96–0.99 of realised demand, the opposite direction from store level; this item is an extended diagnostic, does not enter the headline results, and does not affect the leaf-level cost conclusion"
+  }
+}
