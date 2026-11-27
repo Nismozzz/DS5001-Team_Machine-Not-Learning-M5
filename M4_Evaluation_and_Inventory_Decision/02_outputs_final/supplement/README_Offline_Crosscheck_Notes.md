@@ -23,7 +23,7 @@ Once the full Module 03 handoff package arrived, three questions had to be settl
 ## 3. Core findings
 
 1. **Point forecasts are genuinely reconciled**: the top-level 28-day cumulative point forecast moves from 1,146,624 to 1,189,844 (+3.8%) and exactly equals the sum over 30,490 leaves; the aggregation error is 0.
-2. **Cumulative quantiles are not reconciled**: the `bottom_up` quantile panel is identical row by row to `unreconciled` (L01/L03/L12, 701,523 rows in total, 0 differences).
+2. **Cumulative quantiles are passed through unchanged under `bottom_up`**: the panel is identical row by row to `unreconciled` (L01/L03/L12, 701,523 rows in total, 0 differences) — this is the scheme's definition, not a missing step.
 3. **Quantiles are not additive**: the relative gap between the top node and the sum over all leaves is 2.63% at τ=0.50, 35.45% at τ=0.95, and 49.81% at the maximum. The store CA_1 node sits 14.2% below the sum of its leaves.
 4. **Store-level quantiles are systematically high and the total level moves the other way**: at τ=0.95 the store level covers 9–10 of 10 stores but stocks 1.45–1.50 times realised demand; at τ=0.50 only 2 of 10 stores are covered (0.20). A single total node moves the other way, reaching only 0.96–0.99 of realised demand at τ=0.95. Node-level detail is in `hierarchy_recon_summary.json`.
 

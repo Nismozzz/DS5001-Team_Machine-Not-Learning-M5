@@ -122,6 +122,6 @@ Bottom-up is best on high-level LightGBM forecasts in the independent test; MinT
 - The model configurations for the validation windows were chosen after the fact and suit retrospective diagnostics; the independent test is the main scoring window.
 - The full forecasts are not in Git; a runner must regenerate them from a compliant Module 2 handoff package.
 - The 28-day cumulative quantile block is handled per scheme (`unreconciled`/`bottom_up` pass upstream values through, `top_down` re-allocates by shares, `mint` runs MinT), but because quantiles are not additive the block does not satisfy level-by-level summation under any scheme; high-level quantile conclusions in this module therefore stop at leaf level, and high-level comparisons switch to the point-forecast convention.
-- The final Module 4 sign-off and the cost results still have to be completed inside the course project.
+- Cost results and the inventory analysis are delivered by Module 4; this module's responsibility ends at the reconciled panel and its diagnostics.
 
 
