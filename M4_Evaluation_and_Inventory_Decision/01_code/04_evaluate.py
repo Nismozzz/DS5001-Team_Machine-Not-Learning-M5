@@ -1545,7 +1545,7 @@ def run_all():
     # ============================================================
     # S9b · cost curve (required deliverable in the division-of-work document: cost curve)
     # Purpose: x = service level τ, y = cost per unit of demand; one line per model
-    # [OUTPUT: figs/fig_cost_curve.png]
+    # [OUTPUT: figures/fig_cost_curve.png]
     # ==========================================================
     _ratios_to_plot = list(CONFIG["cost_ratios"])
 
@@ -1567,10 +1567,10 @@ def run_all():
     axes[0][0].legend(fontsize=8, loc="upper left")
     fig.suptitle(f"Inventory cost vs service level (scope={SCOPE}, n_series={len(SERIES_INDEX):,})", fontsize=11)
     fig.tight_layout()
-    fig.savefig(PATHS["out_root"] / "figs" / "fig_cost_curve.png", dpi=160, bbox_inches="tight")
+    fig.savefig(PATHS["out_root"] / "figures" / "fig_cost_curve.png", dpi=160, bbox_inches="tight")
     plt.close("all")
 
-    print("cost curve saved: figs/fig_cost_curve.png")
+    print("cost curve saved: figures/fig_cost_curve.png")
     print("vertical dashed line = critical quantile q* = Cu/(Cu+Co). If the minimum of the cost curve sits clearly away from q*, the forecast quantiles are imprecise (worth stating in the conclusions).")
 
     # ==================================================================
@@ -1785,7 +1785,7 @@ def run_all():
 
     # ============================================================
     # S10b · heterogeneity figure + error-cost comparison
-    # [OUTPUT: figs/fig_heterogeneity.png, figs/fig_error_cost.png]
+    # [OUTPUT: figures/fig_heterogeneity.png, figures/fig_error_cost.png]
     # ==========================================================
     # figure 1: model cost comparison per demand segment at τ=0.95 / headline ratio
     _seg_plot = AGG[(AGG["cost_ratio"] == CONFIG["headline_ratio"]) &
@@ -1806,7 +1806,7 @@ def run_all():
     ax.legend(fontsize=8)
     ax.grid(axis="y", alpha=0.25)
     fig.tight_layout()
-    fig.savefig(PATHS["out_root"] / "figs" / "fig_heterogeneity.png", dpi=160, bbox_inches="tight")
+    fig.savefig(PATHS["out_root"] / "figures" / "fig_heterogeneity.png", dpi=160, bbox_inches="tight")
     plt.close("all")
 
     # figure 2: error vs cost (tests whether lower error really converts into lower cost -- the proposal's core claim)
@@ -1828,10 +1828,10 @@ def run_all():
     ax.set_title("Does lower error convert to lower cost?")
     ax.grid(alpha=0.25)
     fig.tight_layout()
-    fig.savefig(PATHS["out_root"] / "figs" / "fig_error_cost.png", dpi=160, bbox_inches="tight")
+    fig.savefig(PATHS["out_root"] / "figures" / "fig_error_cost.png", dpi=160, bbox_inches="tight")
     plt.close("all")
 
-    print("figs/fig_heterogeneity.png, figs/fig_error_cost.png saved")
+    print("figures/fig_heterogeneity.png, figures/fig_error_cost.png saved")
     print(_ec.round(3).to_string(index=False))
 
     # ==================================================================
@@ -2047,9 +2047,9 @@ def run_all():
             "decision_map.csv": True,
             "bootstrap_summary.csv": True,
             "coverage_report.csv": True,
-            "figs/fig_cost_curve.png": True,
-            "figs/fig_heterogeneity.png": True,
-            "figs/fig_error_cost.png": True,
+            "figures/fig_cost_curve.png": True,
+            "figures/fig_heterogeneity.png": True,
+            "figures/fig_error_cost.png": True,
         },
     }
     with open(PATHS["out_root"] / "replay_log.json", "w", encoding="utf-8") as f:
@@ -2143,9 +2143,9 @@ def run_all():
             "inventory_by_series.csv": "Per-series cost (base table for the bootstrap and the decision map)",
             "decision_map.csv": "Three-dimension decision map (intermittency / sales scale / life cycle, 14 segments × cost_ratio × τ → best model)",
             "bootstrap_summary.csv": "95% CI of cost differences (paired bootstrap)",
-            "figs/fig_cost_curve.png": "Cost curve (for the deck)",
-            "figs/fig_heterogeneity.png": "Heterogeneity cost comparison (for the deck)",
-            "figs/fig_error_cost.png": "Error vs cost (tests whether accuracy converts into cost)",
+            "figures/fig_cost_curve.png": "Cost curve (for the deck)",
+            "figures/fig_heterogeneity.png": "Heterogeneity cost comparison (for the deck)",
+            "figures/fig_error_cost.png": "Error vs cost (tests whether accuracy converts into cost)",
             "coverage_report.csv": "Nominal vs realised coverage (model × origin × τ)",
             "input_audit.csv": "Input inventory self-check log",
             "replay_log.json": "Recomputation check log",
@@ -2246,7 +2246,7 @@ def run_all():
     for _r in _cost.columns:
         _cm = _cost[_r].idxmin()
         _agree = "consistent" if ("sku" in _p.columns and _cm == _p["sku"].idxmin()) else "inconsistent"
-        print(f"  Cu:Co={_r}: lowest cost {_cm} ({_cost.loc[_cm, _r]:.3f})｜{_agree} with the lowest WAPE")
+        print(f"  Cu:Co={_r}: lowest cost {_cm} ({_cost.loc[_cm, _r]:.3f})|{_agree} with the lowest WAPE")
 
     # ---------- thread 3: shape of the cost curve ----------
     print()
@@ -2416,7 +2416,7 @@ def main():
 
     PATHS = {"data_root": args.data_root.resolve(), "out_root": args.output_dir.resolve()}
     PATHS["out_root"].mkdir(parents=True, exist_ok=True)
-    (PATHS["out_root"] / "figs").mkdir(exist_ok=True)
+    (PATHS["out_root"] / "figures").mkdir(exist_ok=True)
 
     _require((PATHS["data_root"] / "split_manifest.json").exists(),
              f"missing {PATHS['data_root'] / 'split_manifest.json'}; run 01_data.py first to generate the Module 01 artifacts")

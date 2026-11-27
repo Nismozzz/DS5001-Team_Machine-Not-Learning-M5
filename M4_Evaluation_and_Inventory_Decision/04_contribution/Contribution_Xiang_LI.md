@@ -1,6 +1,6 @@
 # Contribution statement — Xiang LI (xli3487)
 
-Team: Machine Not Learning　·　Project: DS5001 group assignment　·　Module: 04
+Team: Machine Not Learning · Project: DS5001 group assignment · Module: 04
 
 ## 1. Scope of responsibility
 
@@ -25,7 +25,7 @@ Within Module 04 I owned three parts: forecast evaluation (accuracy and quantile
 2. **Full sweep over cost and service level**: ran the inventory simulation over the four cost ratios and 23 service levels, obtaining the optimal service levels (5:1, LightGBM 0.86, TSB 0.85) and the cost curves; the headline setting is τ=0.95 with 5:1.
 3. **Decision map**: segmented along three dimensions — demand type, sales scale and life cycle — producing 1,288 rows of segmented results, with an equal-weight three-dimension advantage of 24.56%.
 4. **Locating and handling the coverage problem**: confirmed the upstream 23 points are raw uncalibrated quantiles, with realised coverage at nominal τ=0.95 of 0.918–0.928; on that basis the evaluation side supplies an equivalent-quantile mapping (interpolation to nominal 0.95 coverage) without requiring a rerun on the forecasting side, and both cost sets are reported side by side.
-5. **Hierarchy reconciliation panel check**: verified the Module 03 handoff package row by row, giving three conclusions — point forecasts are genuinely reconciled (the top level moves from 1,146,624 to 1,189,844 and equals the leaf sum), cumulative quantiles are not reconciled (701,523 rows, zero difference), and quantiles are not additive (35.4% gap at τ=0.95).
+5. **Hierarchy reconciliation panel check**: verified the Module 03 handoff package row by row, giving three conclusions — point forecasts are genuinely reconciled (the top level moves from 1,146,624 to 1,189,844 and equals the leaf sum), cumulative quantiles are passed through unchanged under \ottom_up\ (701,523 rows, zero difference), and quantiles are not additive (35.4% gap at τ=0.95).
 6. **Order granularity comparison**: under the same simulation core, compared ordering by SKU with ordering by store total: cost 0.6943 against 0.8620 (+24.1%), fill rate 0.9772 against 0.9453 — the store total is sufficient in volume but mismatched in composition.
 7. **Interface evidence**: installed the dependencies as agreed in integration, built the directories from the handoff package's hierarchy mapping, and called the Module 03 quantile reconciliation interface live; the output matches this side's leaf sum bit for bit, confirming the convention gap is resolved.
 8. **Documents and handoff**: wrote the module report (97 paragraphs), organised the delivery directory and the file-by-file description, and committed every supplementary item as a rerunnable script.

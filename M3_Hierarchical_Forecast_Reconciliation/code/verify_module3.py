@@ -48,7 +48,7 @@ def load_daily_arrays(
             index = catalog.level_nodes[level]
             path = (
                 root
-                / "预测结果"
+                / "predictions"
                 / split
                 / scheme
                 / "daily"
@@ -99,7 +99,7 @@ def main() -> None:
     args = parse_args()
     root = args.module3_root.resolve()
     catalog = build_catalog(args.member2_root.resolve())
-    checksum_path = root / "交付清单.json"
+    checksum_path = root / "artifact_manifest.json"
     checksums = json.loads(checksum_path.read_text(encoding="utf-8"))
     checked = 0
     for relative, record in checksums.items():
@@ -110,8 +110,8 @@ def main() -> None:
         checked += 1
 
     file_counts = Counter()
-    for path in (root / "预测结果").rglob("*.parquet"):
-        parts = path.relative_to(root / "预测结果").parts
+    for path in (root / "predictions").rglob("*.parquet"):
+        parts = path.relative_to(root / "predictions").parts
         file_counts[(parts[0], parts[1])] += 1
     for split in SPLITS:
         for scheme in SCHEMES:
@@ -149,7 +149,7 @@ def main() -> None:
 
     frame = pd.DataFrame(coherence)
     frame.to_csv(
-        root / "诊断结果" / "independent_verification_coherence.csv",
+        root / "diagnostics" / "independent_verification_coherence.csv",
         index=False,
         encoding="utf-8-sig",
     )

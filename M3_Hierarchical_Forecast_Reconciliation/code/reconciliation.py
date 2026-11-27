@@ -858,7 +858,7 @@ def write_daily_predictions(
                     frame[column] = np.nan
             path = (
                 output_root
-                / "预测结果"
+                / "predictions"
                 / split
                 / scheme
                 / "daily"
@@ -903,7 +903,7 @@ def write_period_predictions(
             )
             path = (
                 output_root
-                / "预测结果"
+                / "predictions"
                 / split
                 / scheme
                 / "period_point"
@@ -932,7 +932,7 @@ def write_period_predictions(
         )
         path = (
             output_root
-            / "预测结果"
+            / "predictions"
             / split
             / scheme
             / "period_quantile"

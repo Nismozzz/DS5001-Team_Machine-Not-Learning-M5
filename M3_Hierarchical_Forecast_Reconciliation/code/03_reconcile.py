@@ -119,7 +119,7 @@ def write_catalogue(output_root: Path, catalog: Catalog) -> None:
         .reset_index()
     )
     summary.to_csv(
-        output_root / "诊断结果" / "hierarchy_audit.csv", index=False, encoding="utf-8-sig"
+        output_root / "diagnostics" / "hierarchy_audit.csv", index=False, encoding="utf-8-sig"
     )
 
 
@@ -167,7 +167,7 @@ def write_mint_weights(
         .reset_index()
     )
     summary.to_csv(
-        output_root / "诊断结果" / "mint_weight_summary.csv",
+        output_root / "diagnostics" / "mint_weight_summary.csv",
         index=False,
         encoding="utf-8-sig",
     )
@@ -309,7 +309,7 @@ def write_top_down_history(
     shares: np.ndarray,
     fallback: pd.DataFrame,
 ) -> None:
-    folder = output_root / "诊断结果" / "top_down_shares"
+    folder = output_root / "diagnostics" / "top_down_shares"
     folder.mkdir(parents=True, exist_ok=True)
     frame = pd.DataFrame(
         {
@@ -323,11 +323,11 @@ def write_top_down_history(
     fallback = fallback.copy()
     fallback.insert(0, "split", split)
     fallback.to_csv(
-        output_root / "诊断结果" / "top_down_share_fallbacks.csv",
+        output_root / "diagnostics" / "top_down_share_fallbacks.csv",
         mode="a",
         index=False,
         header=not (
-            output_root / "诊断结果" / "top_down_share_fallbacks.csv"
+            output_root / "diagnostics" / "top_down_share_fallbacks.csv"
         ).exists(),
         encoding="utf-8-sig",
     )
@@ -335,7 +335,7 @@ def write_top_down_history(
 
 def write_checksums(output_root: Path) -> None:
     records: dict[str, dict[str, object]] = {}
-    excluded = {"交付清单.json", "verification_report.json"}
+    excluded = {"artifact_manifest.json", "verification_report.json"}
     for path in sorted(output_root.rglob("*")):
         if not path.is_file():
             continue
@@ -348,7 +348,7 @@ def write_checksums(output_root: Path) -> None:
         ):
             continue
         records[relative] = {"bytes": path.stat().st_size, "sha256": sha256(path)}
-    json_write(output_root / "交付清单.json", records)
+    json_write(output_root / "artifact_manifest.json", records)
 
 
 def main() -> None:
@@ -360,10 +360,10 @@ def main() -> None:
     if not require_root.exists():
         raise FileNotFoundError(f"Member 2 handoff not found: {member2_root}")
     if output_root.exists() and not args.keep_existing:
-        prediction_tree = output_root / "预测结果"
+        prediction_tree = output_root / "predictions"
         if prediction_tree.exists():
             shutil.rmtree(prediction_tree)
-    for name in ("诊断结果", "预测结果"):
+    for name in ("diagnostics", "predictions"):
         (output_root / name).mkdir(parents=True, exist_ok=True)
 
     print("Building and validating the 12-level hierarchy...", flush=True)
@@ -390,7 +390,7 @@ def main() -> None:
     all_constraint: list[dict[str, object]] = []
     all_samples: list[dict[str, object]] = []
     runtime_rows: list[dict[str, object]] = []
-    fallback_path = output_root / "诊断结果" / "top_down_share_fallbacks.csv"
+    fallback_path = output_root / "diagnostics" / "top_down_share_fallbacks.csv"
     if fallback_path.exists():
         fallback_path.unlink()
 
@@ -544,37 +544,37 @@ def main() -> None:
             )
 
     pd.DataFrame(all_daily_metrics).to_csv(
-        output_root / "诊断结果" / "daily_forecast_metrics.csv",
+        output_root / "diagnostics" / "daily_forecast_metrics.csv",
         index=False,
         encoding="utf-8-sig",
     )
     pd.DataFrame(all_period_metrics).to_csv(
-        output_root / "诊断结果" / "period_forecast_metrics.csv",
+        output_root / "diagnostics" / "period_forecast_metrics.csv",
         index=False,
         encoding="utf-8-sig",
     )
     pd.DataFrame(all_coherence).to_csv(
-        output_root / "诊断结果" / "coherence_diagnostics.csv",
+        output_root / "diagnostics" / "coherence_diagnostics.csv",
         index=False,
         encoding="utf-8-sig",
     )
     pd.DataFrame(all_constraint).to_csv(
-        output_root / "诊断结果" / "constraint_checks.csv",
+        output_root / "diagnostics" / "constraint_checks.csv",
         index=False,
         encoding="utf-8-sig",
     )
     pd.DataFrame(all_cg).to_csv(
-        output_root / "诊断结果" / "mint_cg_diagnostics.csv",
+        output_root / "diagnostics" / "mint_cg_diagnostics.csv",
         index=False,
         encoding="utf-8-sig",
     )
     pd.DataFrame(runtime_rows).to_csv(
-        output_root / "诊断结果" / "runtime_complexity.csv",
+        output_root / "diagnostics" / "runtime_complexity.csv",
         index=False,
         encoding="utf-8-sig",
     )
     pd.DataFrame(all_samples).to_csv(
-        output_root / "诊断结果" / "representative_samples.csv",
+        output_root / "diagnostics" / "representative_samples.csv",
         index=False,
         encoding="utf-8-sig",
     )

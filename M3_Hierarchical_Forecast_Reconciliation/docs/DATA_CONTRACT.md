@@ -46,12 +46,12 @@ residual = y_true - yhat
   mint_weights.parquet
   run_context.json
   verification_report.json
-  交付清单.json
-  预测结果/{split}/{scheme}/
+  artifact_manifest.json
+  predictions/{split}/{scheme}/
     daily/{model}/L01..L12.parquet
     period_point/{model}/L01..L12.parquet
     period_quantile/L01..L12.parquet
-  诊断结果/
+  diagnostics/
 ```
 
 Scheme names are fixed as `unreconciled`, `bottom_up`, `top_down` and `mint`. Model names are fixed as `seasonal_naive`, `ets`, `tsb` and `lightgbm`.
