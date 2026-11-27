@@ -32,8 +32,8 @@
   "sha256": "c55061167e967e860d14b80e70418524f1c0ee4990b857bc7f8ffd44a28cf1e9"
  },
  "handoff_summary.json": {
-  "bytes": 5749,
-  "sha256": "1fed71a1698684bf2a7d249020cf94bbd273e71d5865c54f743dbb104e7d55d4"
+  "bytes": 5758,
+  "sha256": "f4bed714815d1400e7c13ab8e3a8b0749abd3527e420775949f8cda3bd822e54"
  },
  "input_audit.csv": {
   "bytes": 6444,
@@ -58,8 +58,8 @@
   "sha256": "ceb640b9759395f84320fae32c195b4cd0e55de7259dadafb741323ad922d5f4"
  },
  "replay_log.json": {
-  "bytes": 1849,
-  "sha256": "4871a06c2a9b01baa11516972c19887e0da46bbdb72808cfafd5fb8f3d487783"
+  "bytes": 1858,
+  "sha256": "b61cf0559af6c92a407667a9619017a19aac1ed433b3b38282eebb487e47397e"
  },
  "simulation_parameters.json": {
   "bytes": 6689,

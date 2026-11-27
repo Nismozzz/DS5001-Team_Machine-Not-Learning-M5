@@ -65,8 +65,8 @@
     "decision_map.csv": true,
     "bootstrap_summary.csv": true,
     "coverage_report.csv": true,
-    "figs/fig_cost_curve.png": true,
-    "figs/fig_heterogeneity.png": true,
-    "figs/fig_error_cost.png": true
+    "figures/fig_cost_curve.png": true,
+    "figures/fig_heterogeneity.png": true,
+    "figures/fig_error_cost.png": true
   }
 }

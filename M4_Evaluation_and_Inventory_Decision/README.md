@@ -1,6 +1,6 @@
 # DS5001 · Module 4 — Evaluation, Inventory Simulation and Decision Map
 
-**Team Machine Not Learning**　·　Member 4　·　Xiang LI (xli3487)
+**Team Machine Not Learning** · Member 4 · Xiang LI (xli3487)
 
 This directory is the complete deliverable pack of Module 04, covering forecast evaluation, inventory simulation and the decision map: 35 deliverables plus this README and `Directory_Structure.md`. Every number comes from all 30,490 item-store series over four scorable windows; no sampled or simulated data are used.
 

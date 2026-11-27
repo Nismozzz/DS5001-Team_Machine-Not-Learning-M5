@@ -1,6 +1,6 @@
 # Contribution statement — Xiang LI (xli3487)
 
-Team: Machine Not Learning　·　Project: DS5001 group assignment　·　Module: 04
+Team: Machine Not Learning · Project: DS5001 group assignment · Module: 04
 
 ## 1. Scope of responsibility
 
