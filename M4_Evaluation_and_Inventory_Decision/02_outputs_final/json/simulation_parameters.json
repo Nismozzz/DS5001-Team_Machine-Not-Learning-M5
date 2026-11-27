@@ -1,0 +1,232 @@
+{
+  "project": "DSC5001 · Team Machine Not Learning · Module 04",
+  "owner": "Xiang LI (xli3487)",
+  "generated_at": "2026-11-15T19:53:20",
+  "notebook": "04_evaluate.ipynb",
+  "force_mock_forecast": false,
+  "full_tau_grid": true,
+  "simulation": {
+    "review_period_R": 28,
+    "lead_time_L": 0,
+    "initial_inventory": 0.0,
+    "shortage_rule": "lost sales (unmet demand is not backfilled)",
+    "carry_over_inventory": true,
+    "lead_time_delivery": "order placed at the start of the period, delivered immediately within the period",
+    "order_rule": "S = chosen quantile of that period's 28-day cumulative demand; order = max(0, S - opening on-hand inventory)",
+    "holding_cost_timing": "closing inventory × Co",
+    "stockout_cost_timing": "unmet quantity within the period × Cu",
+    "fill_rate_definition": "quantity filled within the period / actual demand quantity (period-level aggregate)",
+    "evaluation_mode": "4 consecutive periods simulated (validation_1..3 + test, back to back)",
+    "known_approximation": "period-level aggregate; the intra-period timing of stockouts is not modelled"
+  },
+  "service_levels": [
+    0.5,
+    0.6666666666666666,
+    0.8333333333333334,
+    0.8,
+    0.81,
+    0.82,
+    0.83,
+    0.84,
+    0.85,
+    0.86,
+    0.87,
+    0.88,
+    0.89,
+    0.9,
+    0.91,
+    0.92,
+    0.93,
+    0.94,
+    0.95,
+    0.96,
+    0.97,
+    0.98,
+    0.99
+  ],
+  "service_levels_full_grid": [
+    0.5,
+    0.6666666666666666,
+    0.8333333333333334,
+    0.8,
+    0.81,
+    0.82,
+    0.83,
+    0.84,
+    0.85,
+    0.86,
+    0.87,
+    0.88,
+    0.89,
+    0.9,
+    0.91,
+    0.92,
+    0.93,
+    0.94,
+    0.95,
+    0.96,
+    0.97,
+    0.98,
+    0.99
+  ],
+  "cost_ratios": {
+    "1:1": {
+      "Cu": 1.0,
+      "Co": 1.0,
+      "critical_fractile_q_star": 0.5
+    },
+    "2:1": {
+      "Cu": 2.0,
+      "Co": 1.0,
+      "critical_fractile_q_star": 0.6667
+    },
+    "5:1": {
+      "Cu": 5.0,
+      "Co": 1.0,
+      "critical_fractile_q_star": 0.8333
+    },
+    "9:1": {
+      "Cu": 9.0,
+      "Co": 1.0,
+      "critical_fractile_q_star": 0.9
+    }
+  },
+  "headline_setting": {
+    "tau": 0.95,
+    "cost_ratio": "5:1"
+  },
+  "single_point_to_cycle_quantile": {
+    "method": "error addition: the tau quantile of the 28-day cumulative error from an earlier window (the three baselines have no distribution layer and are constructed by this module)",
+    "formula": "q_tau_i = max(S_hat_i + Q_tau_m, 0), where Q_tau_m is the tau quantile of (actual demand - cumulative point forecast) over earlier windows, pooled per model; truncated at >=0 and forced monotone in tau",
+    "x_definition": "e = sum28 y_true - sum28 y_hat, taking the cumulative error over all completed windows before origin_d for each (series, model), pooled per model into an empirical quantile",
+    "block_days": 28,
+    "calibration_windows": [
+      1829,
+      1857,
+      1885,
+      1913
+    ],
+    "calibration_prefix_map": {
+      "1829": [
+        1745,
+        1773,
+        1801
+      ],
+      "1857": [
+        1745,
+        1773,
+        1801,
+        1829
+      ],
+      "1885": [
+        1745,
+        1773,
+        1801,
+        1829,
+        1857
+      ],
+      "1913": [
+        1745,
+        1773,
+        1801,
+        1829,
+        1857,
+        1885
+      ]
+    },
+    "calibration_q95_by_window": {
+      "1829": {
+        "ets": 22.05,
+        "lightgbm": 23.73,
+        "seasonal_naive": 26.0,
+        "tsb": 21.82
+      },
+      "1857": {
+        "ets": 24.06,
+        "lightgbm": 24.89,
+        "seasonal_naive": 29.0,
+        "tsb": 23.55
+      },
+      "1885": {
+        "ets": 24.38,
+        "lightgbm": 24.22,
+        "seasonal_naive": 30.0,
+        "tsb": 23.53
+      },
+      "1913": {
+        "ets": 24.5,
+        "lightgbm": 23.92,
+        "seasonal_naive": 30.0,
+        "tsb": 23.65
+      }
+    },
+    "history_window_days": 365,
+    "quantile_rows": 2805080,
+    "fallback_rows": 0,
+    "deterministic": true,
+    "note": "lightgbm reads M2's period.parquet directly (23 points read as-is, no grid trimming) and is not converted; the three baselines are constructed by M4, so the burden of proof lies with this module. Conventions tested and discarded: per-series daily residual resampling 0.76–0.80, pooled standardised z 0.77, per-series training-period block difference 0.62, z quantile × σ restoration 0.96–0.98 (mean S reaching 2.9 times demand); the final choice adds error quantiles directly, giving realised coverage of 0.918–0.950 at τ=0.95 across 4 windows (four models, per window — see coverage_report.csv)."
+  },
+  "models": {
+    "all": [
+      "seasonal_naive",
+      "ets",
+      "tsb",
+      "lightgbm"
+    ],
+    "point_only": [
+      "seasonal_naive",
+      "ets",
+      "tsb"
+    ],
+    "native_quantile": [
+      "lightgbm"
+    ],
+    "reference_baseline": "seasonal_naive"
+  },
+  "seed": 5001,
+  "bootstrap": {
+    "method": "paired bootstrap over series",
+    "B": 200,
+    "seed": 5001
+  },
+  "data_provenance": {
+    "contract_source": "manifest+series",
+    "truth_source": "parquet",
+    "history_source": "parquet",
+    "strata_source": "parquet",
+    "forecast_source": "real (M2 full 30,490, 4 windows)"
+  },
+  "quality_controls": {
+    "coverage_check": {
+      "headline_tau": 0.95,
+      "headline_max_abs_deviation": 0.03179731059363722,
+      "headline_empirical_by_model": {
+        "ets": 0.941,
+        "lightgbm": 0.923,
+        "seasonal_naive": 0.937,
+        "tsb": 0.943
+      },
+      "calibrated_windows": [
+        1829,
+        1857,
+        1885,
+        1913
+      ],
+      "all_tau_max_abs_deviation": 0.09329834918552526,
+      "all_tau_rows_over_0.05": 39,
+      "all_windows_max_abs_deviation": 0.09329834918552526,
+      "first_window": 1829,
+      "low_tau_empirical_min": 0.42338471630042634,
+      "rows_over_0.05_in_low_tau": 39,
+      "rows_over_0.05_in_first_window": 34,
+      "known_limitation": "The 28-day cumulative quantiles at low τ (0.80–0.88) are too narrow, with realised coverage as low as 0.4234, below nominal; of all 368 rows, 39 deviate by more than 0.05, 39 of them at τ≤0.88 and 34 in the first window 1829. The maximum deviation at headline τ=0.95 is 0.0318 < 0.05, so the main cost conclusions hold; but cost conclusions at τ<0.90 are unusable, and the report reports τ≥0.90 only."
+    },
+    "negative_forecasts_clipped": 0,
+    "tau_monotonicity_violations": 0,
+    "missing_forecast_cells": 0,
+    "quantile_conversion_fallback_groups": 0,
+    "quantile_conversion_note": "number of (series, origin) groups with missing σ; for these groups the baseline quantile degrades to the point forecast",
+    "n_series": 30490,
+    "n_cycles": 4
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "schema_version": "m5-module04-v1",
+  "python": "3.12.16",
+  "pandas": "2.2.3",
+  "numpy": "2.2.6",
+  "pyarrow": "19.0.1",
+  "elapsed_seconds": 1408.64,
+  "forecast_source": "real (M2 full 30,490, 4 windows)",
+  "data_provenance": {
+    "contract_source": "manifest+series",
+    "truth_source": "parquet",
+    "history_source": "parquet",
+    "strata_source": "parquet",
+    "hierarchy_source": "parquet"
+  },
+  "checks": [
+    {
+      "item": "forecast_metrics.csv row count > 0",
+      "passed": true
+    },
+    {
+      "item": "inventory_summary.csv rows = models × τ × cost ratios",
+      "passed": true
+    },
+    {
+      "item": "decision_map.csv row count > 0",
+      "passed": true
+    },
+    {
+      "item": "cost can be recomputed from the parameters (relative error < 1e-9)",
+      "passed": true
+    },
+    {
+      "item": "no violation of τ monotonicity",
+      "passed": true
+    },
+    {
+      "item": "bootstrap uses a fixed seed",
+      "passed": true
+    },
+    {
+      "item": "quantile coverage deviation at headline τ < 0.05",
+      "passed": true
+    },
+    {
+      "item": "simulation_parameters.json parses",
+      "passed": true
+    },
+    {
+      "item": "inventory_summary_by_window.csv rows = models × τ × cost ratios × windows",
+      "passed": true
+    },
+    {
+      "item": "sum of per-window cost = all-window cost (relative error < 1e-9)",
+      "passed": true
+    },
+    {
+      "item": "τ selection table covers models × cost ratios",
+      "passed": true
+    }
+  ],
+  "replay": {
+    "model": "lightgbm",
+    "tau": 0.95,
+    "cost_ratio": "5:1",
+    "recomputed_total_cost": 3309610.2252129014,
+    "stored_total_cost": 3309610.2252129014,
+    "relative_error": 0.0
+  },
+  "artifact_count": 17,
+  "determinism": {
+    "note": "Apart from two timestamp fields, reruns with the same parameters produce byte-identical artifacts (measured: the SHA-256 of most artifacts is identical between the notebook and script paths, with differences coming only from timestamps and execution time)",
+    "timestamp_fields": [
+      "simulation_parameters.json.generated_at",
+      "replay_log.json.checked_at"
+    ]
+  },
+  "pending": [
+    "forecast_source: lightgbm reads M2's period.parquet directly; the 28-day cumulative quantiles of the three baselines are constructed in this module by \"error addition\" (S = point forecast + τ quantile of the 28-day cumulative error from earlier windows), realised coverage at τ=0.95 is 0.922–0.950, and the report must state that \"the baseline cumulative quantiles are constructed by M4\";",
+    "Daily quantiles: lightgbm has only four points (0.5/0.9/0.95/0.99, the only buckets in M2's daily.quantiles), while the three baselines are converted from point forecasts through the period-level scale ratio into daily quantiles with all 23 levels; the four models are therefore comparable only at the four common levels, the other 19 levels have values only for the baselines and no cross-model ranking is possible; the daily and the 28-day cumulative 23-point conventions differ and must not be mixed;",
+    "The decision map, cost and coverage exist only at sku level; accuracy metrics cover sku/store/total. The Module 03 panel's point forecasts are reconciled, but its 28-day cumulative quantiles are unreconciled and store-level quantiles are systematically high (the total level is slightly low instead, q/y 0.96–0.99), so the decision map is not extended to store and state level; those two levels serve only as point-forecast comparisons.",
+    "The simulation convention is fixed (option A chosen in the 11/16 integration): L=0, lost sales, first-period opening zero with later periods opening at the previous carry-over, and no intermediate replenishment within the 28 days; the three-party sign-off is a signature confirmation only and no further values change.",
+    "Cost per unit of demand is normalised by total demand (cost_per_unit_demand); absolute cost varies with sample size, so percentage differences across groups are readable but absolute amounts cannot be extrapolated to the full M5.",
+    "20.4% of prices cells are missing (NaN≠0): this module does not read prices, so it is not blocked, but Module 02 must confirm forward filling or a has_price flag when building price features.",
+    "In the mock branch, build_strata() produces only 4 intermittency classes and lacks no_demand: the real parquet path does not trigger it, but if a teammate falls back to mock without the parquet the decision map will miss one class.",
+    "[Done · grid extension] The theoretical optima q*=0.50 / 0.67 for Cu:Co=1:1 and 2:1 fell outside the task card's τ grid of 0.80–0.99; this round the grid was extended to 23 points (0.50 / 2/3 / 5/6 plus the twenty points 0.80–0.99), with the three new points taken from M2's native period.parquet τ and no new request to Module 02. The measured optimum moves from the grid lower bound 0.80 to 0.50 for 1:1 and to 2/3 for 2:1, both with a deviation of 0.000 from q*; the optima for 5:1 and 9:1 (0.86 / 0.92) were already inside the grid and are unchanged; the main-table cost, WAPE/MASE and bootstrap at headline τ=0.95 are digit-for-digit identical to before the extension. The deviation from the task card's 0.80–0.99 must be stated in one sentence in the report."
+  ]
+}

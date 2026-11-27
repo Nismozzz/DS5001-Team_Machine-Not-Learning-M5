@@ -1,0 +1,72 @@
+{
+  "checked_at": "2026-11-15T19:53:20",
+  "checks": [
+    {
+      "item": "forecast_metrics.csv row count > 0",
+      "passed": true
+    },
+    {
+      "item": "inventory_summary.csv rows = models × τ × cost ratios",
+      "passed": true
+    },
+    {
+      "item": "decision_map.csv row count > 0",
+      "passed": true
+    },
+    {
+      "item": "cost can be recomputed from the parameters (relative error < 1e-9)",
+      "passed": true
+    },
+    {
+      "item": "no violation of τ monotonicity",
+      "passed": true
+    },
+    {
+      "item": "bootstrap uses a fixed seed",
+      "passed": true
+    },
+    {
+      "item": "quantile coverage deviation at headline τ < 0.05",
+      "passed": true
+    },
+    {
+      "item": "simulation_parameters.json parses",
+      "passed": true
+    },
+    {
+      "item": "inventory_summary_by_window.csv rows = models × τ × cost ratios × windows",
+      "passed": true
+    },
+    {
+      "item": "sum of per-window cost = all-window cost (relative error < 1e-9)",
+      "passed": true
+    },
+    {
+      "item": "τ selection table covers models × cost ratios",
+      "passed": true
+    }
+  ],
+  "replay": {
+    "model": "lightgbm",
+    "tau": 0.95,
+    "cost_ratio": "5:1",
+    "recomputed_total_cost": 3309610.2252129014,
+    "stored_total_cost": 3309610.2252129014,
+    "relative_error": 0.0
+  },
+  "artifacts": {
+    "simulation_parameters.json": true,
+    "forecast_metrics.csv": true,
+    "inventory_summary.csv": true,
+    "inventory_summary_by_window.csv": true,
+    "crosscheck_equal_coverage.csv": true,
+    "tau_selection.csv": true,
+    "inventory_by_series.csv": true,
+    "decision_map.csv": true,
+    "bootstrap_summary.csv": true,
+    "coverage_report.csv": true,
+    "figs/fig_cost_curve.png": true,
+    "figs/fig_heterogeneity.png": true,
+    "figs/fig_error_cost.png": true
+  }
+}

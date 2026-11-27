@@ -1,0 +1,79 @@
+{
+  "module": "04 Evaluation, Inventory Simulation and Decision Map",
+  "owner": "Xiang LI (xli3487)",
+  "suppliers": {
+    "Module 01 data": "Xiaofeng ZHU",
+    "Module 02 models": "Jiaheng LI",
+    "Module 03 reconciliation": "Junze LU"
+  },
+  "receiver": "Module 05 Jianfeng Lin",
+  "artifacts": {
+    "simulation_parameters.json": "Simulation conventions and all parameters (R/L/initial inventory/lost sales/τ/Cu/Co/seed)",
+    "forecast_metrics.csv": "WAPE / MASE / pinball (model × level × origin × τ)",
+    "inventory_summary.csv": "Cost-curve data (model × τ × cost_ratio, four windows pooled)",
+    "inventory_summary_by_window.csv": "Same as above, split by window (model × τ × cost_ratio × origin_d)",
+    "crosscheck_equal_coverage.csv": "Cost comparison at equal realised coverage (answers \"is the low cost bought by under-ordering?\")",
+    "tau_selection.csv": "Out-of-sample cost comparison: select τ* on validation, report results on test",
+    "inventory_by_series.csv": "Per-series cost (base table for the bootstrap and the decision map)",
+    "decision_map.csv": "Three-dimension decision map (intermittency / sales scale / life cycle, 14 segments × cost_ratio × τ → best model)",
+    "bootstrap_summary.csv": "95% CI of cost differences (paired bootstrap)",
+    "figs/fig_cost_curve.png": "Cost curve (for the deck)",
+    "figs/fig_heterogeneity.png": "Heterogeneity cost comparison (for the deck)",
+    "figs/fig_error_cost.png": "Error vs cost (tests whether accuracy converts into cost)",
+    "coverage_report.csv": "Nominal vs realised coverage (model × origin × τ)",
+    "input_audit.csv": "Input inventory self-check log",
+    "replay_log.json": "Recomputation check log",
+    "input_signoff.json": "Recomputation sign-off of Module 01 deliverables (95/95 SHA-256 match)"
+  },
+  "sample_and_metric_consistency": {
+    "scope": "final",
+    "scope_label": "full 30,490",
+    "n_series": 30490,
+    "n_cycles": 4,
+    "evaluation_window": "d_1830–d_1941",
+    "tau_grid": [
+      0.5,
+      0.6666666666666666,
+      0.8333333333333334,
+      0.8,
+      0.81,
+      0.82,
+      0.83,
+      0.84,
+      0.85,
+      0.86,
+      0.87,
+      0.88,
+      0.89,
+      0.9,
+      0.91,
+      0.92,
+      0.93,
+      0.94,
+      0.95,
+      0.96,
+      0.97,
+      0.98,
+      0.99
+    ],
+    "cost_ratios": [
+      "1:1",
+      "2:1",
+      "5:1",
+      "9:1"
+    ],
+    "seed": 5001
+  },
+  "open_items": [
+    "[Done] Real Module 02 forecasts ingested (full 30,490 / 4 windows): lightgbm reads period directly, and the cumulative quantiles of the three baselines are constructed in this module from the \"cumulative error quantiles of earlier windows\"; for window 1913 the WAPE/MASE of the four models match the values M2 itself reports digit for digit, and realised coverage is in coverage_report.csv",
+    "[Done · coverage] After the baseline cumulative quantiles switched to the error-additive method (S = point forecast + τ quantile of the cumulative error from earlier windows), realised coverage at τ=0.95 is ets 0.941, lightgbm 0.923, seasonal_naive 0.937, tsb 0.943, with order quantities broadly level with actual demand; the discarded conventions (daily residual resampling 0.76–0.80, pooled z 0.77, per-series block difference 0.62, z×σ restoration 0.96–0.98) are all recorded in simulation_parameters.json for the audit trail",
+    "[Done] Switch to the full 30,490: M2's full L12 four-window daily/period/residuals, 322 MB, was downloaded and ingested, with the calibration windows 1745/1773/1801 reused; for the full 1913 window the four models' WAPE/MASE match M2's full metrics digit for digit",
+    "[Done] The Module 03 panel is in place: point forecasts are self-consistent (top level equals the leaf sum), while the 28-day cumulative quantiles are unreconciled and store-level quantiles are systematically high. Accuracy metrics are therefore reported at sku/store/total level; cost, coverage and the decision map stop at sku level, with the supplement's high-level quantile calibration and order granularity comparison as corroboration at store and total level.",
+    "[Done] Recomputation sign-off of Module 01 deliverables: 95/95 files match by SHA-256, see input_signoff.json (produced by cell S12b of this notebook)",
+    "[Done] Hierarchy node conventions: the Module 03 handoff package has 42,840 nodes / 365,880 membership relations / 30,490 leaves, consistent with this module",
+    "[Closed · does not affect this module] 20.4% of prices cells are missing (NaN≠0): this module uses costs only as ratios and never reads prices; when Module 02 builds price features it decides the fill method itself",
+    "[Done · self-check] The sample is all 30,490 series of the M5 dataset (CA 4 / TX 3 / WI 3 stores, truth files checked store by store)",
+    "[Done · grid extension] The τ grid was extended from 20 points (0.80–0.99) down to 23 points (0.50 / 0.667 / 0.833 taken from M2's native period τ, with no new delivery requirement on M2): the measured optimum for 1:1 moves from the boundary 0.80 to 0.50 and for 2:1 from 0.80 to 0.667, both with a deviation of 0.000 from the theoretical q*=Cu/(Cu+Co); the optima for 5:1 and 9:1 (0.86, 0.92) were already inside the grid and are unchanged. The main-table cost, WAPE/MASE and bootstrap at headline τ=0.95 are digit-for-digit identical to the 20-point version.",
+    "[Done · two convention checks] Equal-coverage cost (crosscheck_equal_coverage.csv) and select τ on validation → report on test (tau_selection.csv): the former corrects the 0.923–0.943 coverage differences between the four models, the latter ensures the selection does not happen in the test period (Module 01 README, line 113)."
+  ]
+}

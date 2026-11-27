@@ -1,0 +1,70 @@
+{
+ "bootstrap_summary.csv": {
+  "bytes": 395,
+  "sha256": "9b9bb4b3995d3496c86a9412b88a940fef9212542038916664b858ffd7474cb1"
+ },
+ "coverage_report.csv": {
+  "bytes": 36273,
+  "sha256": "2ded87c4bef53444a21999fab7275c59dcc14b8e819f94b8dffc2910514bfca0"
+ },
+ "crosscheck_equal_coverage.csv": {
+  "bytes": 3080,
+  "sha256": "37246a643e0eafebe66c0923debea79803b7b0493c421c196a4e5b4df1530ff8"
+ },
+ "decision_map.csv": {
+  "bytes": 194248,
+  "sha256": "986387e169b12024057f848a56dfd2394723a34e1a7bdb38bbd6e994d1448b5c"
+ },
+ "figs/fig_cost_curve.png": {
+  "bytes": 164887,
+  "sha256": "ebd8040a25942f8983b0f74ae6a9a311026e6fcae1517c617d74d3f0bd449a59"
+ },
+ "figs/fig_error_cost.png": {
+  "bytes": 40343,
+  "sha256": "f534b0d57e9c6bd63d1716f45e28a313c49a7c3cbbd91d728fc9fabcc24ed598"
+ },
+ "figs/fig_heterogeneity.png": {
+  "bytes": 39414,
+  "sha256": "289ea0af0bd73c8b07d21b330a3b80ec15528ecc417b72e6684bfe56ec7333bc"
+ },
+ "forecast_metrics.csv": {
+  "bytes": 58640,
+  "sha256": "d0309457ca83d01d2e2575b9f41caebf712a527bd30cd6ac9a8954f7b22cd3b5"
+ },
+ "handoff_summary.json": {
+  "bytes": 5749,
+  "sha256": "1fed71a1698684bf2a7d249020cf94bbd273e71d5865c54f743dbb104e7d55d4"
+ },
+ "input_audit.csv": {
+  "bytes": 6465,
+  "sha256": "8b0127ad2246652913b851e639269eea93a9bebaf7f35a93a6b8bdb52ea9b078"
+ },
+ "input_signoff.json": {
+  "bytes": 278,
+  "sha256": "b0de5b1ce86c5e4a0b9c6b30b4633dd6a46eefe150beebdcf3a57769e59ca81a"
+ },
+ "inventory_by_series.csv": {
+  "bytes": 170234666,
+  "sha256": "434f9d741b9732074554979cdc90e3047e9964983bb2a396bab5aacf6e925dc0"
+ },
+ "inventory_summary.csv": {
+  "bytes": 56933,
+  "sha256": "7c27909df80ea60a9d5940126a737f129ed51caf0df8d0882cc1fcde90f3d8ae"
+ },
+ "inventory_summary_by_window.csv": {
+  "bytes": 203273,
+  "sha256": "121416595ad92274664334966d61fff8bda7f86beeb4df79f0a9e042e7db902d"
+ },
+ "replay_log.json": {
+  "bytes": 1920,
+  "sha256": "be29eaa0e041a30d77857f2da71113cb56a1c4218e9803d64410c47a2a357966"
+ },
+ "simulation_parameters.json": {
+  "bytes": 6920,
+  "sha256": "9890a6c228c0f2cd6e79f7a08ca62230aa3ca0881c4bc3a7ae17d10d1c330a6c"
+ },
+ "tau_selection.csv": {
+  "bytes": 1284,
+  "sha256": "881ee5fe49938c4860b1ff535b1ef709cf16323fead9a4253cf36cbb0fa6fa3f"
+ }
+}
