@@ -165,6 +165,7 @@ def main() -> None:
             "leaves": catalog.n_leaves,
             "memberships": int(catalog.incidence.nnz),
         },
+        "additivity_scope": "daily point forecasts only; the 28-day cumulative quantile block is not additive by nature and is reconciled downstream via reconcile_quantile_block()",
         "checks": [
             "manifest size and SHA-256",
             "108 prediction files per split/scheme",
