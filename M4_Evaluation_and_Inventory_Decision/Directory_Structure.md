@@ -91,7 +91,7 @@ Module4/
 | File | Description |
 | --- | --- |
 | run_report.json | Acceptance results: 11 checks, 17 artifacts, 8 open items |
-| artifact_manifest.json | Hash manifest of the 17 official artifacts |
+| artifact_manifest.json | Hash manifest of the 17 official artifacts (16 stored in Git; the 170 MB per-series cost table is flagged `in_git: false`) |
 | handoff_summary.json | Handoff summary |
 | simulation_parameters.json | Simulation conventions and alternatives |
 | input_signoff.json | Sign-off record of the Module 01 input recomputation, 95/95 |
