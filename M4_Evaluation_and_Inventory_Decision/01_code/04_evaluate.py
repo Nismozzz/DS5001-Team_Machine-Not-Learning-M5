@@ -2246,7 +2246,7 @@ def run_all():
     for _r in _cost.columns:
         _cm = _cost[_r].idxmin()
         _agree = "consistent" if ("sku" in _p.columns and _cm == _p["sku"].idxmin()) else "inconsistent"
-        print(f"  Cu:Co={_r}: lowest cost {_cm} ({_cost.loc[_cm, _r]:.3f})｜{_agree} with the lowest WAPE")
+        print(f"  Cu:Co={_r}: lowest cost {_cm} ({_cost.loc[_cm, _r]:.3f})|{_agree} with the lowest WAPE")
 
     # ---------- thread 3: shape of the cost curve ----------
     print()
