@@ -27,7 +27,7 @@ Optional arguments:
 --keep-existing
 ```
 
-By default the existing `预测结果/` under the target directory is deleted so that an older version is not mixed in. Do not point the output directory at the repository root.
+By default the existing `predictions/` under the target directory is deleted so that an older version is not mixed in. Do not point the output directory at the repository root.
 
 ## Tests
 

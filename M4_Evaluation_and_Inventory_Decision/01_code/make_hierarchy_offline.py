@@ -63,7 +63,7 @@ rows_cal = []
 for split in SPLITS:
     y = truth_win[split]
     for lv, lname in LEVELS.items():
-        q = pd.read_parquet(M3 / "预测结果" / split / "unreconciled" / "period_quantile" / f"L{lv:02d}.parquet",
+        q = pd.read_parquet(M3 / "predictions" / split / "unreconciled" / "period_quantile" / f"L{lv:02d}.parquet",
                             columns=["node_id", "tau", "forecast"])
         q["key"] = q["node_id"].astype(str).map(lambda s: "_".join(json.loads(s.split(":", 1)[1])) if s.split(":", 1)[1] != "[]" else "__TOTAL__")
         # aggregate the truth
@@ -116,7 +116,7 @@ def sku_quantiles(split, model):
 
 def store_quantiles(split, tau_list):
     """store-level 28-day cumulative quantiles (M3 package, unreconciled panel)"""
-    q = pd.read_parquet(M3 / "预测结果" / split / "unreconciled" / "period_quantile" / "L03.parquet",
+    q = pd.read_parquet(M3 / "predictions" / split / "unreconciled" / "period_quantile" / "L03.parquet",
                         columns=["node_id", "tau", "forecast"])
     q = q.copy()
     q["store"] = q["node_id"].astype(str).map(lambda s: json.loads(s.split(":", 1)[1])[0])
@@ -177,8 +177,8 @@ R.to_csv(OUT / "order_granularity_compare.csv", index=False, encoding="utf-8-sig
 print(f"\ntotal elapsed {time.time()-t0:.0f}s → {OUT}")
 
 # ---------- 6. direct evidence that quantiles are not additive ----------
-q1 = pd.read_parquet(M3 / "预测结果" / "test" / "bottom_up" / "period_quantile" / "L01.parquet", columns=["tau", "forecast"])
-q12 = pd.read_parquet(M3 / "预测结果" / "test" / "bottom_up" / "period_quantile" / "L12.parquet", columns=["tau", "forecast"])
+q1 = pd.read_parquet(M3 / "predictions" / "test" / "bottom_up" / "period_quantile" / "L01.parquet", columns=["tau", "forecast"])
+q12 = pd.read_parquet(M3 / "predictions" / "test" / "bottom_up" / "period_quantile" / "L12.parquet", columns=["tau", "forecast"])
 root = q1.groupby("tau")["forecast"].sum()
 leaf = q12.groupby("tau")["forecast"].sum()
 rel = (root - leaf).abs() / leaf
