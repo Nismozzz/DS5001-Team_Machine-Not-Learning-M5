@@ -625,7 +625,7 @@ def run_all():
     # Purpose: convert Jiaheng's daily / period / residuals into the downstream unified schema
     # [INPUT: development layout <m2-root>/dev_validation_{1,2,3}/residuals.parquet
     #                       <m2-root>/dev_test_L12/{daily,period,residuals}.parquet
-    #                        <m2-root>/预测结果/开发集/.../validation_N/L12/{daily,period}.parquet
+    #                        <m2-root>/predictions/development/.../validation_N/L12/{daily,period}.parquet
     #         full layout   <m2-root>/{validation_1,2,3,test}/{daily,period,residuals}.parquet
     #         calibration   <m2-root>/calibration_{1745,1773,1801}/residuals.parquet (shared by both conventions)
     #         m2_path() probes both layouts automatically, --scope decides which one is used]
@@ -649,7 +649,7 @@ def run_all():
         """Locate files by the real directory layout of the M2 package (kind: daily / period / residuals)
 
         Two layouts are supported:
-          A) M2's original package structure (development): dev_test_L12/, dev_validation_N/, 预测结果/开发集/...
+          A) M2's original package structure (development): dev_test_L12/, dev_validation_N/, predictions/development/...
           B) the local unified structure (full): <split>/daily.parquet, <split>/period.parquet, <split>/residuals.parquet
         """
         origin_int = int(origin_d)
@@ -666,9 +666,9 @@ def run_all():
                 cand = [m2_root / f"dev_{name}" / f"{kind}.parquet",
                         m2_root / f"{name}" / f"{kind}.parquet"]
                 if kind != "residuals":
-                    cand.append(m2_root / "预测结果" / "开发集" / "development_validation"
+                    cand.append(m2_root / "predictions" / "development" / "development_validation"
                                 / "predictions" / name / "L12" / f"{kind}.parquet")
-                    cand.append(m2_root / "预测结果" / "全量" / "final_backtest"
+                    cand.append(m2_root / "predictions" / "full" / "final_backtest"
                                 / "predictions" / name / "L12" / f"{kind}.parquet")
         for c in cand:
             if c.exists():
